@@ -68,20 +68,6 @@ public class Utils {
 
     }
     
-    public void atualizar(JComboBox j, ServicoBancoClube sb,JTextField d, JTextField h, JTextField desc, JTextField st, JButton c, JComboBox jc) throws SQLException{
-        if (j.getItemCount() >0) {
-            j.removeAllItems();
-        }
-        
-        ArrayList<Clube> lista = sb.getCompromissoByLista();
-        
-        for(Clube a: lista){
-            j.addItem(a);
-        }
-        
-        this.clearSc(d, h, desc, st, c, j);
-
-    }
     public void atualizarCategoria(JComboBox j, ServicoBancoCategoria sb) throws SQLException{
         if (j.getItemCount() >0) {
             j.removeAllItems();
@@ -90,6 +76,19 @@ public class Utils {
         ArrayList<Categoria> lista = sb.getCompromissoByLista();
         
         for(Categoria c: lista){
+            j.addItem(c);
+        }
+        j.setSelectedIndex(-1);
+    }
+    
+    public void atualizarClube(JComboBox j, ServicoBancoClube sb) throws SQLException{
+        if (j.getItemCount() >0) {
+            j.removeAllItems();
+        }
+        
+        ArrayList<Clube> lista = sb.getCompromissoByLista();
+        
+        for(Clube c: lista){
             j.addItem(c);
         }
         j.setSelectedIndex(-1);

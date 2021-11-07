@@ -29,7 +29,7 @@ public class Cadastro_Campeonato extends javax.swing.JFrame {
     Utils utils = new Utils();
     ServicoBancoCampeonato sb = new ServicoBancoCampeonato();
     ServicoBancoCategoria sbcat = new ServicoBancoCategoria();
-    
+
     public Cadastro_Campeonato() {
         initComponents();
     }
@@ -206,7 +206,7 @@ public class Cadastro_Campeonato extends javax.swing.JFrame {
     private void JBtnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnLimparActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JBtnLimparActionPerformed
-public void clearSc(){
+    public void clearSc() {
         if (ComboCategoria.isDisplayable()) {
             ComboCategoria.setSelectedIndex(-1);
         }
@@ -217,19 +217,18 @@ public void clearSc(){
         TxtNome.requestFocus();
         JBtnLimpar.setEnabled(false);
         if (ComboCategoria.getSelectedIndex() != 0) {
-                JBtnLimpar.setEnabled(true);
-            }
-
+            JBtnLimpar.setEnabled(true);
+        }
 
     }
-    private void cadastrarCategoria(){
+
+    private void cadastrarCategoria() {
         try {
             if (ComboCategoria.getSelectedIndex() >= 0) {
 
                 Categoria categoria = (Categoria) ComboCategoria.getSelectedItem();
                 categoria.setNome(TxtCategoria.getText());
                 sbcat.update(categoria);
-                
 
             } else {
                 Categoria categoria = new Categoria(TxtCategoria.getText());
@@ -237,57 +236,56 @@ public void clearSc(){
             }
             clearSc();
             utils.atualizarCategoria(ComboCategoria, sbcat);
-            
-        }  catch (SQLException ex) {
+
+        } catch (SQLException ex) {
             Logger.getLogger(Cadastro_Campeonato.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     private void JBtnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtnSalvarMouseClicked
-        if (TxtNome.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Informe um nome!");
+        if (TxtNome.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Informe um nome!");
             TxtNome.requestFocus();
             return;
         }
-        if (TxtDataInicio.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Informe a data de inicio do campeonato!");
+        if (TxtDataInicio.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Informe a data de inicio do campeonato!");
             TxtCategoria.requestFocus();
             return;
 
         }
-        if (TxtDataInicio.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Informe a data final do campeonato!");
+        if (TxtDataInicio.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Informe a data final do campeonato!");
             TxtCategoria.requestFocus();
             return;
 
         }
-        if (TxtCategoria.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Informe uma categoria!");
+        if (TxtCategoria.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Informe uma categoria!");
             TxtNome.requestFocus();
             return;
         }
-        
-        
 
         try {
             if (ComboCategoria.getSelectedIndex() >= 0) {
 
                 Categoria categoria = (Categoria) ComboCategoria.getSelectedItem();
                 categoria.setNome(TxtCategoria.getText());
-                sbcat.update(categoria);   
-                
-                campeonato = new Campeonato(TxtNome.getText(),utils.strToDate(TxtDataInicio.getText()),utils.strToDate(TxtDataFim.getText()),categoria.getCodigo());
+                sbcat.update(categoria);
+
+                campeonato = new Campeonato(TxtNome.getText(), utils.strToDate(TxtDataInicio.getText()), utils.strToDate(TxtDataFim.getText()), categoria.getCodigo());
                 sb.insert(campeonato);
-            } else 
-            categoria = new Categoria(TxtCategoria.getText());
+            } else {
+                categoria = new Categoria(TxtCategoria.getText());
+            }
             sbcat.insert(categoria);
-                
-            campeonato = new Campeonato(TxtNome.getText(),utils.strToDate(TxtDataInicio.getText()),utils.strToDate(TxtDataFim.getText()),categoria.getCodigo());
+
+            campeonato = new Campeonato(TxtNome.getText(), utils.strToDate(TxtDataInicio.getText()), utils.strToDate(TxtDataFim.getText()), categoria.getCodigo());
             sb.insert(campeonato);
         } catch (SQLException e) {
         } catch (ParseException ex) {
             Logger.getLogger(Cadastro_Campeonato.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_JBtnSalvarMouseClicked
 
     private void MenuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuSairMouseClicked
@@ -309,11 +307,11 @@ public void clearSc(){
     }//GEN-LAST:event_formWindowActivated
 
     private void ComboCategoriaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboCategoriaItemStateChanged
-      
-        if (ComboCategoria.getItemCount()<=0) {
+
+        if (ComboCategoria.getItemCount() <= 0) {
             return;
         }
-        if (ComboCategoria.getSelectedIndex()<0) {
+        if (ComboCategoria.getSelectedIndex() < 0) {
             return;
         }
         Categoria categoria = (Categoria) ComboCategoria.getSelectedItem();
