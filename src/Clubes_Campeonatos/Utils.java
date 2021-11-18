@@ -93,6 +93,19 @@ public class Utils {
         }
         j.setSelectedIndex(-1);
     }
+    
+    public void atualizarCampeonato(JComboBox j, ServicoBancoCampeonato sbcam) throws SQLException{
+        if (j.getItemCount() >0) {
+            j.removeAllItems();
+        }
+        
+        ArrayList<Campeonato> lista = sbcam.getCompromissoByLista();
+        
+        for(Campeonato c: lista){
+            j.addItem(c);
+        }
+        j.setSelectedIndex(-1);
+    }
 
     
 }

@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 /**
  *
@@ -33,14 +33,14 @@ public class Cadastro_Clube extends javax.swing.JFrame {
     }
     
     private void clearSc() {
-        if (ComboCategoria.isDisplayable()) {
-            ComboCategoria.setSelectedIndex(-1);
+        if (ComboCampeonato.isDisplayable()) {
+            ComboCampeonato.setSelectedIndex(-1);
         }
         TxtNome.setText("");
         TxtCategoria.setText("");
         TxtNome.requestFocus();
         JBtnLimpar.setEnabled(false);
-        if (ComboCategoria.getSelectedIndex() != 0) {
+        if (ComboCampeonato.getSelectedIndex() != 0) {
             JBtnLimpar.setEnabled(true);
         }
 
@@ -65,7 +65,7 @@ public class Cadastro_Clube extends javax.swing.JFrame {
         JBtnLimpar = new javax.swing.JButton();
         JbtnSalvar = new javax.swing.JButton();
         JBtnSair = new javax.swing.JButton();
-        ComboCategoria = new javax.swing.JComboBox<>();
+        ComboCampeonato = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuCadastros = new javax.swing.JMenu();
         MenuConsultas = new javax.swing.JMenu();
@@ -133,9 +133,9 @@ public class Cadastro_Clube extends javax.swing.JFrame {
             }
         });
 
-        ComboCategoria.addItemListener(new java.awt.event.ItemListener() {
+        ComboCampeonato.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                ComboCategoriaItemStateChanged(evt);
+                ComboCampeonatoItemStateChanged(evt);
             }
         });
 
@@ -185,7 +185,7 @@ public class Cadastro_Clube extends javax.swing.JFrame {
                                 .addComponent(LbCat, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ComboCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ComboCampeonato, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(TxtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
@@ -207,7 +207,7 @@ public class Cadastro_Clube extends javax.swing.JFrame {
                     .addComponent(LbCat, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TxtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ComboCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ComboCampeonato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBtnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -258,9 +258,10 @@ public class Cadastro_Clube extends javax.swing.JFrame {
         }
 
         try {
-            if (ComboCategoria.getSelectedIndex() >= 0) {
+            if (ComboCampeonato.getSelectedIndex() >= 0) {
 
-                Categoria categoria = (Categoria) ComboCategoria.getSelectedItem();
+                Categoria categoria = (Categoria) ComboCampeonato.getSelectedItem();
+                assert categoria != null;
                 categoria.setNome(TxtCategoria.getText());
                 sbcat.update(categoria);   
                 
@@ -278,21 +279,22 @@ public class Cadastro_Clube extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JbtnSalvarMouseClicked
 
-    private void ComboCategoriaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboCategoriaItemStateChanged
+    private void ComboCampeonatoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboCampeonatoItemStateChanged
 
-        if (ComboCategoria.getItemCount()<=0) {
+        if (ComboCampeonato.getItemCount()<=0) {
             return;
         }
-        if (ComboCategoria.getSelectedIndex()<0) {
+        if (ComboCampeonato.getSelectedIndex()<0) {
             return;
         }
-        Categoria categoria = (Categoria) ComboCategoria.getSelectedItem();
+        Categoria categoria = (Categoria) ComboCampeonato.getSelectedItem();
+        assert categoria != null;
         TxtCategoria.setText(categoria.getNome());
-    }//GEN-LAST:event_ComboCategoriaItemStateChanged
+    }//GEN-LAST:event_ComboCampeonatoItemStateChanged
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         try {
-            utils.atualizarCategoria(ComboCategoria, sbcat);
+            utils.atualizarCategoria(ComboCampeonato, sbcat);
             clearSc();
 
         } catch (SQLException ex) {
@@ -320,13 +322,7 @@ public class Cadastro_Clube extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Cadastro_Clube.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cadastro_Clube.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Cadastro_Clube.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | IllegalAccessException | UnsupportedLookAndFeelException | InstantiationException ex) {
             java.util.logging.Logger.getLogger(Cadastro_Clube.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -340,7 +336,7 @@ public class Cadastro_Clube extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<Categoria> ComboCategoria;
+    private javax.swing.JComboBox<Categoria> ComboCampeonato;
     private javax.swing.JButton JBtnLimpar;
     private javax.swing.JButton JBtnSair;
     private javax.swing.JButton JbtnSalvar;

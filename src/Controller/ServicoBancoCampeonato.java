@@ -77,7 +77,7 @@ public void update(Campeonato campeonato)throws SQLException{
       ArrayList<Campeonato> lista = new ArrayList<>();
      try (Statement st = conexao.getConexao().createStatement(); 
             ResultSet rs = st.executeQuery
-             ("select * from campeonato order by data")) {
+             ("select * from campeonato order by Nome")) {
          
         while (rs.next()){
           lista.add(new Campeonato(rs.getInt("codigo"),

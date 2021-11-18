@@ -68,6 +68,11 @@ public class Campeonato {
     public void setDataFim(Date dataFim) {
         this.dataFim = dataFim;
     } 
+
+    @Override
+    public String toString() {
+        return nome;
+    }
     
     
     
