@@ -27,11 +27,12 @@ public class Jogo {
 
     
 
-    public Jogo(int codCampeonato, Date dataJogo, Date horaJogo, int clubeCasa, int clubefora, int golVisitante, String localJogo) {
+    public Jogo(int codCampeonato, Date dataJogo, Date horaJogo, int clubeCasa,int golCasa, int clubefora, int golVisitante, String localJogo) {
         this.codCampeonato = codCampeonato;
         this.dataJogo = dataJogo;
         this.horaJogo = horaJogo;
         this.clubeCasa = clubeCasa;
+        this.golCasa= golCasa;
         this.clubefora = clubefora;
         this.golVisitante = golVisitante;
         this.localJogo = localJogo;
