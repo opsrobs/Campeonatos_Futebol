@@ -45,7 +45,11 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="LbHoraJogo" min="-2" pref="144" max="-2" attributes="0"/>
-                                      <Component id="TxtTimeCasa" min="-2" pref="115" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="TxtTimeCasa" min="-2" pref="115" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="TxtNovoClube" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -53,8 +57,10 @@
                                       <Group type="102" attributes="0">
                                           <Component id="TxtGolCasa" min="-2" pref="44" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="TxtTimeFora" min="-2" pref="115" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="TxtTimeFora" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="TxtNovoClube1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                                           <Component id="TxtGolsFora" min="-2" pref="44" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -125,6 +131,8 @@
                   <Component id="TxtGolCasa" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="TxtTimeCasa" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="TxtGolsFora" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="TxtNovoClube" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="TxtNovoClube1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -321,6 +329,16 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBtnLimparActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="TxtNovoClube">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="+"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="TxtNovoClube1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="+"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
