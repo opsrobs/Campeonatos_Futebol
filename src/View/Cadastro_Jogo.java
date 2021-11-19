@@ -7,12 +7,16 @@ package View;
 
 import Clubes_Campeonatos.Campeonato;
 import Clubes_Campeonatos.Clube;
+import Clubes_Campeonatos.Jogo;
 import Clubes_Campeonatos.Utils;
 import Controller.ServicoBancoCampeonato;
 import Controller.ServicoBancoClube;
+import Controller.ServicoBancoJogo;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.*;
 
 /**
  *
@@ -22,8 +26,11 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
     Utils utils = new Utils();
     ServicoBancoCampeonato sbcam = new ServicoBancoCampeonato();
     ServicoBancoClube sbc = new ServicoBancoClube();
+    ServicoBancoJogo sbj = new ServicoBancoJogo();
     Campeonato campeonato = new Campeonato();
     Clube clube = new Clube();
+    Clube clubee;
+    Jogo jogo;
 
     /**
      * Creates new form Cadastro_Jogo
@@ -60,6 +67,8 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         JbtnSalvar = new javax.swing.JButton();
         JBtnSair = new javax.swing.JButton();
         JBtnLimpar = new javax.swing.JButton();
+        TxtNovoClube = new javax.swing.JButton();
+        TxtNovoClube1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -171,6 +180,10 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
             }
         });
 
+        TxtNovoClube.setText("+");
+
+        TxtNovoClube1.setText("+");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -192,15 +205,20 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(LbHoraJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(TxtTimeCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(TxtTimeCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(TxtNovoClube)))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(TxtHoraJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(TxtGolCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(18, 18, 18)
-                                            .addComponent(TxtTimeFora, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
+                                            .addComponent(TxtTimeFora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(TxtNovoClube1)
+                                            .addGap(7, 7, 7)
                                             .addComponent(TxtGolsFora, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(ComboClube, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -251,7 +269,9 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
                     .addComponent(TxtTimeFora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TxtGolCasa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TxtTimeCasa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtGolsFora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TxtGolsFora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TxtNovoClube)
+                    .addComponent(TxtNovoClube1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ComboClube, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -280,6 +300,7 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
             return;
         }
         Campeonato categoria = (Campeonato) ComboCampeonato.getSelectedItem();
+        assert categoria != null;
         TxtCampeonato.setText(categoria.getNome());
     }//GEN-LAST:event_ComboCampeonatoItemStateChanged
 
@@ -320,6 +341,7 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
             return;
         }
         Clube clube = (Clube) ComboClube.getSelectedItem();
+        assert clube != null;
         TxtTimeCasa.setText(clube.getNome());
 
     }//GEN-LAST:event_ComboClubeItemStateChanged
@@ -333,6 +355,7 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
             return;
         }
         Clube clube = (Clube) ComboClube1.getSelectedItem();
+        assert clube != null;
         TxtTimeFora.setText(clube.getNome());
 
     }//GEN-LAST:event_ComboClube1ItemStateChanged
@@ -346,42 +369,75 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
     }//GEN-LAST:event_TxtLocalJogoActionPerformed
 
     private void JbtnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JbtnSalvarMouseClicked
-//        if (TxtNome.getText().isEmpty()){
-//            JOptionPane.showMessageDialog(null,"Informe um nome!");
-//            TxtNome.requestFocus();
-//            return;
-//        }
-//        if (TxtMAscote.getText().isEmpty()){
-//            JOptionPane.showMessageDialog(null,"Informe um nome de mascote!");
-//            TxtCategoria.requestFocus();
-//            return;
-//
-//        }
-//        if (TxtCategoria.getText().isEmpty()){
-//            JOptionPane.showMessageDialog(null,"Informe uma categoria!");
-//            TxtNome.requestFocus();
-//            return;
-//        }
-//
-//        try {
-//            if (ComboCampeonato.getSelectedIndex() >= 0) {
-//
-//                Categoria categoria = (Categoria) ComboCampeonato.getSelectedItem();
-//                categoria.setNome(TxtCategoria.getText());
-//                sbcat.update(categoria);
-//
-//                clube = new Clube(TxtNome.getText(),TxtMAscote.getText(),categoria.getCodigo());
-//                sb.insert(clube);
-//            } else
-//            categoria = new Categoria(TxtCategoria.getText());
-//            sbcat.insert(categoria);
-//
+        if (TxtDiaJogo.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"Informe uma data valida!");
+            TxtDiaJogo.requestFocus();
+            return;
+        }
+        if (TxtHoraJogo.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"Informe um horário valido!");
+            TxtHoraJogo.requestFocus();
+            return;
+
+        }
+        if (TxtTimeCasa.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"Informe ou selecione o time mandante!");
+            TxtTimeCasa.requestFocus();
+            return;
+        }
+        if (TxtGolCasa.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"Informe A quantidade de gols marcados!");
+            TxtGolCasa.requestFocus();
+            return;
+        }
+        if (TxtTimeFora.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"Informe ou selecione o time visitante!");
+            TxtTimeFora.requestFocus();
+            return;
+        }
+        if (TxtGolsFora.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"Informe A quantidade de gols marcados!");
+            TxtGolsFora.requestFocus();
+            return;
+        }
+        if (TxtLocalJogo.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"Informe o Local do Jogo!");
+            TxtLocalJogo.requestFocus();
+            return;
+        }
+        try {
+            if (ComboClube.getSelectedIndex() >= 0 && ComboClube1.getSelectedIndex() >=0) {
+
+                Clube clube = (Clube) ComboClube.getSelectedItem();
+                assert clube != null;
+                clube.setNome(TxtTimeCasa.getText());
+                sbc.update(clube);
+                
+                clubee = (Clube) ComboClube1.getSelectedItem();
+                assert clubee != null;
+                clubee.setNome(TxtTimeFora.getText());
+                sbc.update(clubee);
+            }
+            if(ComboCampeonato.getSelectedIndex() >=0){
+                Campeonato campeonato = (Campeonato)ComboCampeonato.getSelectedItem();
+                assert campeonato != null;
+                campeonato.setNome(TxtCampeonato.getText());
+                sbcam.update(campeonato);
+                jogo = new Jogo(campeonato.getCodigo(), utils.strToDate(TxtDiaJogo.getText()), utils.strToTime(TxtHoraJogo.getText()), clube.getCodigo(),Integer.parseInt(TxtGolCasa.getText()), clubee.getCodigo(),Integer.parseInt(TxtGolsFora.getText()),TxtLocalJogo.getText());
+                sbj.insert(jogo);
+
+            }
+//            jogo = new Jogo(campeonato.getCodigo(), utils.strToDate(TxtDiaJogo.getText()), utils.strToTime(TxtHoraJogo.getText()), clube.getCodigo(),Integer.parseInt(TxtGolCasa.getText()), clubee.getCodigo(),Integer.parseInt(TxtGolsFora.getText()),TxtLocalJogo.getText());
+//            sbj.insert(jogo);
+
 //            clube = new Clube(TxtNome.getText(),TxtMAscote.getText(),categoria.getCodigo());
 //            clube = new Clube(TxtNome.getText(),TxtMAscote.getText(),categoria.getCodigo());
 //            sb.insert(clube);
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ParseException ex) {
+            Logger.getLogger(Cadastro_Jogo.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_JbtnSalvarMouseClicked
 
     private void JBtnSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtnSairMouseClicked
@@ -408,13 +464,7 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Cadastro_Jogo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cadastro_Jogo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Cadastro_Jogo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | UnsupportedLookAndFeelException | IllegalAccessException | InstantiationException ex) {
             java.util.logging.Logger.getLogger(Cadastro_Jogo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -444,6 +494,8 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
     private javax.swing.JTextField TxtGolsFora;
     private javax.swing.JTextField TxtHoraJogo;
     private javax.swing.JTextField TxtLocalJogo;
+    private javax.swing.JButton TxtNovoClube;
+    private javax.swing.JButton TxtNovoClube1;
     private javax.swing.JTextField TxtTimeCasa;
     private javax.swing.JTextField TxtTimeFora;
     private javax.swing.JLabel jLabel1;
