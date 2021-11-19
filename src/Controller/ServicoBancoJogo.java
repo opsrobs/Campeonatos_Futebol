@@ -16,8 +16,8 @@ private final Conexao conexao = new Conexao();
      Connection con = conexao.getConexao();
     //inserir o nome (o indice começa no 1)
     try (PreparedStatement pst = con.prepareStatement
-                ("insert into campeonatos (codigo, Campeonatos_codigo, Data_Jogo, Hora_Jogo, Clube_Casa,Gol_Casa, Clube_Visitante, Gol_Visitante, Local_Jogo) " +
-                 "values (0,?,?,?,?,?,?,?) ")) {
+                ("insert into jogo (codigo, Campeonatos_codigo, Data_Jogo, Hora_Jogo, Clube_Casa,Gol_Casa, Clube_Visitante, Gol_Visitante, Local_Jogo) " +
+                 "values (0,?,?,?,?,?,?,?,?) ")) {
         pst.setInt(1, jogo.getCodCampeonato());
         pst.setDate(2, new java.sql.Date(jogo.getDataJogo().getTime()));
         pst.setTime(3, new java.sql.Time(jogo.getHoraJogo().getTime()));
@@ -44,7 +44,7 @@ private final Conexao conexao = new Conexao();
 
 public void update(Jogo jogo)throws SQLException{
     try (PreparedStatement pst = conexao.getConexao().prepareStatement
-                ("update campeonatos set data = ?, hora = ?, descricao =?, situacao = ? where (codigo = ?)")) {
+                ("update jogo set data = ?, hora = ?, descricao =?, situacao = ? where (codigo = ?)")) {
         pst.setInt(1, jogo.getCodCampeonato());
         pst.setDate(2, new java.sql.Date(jogo.getDataJogo().getTime()));
         pst.setTime(3, new java.sql.Time(jogo.getHoraJogo().getTime()));
@@ -60,7 +60,7 @@ public void update(Jogo jogo)throws SQLException{
  }
 
  public void delete(Jogo jogo)throws SQLException{
-    try (PreparedStatement pst = conexao.getConexao().prepareStatement("delete from campeonatos where (codigo = ?)")) {
+    try (PreparedStatement pst = conexao.getConexao().prepareStatement("delete from jogo where (codigo = ?)")) {
         pst.setInt(1, jogo.getCodigo());
         pst.executeUpdate();
     }
@@ -70,7 +70,7 @@ public void update(Jogo jogo)throws SQLException{
  public Jogo getUsuarioByCodigo(int codigo)throws SQLException{
      try (Statement st = conexao.getConexao().createStatement(); 
             ResultSet rs = st.executeQuery
-             ("select * from campeonatos where (codigo = " + codigo + ")")) {
+             ("select * from jogo where (codigo = " + codigo + ")")) {
          
         rs.first();
         return new Jogo(rs.getInt("codigo"),
@@ -89,7 +89,7 @@ public void update(Jogo jogo)throws SQLException{
       ArrayList<Jogo> lista = new ArrayList<>();
      try (Statement st = conexao.getConexao().createStatement(); 
             ResultSet rs = st.executeQuery
-             ("select * from campeonatos order by Hora_Jogo")) {
+             ("select * from jogo order by Hora_Jogo")) {
          
         while (rs.next()){
           lista.add(new Jogo(rs.getInt("codigo"),
