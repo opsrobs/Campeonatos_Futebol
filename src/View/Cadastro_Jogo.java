@@ -7,10 +7,12 @@ package View;
 
 import Clubes_Campeonatos.Campeonato;
 import Clubes_Campeonatos.Clube;
+import Clubes_Campeonatos.Jogador;
 import Clubes_Campeonatos.Jogo;
 import Clubes_Campeonatos.Utils;
 import Controller.ServicoBancoCampeonato;
 import Controller.ServicoBancoClube;
+import Controller.ServicoBancoJogador;
 import Controller.ServicoBancoJogo;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -27,6 +29,7 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
     ServicoBancoCampeonato sbcam = new ServicoBancoCampeonato();
     ServicoBancoClube sbc = new ServicoBancoClube();
     ServicoBancoJogo sbj = new ServicoBancoJogo();
+    ServicoBancoJogador sbjogador =  new ServicoBancoJogador();
     Campeonato campeonato = new Campeonato();
     Clube clube = new Clube();
     Clube clubee;
@@ -48,18 +51,18 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
         jLabel1 = new javax.swing.JLabel();
         LbCat = new javax.swing.JLabel();
         ComboCampeonato = new javax.swing.JComboBox<>();
-        TxtCampeonato = new javax.swing.JTextField();
         LbDiaJogo = new javax.swing.JLabel();
-        TxtDiaJogo = new javax.swing.JTextField();
         LbHoraJogo = new javax.swing.JLabel();
-        TxtHoraJogo = new javax.swing.JTextField();
-        TxtTimeFora = new javax.swing.JTextField();
         TxtGolCasa = new javax.swing.JTextField();
-        TxtTimeCasa = new javax.swing.JTextField();
-        TxtGolsFora = new javax.swing.JTextField();
         ComboClube = new javax.swing.JComboBox<>();
         ComboClube1 = new javax.swing.JComboBox<>();
         LbLocalJogo = new javax.swing.JLabel();
@@ -69,6 +72,75 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         JBtnLimpar = new javax.swing.JButton();
         TxtNovoClube = new javax.swing.JButton();
         TxtNovoClube1 = new javax.swing.JButton();
+        LbMandante = new javax.swing.JLabel();
+        LbVisitante = new javax.swing.JLabel();
+        TxtJogador = new javax.swing.JTextField();
+        LbJogadores = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        TxtJogador1 = new javax.swing.JTextField();
+        TxtJogador2 = new javax.swing.JTextField();
+        TxtJogador3 = new javax.swing.JTextField();
+        TxtJogador4 = new javax.swing.JTextField();
+        TxtGolCasa1 = new javax.swing.JTextField();
+        TxtGolCasa2 = new javax.swing.JTextField();
+        TxtGolCasa3 = new javax.swing.JTextField();
+        TxtGolCasa4 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        TxtGolCasa5 = new javax.swing.JTextField();
+        TxtGolCasa6 = new javax.swing.JTextField();
+        TxtGolCasa7 = new javax.swing.JTextField();
+        TxtGolCasa8 = new javax.swing.JTextField();
+        TxtGolCasa9 = new javax.swing.JTextField();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jCheckBox3 = new javax.swing.JCheckBox();
+        jCheckBox4 = new javax.swing.JCheckBox();
+        jCheckBox5 = new javax.swing.JCheckBox();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jCheckBox6 = new javax.swing.JCheckBox();
+        TxtJogador5 = new javax.swing.JTextField();
+        jCheckBox7 = new javax.swing.JCheckBox();
+        TxtJogador6 = new javax.swing.JTextField();
+        jCheckBox8 = new javax.swing.JCheckBox();
+        TxtJogador7 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        TxtJogador8 = new javax.swing.JTextField();
+        TxtGolFora1 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        TxtGolFora2 = new javax.swing.JTextField();
+        TxtGolFora3 = new javax.swing.JTextField();
+        TxtGolFora4 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        TxtGolCasa14 = new javax.swing.JTextField();
+        TxtGolCasa15 = new javax.swing.JTextField();
+        TxtGolCasa16 = new javax.swing.JTextField();
+        TxtGolCasa17 = new javax.swing.JTextField();
+        TxtGolCasa18 = new javax.swing.JTextField();
+        jCheckBox9 = new javax.swing.JCheckBox();
+        TxtGolFora = new javax.swing.JTextField();
+        TxtJogador9 = new javax.swing.JTextField();
+        LbJogadores1 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jCheckBox10 = new javax.swing.JCheckBox();
+        TxtHoraJogo = new javax.swing.JFormattedTextField();
+        TxtDiaJogo = new javax.swing.JFormattedTextField();
+        jLabel8 = new javax.swing.JLabel();
+        PalcarFinalMascara = new javax.swing.JFormattedTextField();
+        JComboJogadorCasa = new javax.swing.JComboBox<>();
+        JComboJogadorFora = new javax.swing.JComboBox<>();
+
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
+
+        jCheckBoxMenuItem2.setSelected(true);
+        jCheckBoxMenuItem2.setText("jCheckBoxMenuItem2");
+
+        jMenuItem1.setText("jMenuItem1");
+
+        jMenu1.setText("jMenu1");
+
+        jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -93,45 +165,14 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
             }
         });
 
-        TxtCampeonato.setMaximumSize(new java.awt.Dimension(35, 16));
-        TxtCampeonato.setMinimumSize(new java.awt.Dimension(35, 16));
-        TxtCampeonato.setName(""); // NOI18N
-        TxtCampeonato.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtCampeonatoActionPerformed(evt);
-            }
-        });
-
         LbDiaJogo.setText("DIA DO JOGO");
-
-        TxtDiaJogo.setMaximumSize(new java.awt.Dimension(35, 16));
-        TxtDiaJogo.setMinimumSize(new java.awt.Dimension(35, 16));
-        TxtDiaJogo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtDiaJogoActionPerformed(evt);
-            }
-        });
 
         LbHoraJogo.setText("HORA DO JOGO");
 
-        TxtHoraJogo.setMaximumSize(new java.awt.Dimension(35, 16));
-        TxtHoraJogo.setMinimumSize(new java.awt.Dimension(35, 16));
-        TxtHoraJogo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtHoraJogoActionPerformed(evt);
-            }
-        });
-
-        TxtTimeFora.setText("TIME VISITANTE");
-
-        TxtGolCasa.setText("GOLS");
-
-        TxtTimeCasa.setText("TIME DA CASA");
-
-        TxtGolsFora.setText("GOLS");
-        TxtGolsFora.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtGolsForaActionPerformed(evt);
+        TxtGolCasa.setColumns(1);
+        TxtGolCasa.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                TxtGolCasaFocusLost(evt);
             }
         });
 
@@ -141,11 +182,31 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
                 ComboClubeItemStateChanged(evt);
             }
         });
+        ComboClube.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ComboClubeFocusLost(evt);
+            }
+        });
+        ComboClube.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ComboClubeMouseClicked(evt);
+            }
+        });
+        ComboClube.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboClubeActionPerformed(evt);
+            }
+        });
 
         ComboClube1.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         ComboClube1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 ComboClube1ItemStateChanged(evt);
+            }
+        });
+        ComboClube1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ComboClube1FocusLost(evt);
             }
         });
 
@@ -184,108 +245,430 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
 
         TxtNovoClube1.setText("+");
 
+        LbMandante.setText("TIME MANDANTE");
+
+        LbVisitante.setText("TIME VISITANTE");
+
+        LbJogadores.setText("JOGADORES!");
+
+        jTextField2.setText("jTextField1");
+
+        TxtGolCasa1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                TxtGolCasa1FocusLost(evt);
+            }
+        });
+
+        TxtGolCasa2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                TxtGolCasa2FocusLost(evt);
+            }
+        });
+
+        TxtGolCasa3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                TxtGolCasa3FocusLost(evt);
+            }
+        });
+
+        TxtGolCasa4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                TxtGolCasa4FocusLost(evt);
+            }
+        });
+
+        jLabel2.setText("GOLS");
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icon_Amarelo.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jLabel3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icon_Vermelho (2).png"))); // NOI18N
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icon_Amarelo.png"))); // NOI18N
+        jLabel5.setText("jLabel3");
+        jLabel5.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icon_Vermelho (2).png"))); // NOI18N
+
+        jLabel7.setText("GOLS");
+
+        LbJogadores1.setText("JOGADORES!");
+
+        jTextField3.setText("jTextField1");
+
+        try {
+            TxtHoraJogo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##:##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        TxtHoraJogo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtHoraJogoActionPerformed(evt);
+            }
+        });
+
+        try {
+            TxtDiaJogo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        TxtDiaJogo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtDiaJogoActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel8.setText("PLACAR FINAL");
+
+        PalcarFinalMascara.setEditable(false);
+        try {
+            PalcarFinalMascara.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("## X ##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        PalcarFinalMascara.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        PalcarFinalMascara.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+                PalcarFinalMascaraAncestorMoved(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        PalcarFinalMascara.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PalcarFinalMascaraActionPerformed(evt);
+            }
+        });
+
+        JComboJogadorCasa.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                JComboJogadorCasaItemStateChanged(evt);
+            }
+        });
+        JComboJogadorCasa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JComboJogadorCasaMouseClicked(evt);
+            }
+        });
+
+        JComboJogadorFora.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                JComboJogadorForaItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(171, 171, 171)
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(330, 330, 330)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(TxtNovoClube)
+                                .addGap(8, 8, 8)
+                                .addComponent(ComboClube, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(LbJogadores)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel2))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(TxtJogador2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(TxtGolCasa1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(TxtJogador1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(TxtGolCasa2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(TxtJogador3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(TxtGolCasa3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(TxtJogador4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(TxtGolCasa4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(TxtJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(TxtGolCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(TxtGolCasa5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TxtGolCasa6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TxtGolCasa7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TxtGolCasa8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TxtGolCasa9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)))
+                            .addComponent(JComboJogadorCasa, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCheckBox1)
+                            .addComponent(jCheckBox2)
+                            .addComponent(jCheckBox3)
+                            .addComponent(jCheckBox4)
+                            .addComponent(jCheckBox5)
+                            .addComponent(jLabel4))
+                        .addGap(156, 156, 156)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(JComboJogadorFora, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(LbJogadores1)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel7))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(TxtJogador6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(TxtGolFora1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(TxtJogador5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(TxtGolFora2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(TxtJogador7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(TxtGolFora3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(TxtJogador8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(TxtGolFora4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(TxtJogador9, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(TxtGolFora, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(TxtGolCasa14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(TxtGolCasa15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(TxtGolCasa16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(TxtGolCasa17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(TxtGolCasa18, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(TxtNovoClube1)
+                                    .addGap(8, 8, 8)
+                                    .addComponent(ComboClube1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCheckBox9)
+                            .addComponent(jCheckBox10)
+                            .addComponent(jCheckBox6)
+                            .addComponent(jCheckBox7)
+                            .addComponent(jCheckBox8)
+                            .addComponent(jLabel6)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(LbDiaJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(TxtDiaJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(LbHoraJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(TxtTimeCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(TxtNovoClube)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(TxtHoraJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(TxtGolCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(TxtTimeFora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(TxtNovoClube1)
-                                            .addGap(7, 7, 7)
-                                            .addComponent(TxtGolsFora, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(ComboClube, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(ComboClube1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(LbLocalJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JbtnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(LbHoraJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(LbDiaJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(276, 276, 276)
+                                .addComponent(TxtDiaJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(LbMandante, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(301, 301, 301)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TxtLocalJogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(JBtnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(JBtnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(LbCat, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ComboCampeonato, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(TxtCampeonato, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(73, 73, 73))
+                                    .addComponent(LbVisitante, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TxtHoraJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(80, 80, 80)
+                                .addComponent(LbCat, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ComboCampeonato, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(140, 140, 140)
+                                .addComponent(JbtnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(62, 62, 62)
+                                .addComponent(JBtnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(76, 76, 76)
+                        .addComponent(JBtnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(LbLocalJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50)
+                                .addComponent(TxtLocalJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(224, 224, 224)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(PalcarFinalMascara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LbCat, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtCampeonato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ComboCampeonato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(ComboCampeonato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LbDiaJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TxtDiaJogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LbHoraJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TxtHoraJogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxtTimeFora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtGolCasa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtTimeCasa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtGolsFora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LbMandante)
+                    .addComponent(LbVisitante))
+                .addGap(4, 4, 4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TxtNovoClube)
-                    .addComponent(TxtNovoClube1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ComboClube, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TxtNovoClube1)
                     .addComponent(ComboClube1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(LbJogadores)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addGap(4, 4, 4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(TxtJogador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(TxtGolCasa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(TxtJogador2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TxtGolCasa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(TxtJogador1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TxtGolCasa2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(TxtJogador3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TxtGolCasa3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(TxtJogador4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TxtGolCasa4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(TxtGolCasa9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jCheckBox1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(TxtGolCasa5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jCheckBox2))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(TxtGolCasa6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jCheckBox3, javax.swing.GroupLayout.Alignment.TRAILING))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(TxtGolCasa7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jCheckBox4, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(TxtGolCasa8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jCheckBox5)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(LbJogadores1)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
+                        .addGap(4, 4, 4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(TxtJogador9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(TxtGolFora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(TxtJogador6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TxtGolFora1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(TxtJogador5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TxtGolFora2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(TxtJogador7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TxtGolFora3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(TxtJogador8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TxtGolFora4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(TxtGolCasa18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jCheckBox9))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(TxtGolCasa14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jCheckBox10))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(TxtGolCasa15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jCheckBox6, javax.swing.GroupLayout.Alignment.TRAILING))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(TxtGolCasa16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jCheckBox7, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(TxtGolCasa17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jCheckBox8))))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LbLocalJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtLocalJogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JBtnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JbtnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JBtnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(JComboJogadorCasa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PalcarFinalMascara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(LbLocalJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtLocalJogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(53, 53, 53)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JbtnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JBtnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JBtnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(JComboJogadorFora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
@@ -301,36 +684,25 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         }
         Campeonato categoria = (Campeonato) ComboCampeonato.getSelectedItem();
         assert categoria != null;
-        TxtCampeonato.setText(categoria.getNome());
     }//GEN-LAST:event_ComboCampeonatoItemStateChanged
 
     private void ComboCampeonatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboCampeonatoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboCampeonatoActionPerformed
 
-    private void TxtCampeonatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCampeonatoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtCampeonatoActionPerformed
-
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         try {
             utils.atualizarCampeonato(ComboCampeonato, sbcam);
             utils.atualizarClube(ComboClube, sbc);
             utils.atualizarClube(ComboClube1, sbc);
+            utils.atualizarJogador(JComboJogadorCasa, sbjogador);
+//            calcularPlacarFinal();
 //            clearSc();
 
         } catch (SQLException ex) {
             Logger.getLogger(Cadastro_Campeonato.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_formWindowActivated
-
-    private void TxtDiaJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtDiaJogoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtDiaJogoActionPerformed
-
-    private void TxtHoraJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtHoraJogoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtHoraJogoActionPerformed
 
     private void ComboClubeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboClubeItemStateChanged
 
@@ -342,7 +714,6 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         }
         Clube clube = (Clube) ComboClube.getSelectedItem();
         assert clube != null;
-        TxtTimeCasa.setText(clube.getNome());
 
     }//GEN-LAST:event_ComboClubeItemStateChanged
 
@@ -356,22 +727,33 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         }
         Clube clube = (Clube) ComboClube1.getSelectedItem();
         assert clube != null;
-        TxtTimeFora.setText(clube.getNome());
-
     }//GEN-LAST:event_ComboClube1ItemStateChanged
 
-    private void TxtGolsForaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtGolsForaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtGolsForaActionPerformed
-
+    
     private void TxtLocalJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtLocalJogoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtLocalJogoActionPerformed
-
+    
+    private void calcularPlacarFinal(){
+        int val =0;
+        int val1 =0;
+        int val2 =0;
+        int val3 =0;
+        int val4 =0;
+        int placar = 0;
+        if (!TxtGolCasa.getText().isBlank()) {
+            placar = val + Integer.parseInt(TxtGolCasa.getText());
+        }
+        if (TxtGolCasa1.getText().isBlank()) {
+            
+        }
+        PalcarFinalMascara.setText(String.valueOf(placar));
+        JOptionPane.showMessageDialog(null,"xxxx");
+    }
     private void JbtnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JbtnSalvarMouseClicked
-        if (TxtDiaJogo.getText().isEmpty()){
+        if (TxtHoraJogo.getText().isEmpty()){
             JOptionPane.showMessageDialog(null,"Informe uma data valida!");
-            TxtDiaJogo.requestFocus();
+            TxtHoraJogo.requestFocus();
             return;
         }
         if (TxtHoraJogo.getText().isEmpty()){
@@ -380,50 +762,38 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
             return;
 
         }
-        if (TxtTimeCasa.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Informe ou selecione o time mandante!");
-            TxtTimeCasa.requestFocus();
-            return;
-        }
         if (TxtGolCasa.getText().isEmpty()){
             JOptionPane.showMessageDialog(null,"Informe A quantidade de gols marcados!");
             TxtGolCasa.requestFocus();
             return;
         }
-        if (TxtTimeFora.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Informe ou selecione o time visitante!");
-            TxtTimeFora.requestFocus();
-            return;
-        }
-        if (TxtGolsFora.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Informe A quantidade de gols marcados!");
-            TxtGolsFora.requestFocus();
-            return;
-        }
+        
         if (TxtLocalJogo.getText().isEmpty()){
             JOptionPane.showMessageDialog(null,"Informe o Local do Jogo!");
             TxtLocalJogo.requestFocus();
             return;
         }
         try {
+            int clubeTemp=4;
             if (ComboClube.getSelectedIndex() >= 0 && ComboClube1.getSelectedIndex() >=0) {
 
                 Clube clube = (Clube) ComboClube.getSelectedItem();
                 assert clube != null;
-                clube.setNome(TxtTimeCasa.getText());
+                clube.setNome(ComboClube.getSelectedItem().toString());
                 sbc.update(clube);
+                clubeTemp = clube.getCodigo();
                 
                 clubee = (Clube) ComboClube1.getSelectedItem();
                 assert clubee != null;
-                clubee.setNome(TxtTimeFora.getText());
+                clubee.setNome(ComboClube1.getSelectedItem().toString());
                 sbc.update(clubee);
             }
             if(ComboCampeonato.getSelectedIndex() >=0){
                 Campeonato campeonato = (Campeonato)ComboCampeonato.getSelectedItem();
                 assert campeonato != null;
-                campeonato.setNome(TxtCampeonato.getText());
+                campeonato.setNome(ComboCampeonato.getSelectedItem().toString());
                 sbcam.update(campeonato);
-                jogo = new Jogo(campeonato.getCodigo(), utils.strToDate(TxtDiaJogo.getText()), utils.strToTime(TxtHoraJogo.getText()), clube.getCodigo(),Integer.parseInt(TxtGolCasa.getText()), clubee.getCodigo(),Integer.parseInt(TxtGolsFora.getText()),TxtLocalJogo.getText());
+                jogo = new Jogo(campeonato.getCodigo(), utils.strToDate(TxtHoraJogo.getText()), utils.strToTime(TxtHoraJogo.getText()), clubeTemp,Integer.parseInt(TxtGolCasa.getText()), clubee.getCodigo(),Integer.parseInt(TxtGolFora.getText()),TxtLocalJogo.getText());
                 sbj.insert(jogo);
 
             }
@@ -448,6 +818,105 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JBtnLimparActionPerformed
 
+    private void TxtHoraJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtHoraJogoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtHoraJogoActionPerformed
+
+    private void TxtDiaJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtDiaJogoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtDiaJogoActionPerformed
+
+    private void PalcarFinalMascaraAncestorMoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_PalcarFinalMascaraAncestorMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PalcarFinalMascaraAncestorMoved
+
+    private void PalcarFinalMascaraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PalcarFinalMascaraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PalcarFinalMascaraActionPerformed
+
+    private void TxtGolCasaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TxtGolCasaFocusLost
+        calcularPlacarFinal();
+    }//GEN-LAST:event_TxtGolCasaFocusLost
+
+    private void TxtGolCasa1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TxtGolCasa1FocusLost
+        calcularPlacarFinal();
+    }//GEN-LAST:event_TxtGolCasa1FocusLost
+
+    private void TxtGolCasa2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TxtGolCasa2FocusLost
+        calcularPlacarFinal();
+    }//GEN-LAST:event_TxtGolCasa2FocusLost
+
+    private void TxtGolCasa3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TxtGolCasa3FocusLost
+        calcularPlacarFinal();
+    }//GEN-LAST:event_TxtGolCasa3FocusLost
+
+    private void TxtGolCasa4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TxtGolCasa4FocusLost
+        calcularPlacarFinal();
+    }//GEN-LAST:event_TxtGolCasa4FocusLost
+
+    private void ComboClubeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboClubeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboClubeActionPerformed
+
+    private void JComboJogadorCasaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JComboJogadorCasaItemStateChanged
+
+        if (JComboJogadorCasa.getItemCount()<=0) {
+            return;
+        }
+        if (JComboJogadorCasa.getSelectedIndex()<0) {
+            return;
+        }
+        Jogador jogador = (Jogador) JComboJogadorCasa.getSelectedItem();
+        assert clube != null;
+    }//GEN-LAST:event_JComboJogadorCasaItemStateChanged
+
+    private void ComboClubeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ComboClubeMouseClicked
+                
+    }//GEN-LAST:event_ComboClubeMouseClicked
+
+    private void JComboJogadorCasaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JComboJogadorCasaMouseClicked
+        
+        if (JComboJogadorCasa.getItemCount()<=0) {
+            return;
+        }
+        if (JComboJogadorCasa.getSelectedIndex()<0) {
+            return;
+        }
+        Jogador jogador = (Jogador) JComboJogadorCasa.getSelectedItem();
+        assert clube != null;
+    }//GEN-LAST:event_JComboJogadorCasaMouseClicked
+
+    private void ComboClubeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ComboClubeFocusLost
+                try {
+//                JOptionPane.showMessageDialog(rootPane,clube.getCodigo() );
+                
+                utils.atualizarJogadoor(JComboJogadorCasa, sbjogador,clube.getCodigo());
+            } catch (SQLException ex) {
+            Logger.getLogger(Cadastro_Jogo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ComboClubeFocusLost
+
+    private void JComboJogadorForaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JComboJogadorForaItemStateChanged
+                
+        if (JComboJogadorFora.getItemCount()<=0) {
+            return;
+        }
+        if (JComboJogadorFora.getSelectedIndex()<0) {
+            return;
+        }
+        Jogador jogador = (Jogador) JComboJogadorFora.getSelectedItem();
+        assert clube != null;
+    }//GEN-LAST:event_JComboJogadorForaItemStateChanged
+
+    private void ComboClube1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ComboClube1FocusLost
+          try {
+//                JOptionPane.showMessageDialog(rootPane,clube.getCodigo() );
+                
+                utils.atualizarJogadoor(JComboJogadorFora, sbjogador,clube.getCodigo());
+            } catch (SQLException ex) {
+            Logger.getLogger(Cadastro_Jogo.class.getName()).log(Level.SEVERE, null, ex);
+    }//GEN-LAST:event_ComboClube1FocusLost
+    }
     /**
      * @param args the command line arguments
      */
@@ -483,21 +952,78 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
     private javax.swing.JComboBox<Clube> ComboClube1;
     private javax.swing.JButton JBtnLimpar;
     private javax.swing.JButton JBtnSair;
+    private javax.swing.JComboBox<Jogador> JComboJogadorCasa;
+    private javax.swing.JComboBox<Jogador> JComboJogadorFora;
     private javax.swing.JButton JbtnSalvar;
     private javax.swing.JLabel LbCat;
     private javax.swing.JLabel LbDiaJogo;
     private javax.swing.JLabel LbHoraJogo;
+    private javax.swing.JLabel LbJogadores;
+    private javax.swing.JLabel LbJogadores1;
     private javax.swing.JLabel LbLocalJogo;
-    private javax.swing.JTextField TxtCampeonato;
-    private javax.swing.JTextField TxtDiaJogo;
+    private javax.swing.JLabel LbMandante;
+    private javax.swing.JLabel LbVisitante;
+    private javax.swing.JFormattedTextField PalcarFinalMascara;
+    private javax.swing.JFormattedTextField TxtDiaJogo;
     private javax.swing.JTextField TxtGolCasa;
-    private javax.swing.JTextField TxtGolsFora;
-    private javax.swing.JTextField TxtHoraJogo;
+    private javax.swing.JTextField TxtGolCasa1;
+    private javax.swing.JTextField TxtGolCasa14;
+    private javax.swing.JTextField TxtGolCasa15;
+    private javax.swing.JTextField TxtGolCasa16;
+    private javax.swing.JTextField TxtGolCasa17;
+    private javax.swing.JTextField TxtGolCasa18;
+    private javax.swing.JTextField TxtGolCasa2;
+    private javax.swing.JTextField TxtGolCasa3;
+    private javax.swing.JTextField TxtGolCasa4;
+    private javax.swing.JTextField TxtGolCasa5;
+    private javax.swing.JTextField TxtGolCasa6;
+    private javax.swing.JTextField TxtGolCasa7;
+    private javax.swing.JTextField TxtGolCasa8;
+    private javax.swing.JTextField TxtGolCasa9;
+    private javax.swing.JTextField TxtGolFora;
+    private javax.swing.JTextField TxtGolFora1;
+    private javax.swing.JTextField TxtGolFora2;
+    private javax.swing.JTextField TxtGolFora3;
+    private javax.swing.JTextField TxtGolFora4;
+    private javax.swing.JFormattedTextField TxtHoraJogo;
+    private javax.swing.JTextField TxtJogador;
+    private javax.swing.JTextField TxtJogador1;
+    private javax.swing.JTextField TxtJogador2;
+    private javax.swing.JTextField TxtJogador3;
+    private javax.swing.JTextField TxtJogador4;
+    private javax.swing.JTextField TxtJogador5;
+    private javax.swing.JTextField TxtJogador6;
+    private javax.swing.JTextField TxtJogador7;
+    private javax.swing.JTextField TxtJogador8;
+    private javax.swing.JTextField TxtJogador9;
     private javax.swing.JTextField TxtLocalJogo;
     private javax.swing.JButton TxtNovoClube;
     private javax.swing.JButton TxtNovoClube1;
-    private javax.swing.JTextField TxtTimeCasa;
-    private javax.swing.JTextField TxtTimeFora;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox10;
+    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBox3;
+    private javax.swing.JCheckBox jCheckBox4;
+    private javax.swing.JCheckBox jCheckBox5;
+    private javax.swing.JCheckBox jCheckBox6;
+    private javax.swing.JCheckBox jCheckBox7;
+    private javax.swing.JCheckBox jCheckBox8;
+    private javax.swing.JCheckBox jCheckBox9;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }
