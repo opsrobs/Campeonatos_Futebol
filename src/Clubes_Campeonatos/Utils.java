@@ -8,11 +8,14 @@ package Clubes_Campeonatos;
 import Controller.ServicoBancoClube;
 import Controller.ServicoBancoCategoria;
 import Controller.ServicoBancoCampeonato;
+import Controller.ServicoBancoJogador;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
@@ -105,6 +108,40 @@ public class Utils {
             j.addItem(c);
         }
         j.setSelectedIndex(-1);
+    }
+    public void atualizarJogadoor(JComboBox j, ServicoBancoJogador sb, int cod) throws SQLException{
+        if (j.getItemCount() >0) {
+            j.removeAllItems();
+        }
+        
+        ArrayList<Jogador> lista = sb.getJogadorByCodigo(cod);
+        
+        for(Jogador jogador: lista){
+            j.addItem(jogador);
+        }
+        j.setSelectedIndex(-1);
+    }
+    public void atualizarJogador(JComboBox j, ServicoBancoJogador sb) throws SQLException{
+        if (j.getItemCount() >0) {
+            j.removeAllItems();
+        }
+        
+        ArrayList<Jogador> lista = sb.getCompromissoByLista();
+        
+        for(Jogador jogador: lista){
+            j.addItem(jogador);
+        }
+        j.setSelectedIndex(-1);
+    }
+    public void getCodigoClube(JComboBox j, ServicoBancoClube sbc, String nome){
+        if (j.getItemCount() >0) {
+            j.removeAllItems();
+        }
+        try {
+            sbc.getClubeByNome(nome);
+        } catch (SQLException ex) {
+            Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     
