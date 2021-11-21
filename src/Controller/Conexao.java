@@ -12,7 +12,7 @@ public class Conexao {
     //driver, DRIVER = banco de dados, URL referente ao caminho
     public Connection getConexao(){
         final String DRIVER = "com.mysql.jdbc.Driver";
-        final String URL = "jdbc:mysql://localhost:3306/campeonatos";
+        final String URL = "jdbc:mysql://localhost:3306/campeonatos_1";
         // tenta a conexao, root e root como usuário e senha
         try{
             Class.forName(DRIVER);
