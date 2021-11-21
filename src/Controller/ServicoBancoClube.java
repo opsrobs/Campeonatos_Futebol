@@ -56,10 +56,10 @@ public void update(Clube clube)throws SQLException{
      conexao.close();  
  }
 
- public Clube getUsuarioByCodigo(int codigo)throws SQLException{
+ public Clube getClubeByNome(String time)throws SQLException{
      try (Statement st = conexao.getConexao().createStatement(); 
             ResultSet rs = st.executeQuery
-             ("select * from clube where (codigo = " + codigo + ")")) {
+             ("select * from clube where (Nome = " + time + ")")) {
          
         rs.first();
         return new Clube(rs.getInt("codigo"),
