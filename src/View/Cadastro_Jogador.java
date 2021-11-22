@@ -52,9 +52,9 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDatePickerUtil1 = new org.jdatepicker.util.JDatePickerUtil();
-        jDatePickerUtil2 = new org.jdatepicker.util.JDatePickerUtil();
-        dateComponentFormatter1 = new org.jdatepicker.impl.DateComponentFormatter();
+//        jDatePickerUtil1 = new org.jdatepicker.util.JDatePickerUtil();
+//        jDatePickerUtil2 = new org.jdatepicker.util.JDatePickerUtil();
+//        dateComponentFormatter1 = new org.jdatepicker.impl.DateComponentFormatter();
         jLabel1 = new javax.swing.JLabel();
         LbClube = new javax.swing.JLabel();
         ComboClube = new javax.swing.JComboBox<>();
@@ -355,9 +355,9 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
     private javax.swing.JTextField TxtNome;
     private javax.swing.JTextField TxtPais;
     private javax.swing.JTextField TxtPosicao;
-    private org.jdatepicker.impl.DateComponentFormatter dateComponentFormatter1;
-    private org.jdatepicker.util.JDatePickerUtil jDatePickerUtil1;
-    private org.jdatepicker.util.JDatePickerUtil jDatePickerUtil2;
+//    private org.jdatepicker.impl.DateComponentFormatter dateComponentFormatter1;
+//    private org.jdatepicker.util.JDatePickerUtil jDatePickerUtil1;
+//    private org.jdatepicker.util.JDatePickerUtil jDatePickerUtil2;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
