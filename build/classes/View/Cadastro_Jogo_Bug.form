@@ -1,0 +1,844 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItem1">
+      <Properties>
+        <Property name="selected" type="boolean" value="true"/>
+        <Property name="text" type="java.lang.String" value="jCheckBoxMenuItem1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItem2">
+      <Properties>
+        <Property name="selected" type="boolean" value="true"/>
+        <Property name="text" type="java.lang.String" value="jCheckBoxMenuItem2"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JMenuItem" name="jMenuItem1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jMenuItem1"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JMenu" name="jMenu1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jMenu1"/>
+      </Properties>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="true"/>
+      </Layout>
+    </Container>
+    <Component class="javax.swing.JMenuItem" name="jMenuItem2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jMenuItem2"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JPopupMenu" name="jPopupMenu1">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="true"/>
+      </Layout>
+    </Container>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowActivated" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowActivated"/>
+  </Events>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="330" pref="330" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="LbHoraJogo" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
+                                  <Component id="LbDiaJogo" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="276" max="-2" attributes="0"/>
+                              <Component id="TxtDiaJogo" min="-2" pref="254" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="LbMandante" min="-2" pref="119" max="-2" attributes="0"/>
+                              <EmptySpace min="301" pref="301" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="LbVisitante" min="-2" pref="115" max="-2" attributes="0"/>
+                                  <Component id="TxtHoraJogo" min="-2" pref="254" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
+                              <Component id="LbCat" min="-2" pref="144" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="ComboCampeonato" min="-2" pref="200" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="140" pref="140" max="-2" attributes="0"/>
+                              <Component id="JbtnSalvar" min="-2" pref="138" max="-2" attributes="0"/>
+                              <EmptySpace min="62" pref="62" max="-2" attributes="0"/>
+                              <Component id="JBtnSair" min="-2" pref="144" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="76" pref="76" max="-2" attributes="0"/>
+                      <Component id="JBtnLimpar" min="-2" pref="77" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+                      <Component id="LbLocalJogo" min="-2" pref="144" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="TxtLocalJogo" min="-2" pref="200" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="TxtNovoClube" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <Component id="ComboClube" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="LbJogadores" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="TxtJogador2" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="TxtGolCasa1" min="-2" pref="32" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="TxtJogador1" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="TxtGolCasa2" min="-2" pref="32" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="TxtJogador3" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="TxtGolCasa3" min="-2" pref="32" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="TxtJogador4" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="TxtGolCasa4" min="-2" pref="32" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="TxtJogador" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                          <Component id="jTextField2" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="TxtGolCasa" min="-2" pref="32" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="TxtGolCasa5" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="TxtGolCasa6" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="TxtGolCasa7" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="TxtGolCasa8" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="TxtGolCasa9" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="jLabel3" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="JComboJogadorCasa" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBox2" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBox3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBox4" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBox5" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="JComboJogadorFora" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="LbJogadores1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="TxtJogador6" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="TxtGolFora1" min="-2" pref="32" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="TxtJogador5" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="TxtGolFora2" min="-2" pref="32" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="TxtJogador7" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="TxtGolFora3" min="-2" pref="32" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="TxtJogador8" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="TxtGolFora4" min="-2" pref="32" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="TxtJogador9" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                          <Component id="jTextField3" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="TxtGolFora" min="-2" pref="32" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="TxtGolCasa14" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="TxtGolCasa15" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="TxtGolCasa16" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="TxtGolCasa17" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="TxtGolCasa18" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="jLabel5" alignment="1" min="-2" pref="32" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="TxtNovoClube1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <Component id="ComboClube1" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jCheckBox9" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBox10" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBox6" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBox7" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBox8" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="183" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jToggleButton1" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel8" min="-2" pref="126" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="LbPlacarMandante" min="-2" pref="29" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="LbPlacarVisitante" min="-2" pref="29" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace pref="80" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="17" pref="17" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="LbCat" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="ComboCampeonato" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="LbDiaJogo" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="TxtDiaJogo" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="LbHoraJogo" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="TxtHoraJogo" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="LbMandante" min="-2" max="-2" attributes="0"/>
+                  <Component id="LbVisitante" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="TxtNovoClube" min="-2" max="-2" attributes="0"/>
+                  <Component id="ComboClube" min="-2" max="-2" attributes="0"/>
+                  <Component id="TxtNovoClube1" min="-2" max="-2" attributes="0"/>
+                  <Component id="ComboClube1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="LbJogadores" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="TxtJogador" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="TxtGolCasa" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="TxtJogador2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TxtGolCasa1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="TxtJogador1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TxtGolCasa2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="TxtJogador3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TxtGolCasa3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="TxtJogador4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TxtGolCasa4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="TxtGolCasa9" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="TxtGolCasa5" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jCheckBox2" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="TxtGolCasa6" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jCheckBox3" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="TxtGolCasa7" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jCheckBox4" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="TxtGolCasa8" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckBox5" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="LbJogadores1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="TxtJogador9" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="TxtGolFora" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="TxtJogador6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TxtGolFora1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="TxtJogador5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TxtGolFora2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="TxtJogador7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TxtGolFora3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="TxtJogador8" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TxtGolFora4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="TxtGolCasa18" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckBox9" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="TxtGolCasa14" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jCheckBox10" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="TxtGolCasa15" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jCheckBox6" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="TxtGolCasa16" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jCheckBox7" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="TxtGolCasa17" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckBox8" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="JComboJogadorCasa" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jToggleButton1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel8" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="LbPlacarMandante" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="LbPlacarVisitante" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="LbLocalJogo" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="TxtLocalJogo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="JbtnSalvar" min="-2" pref="43" max="-2" attributes="0"/>
+                          <Component id="JBtnSair" min="-2" pref="43" max="-2" attributes="0"/>
+                          <Component id="JBtnLimpar" min="-2" pref="43" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Component id="JComboJogadorFora" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="MingLiU-ExtB" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="CADASTRAR JOGOS..."/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="LbCat">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="CAMPEONATO"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="ComboCampeonato">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="ComboCampeonatoItemStateChanged"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Campeonato&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="LbDiaJogo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="DIA DO JOGO"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="LbHoraJogo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="HORA DO JOGO"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtGolCasa">
+      <Properties>
+        <Property name="columns" type="int" value="1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="ComboClube">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="11" style="0"/>
+        </Property>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="ComboClubeItemStateChanged"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ComboClubeFocusLost"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Clube&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="ComboClube1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="11" style="0"/>
+        </Property>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="ComboClube1ItemStateChanged"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ComboClube1FocusLost"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Clube&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="LbLocalJogo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="LOCAL DO JOGO"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtLocalJogo">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[35, 16]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[35, 16]"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="JbtnSalvar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="SALVAR"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JbtnSalvarMouseClicked"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="JBtnSair">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="SAIR"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JBtnSairMouseClicked"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="JBtnLimpar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="LIMPAR"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBtnLimparActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="TxtNovoClube">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="+"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="TxtNovoClube1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="+"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="LbMandante">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="TIME MANDANTE"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="LbVisitante">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="TIME VISITANTE"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtJogador">
+    </Component>
+    <Component class="javax.swing.JLabel" name="LbJogadores">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="JOGADORES!"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextField2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextField1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtJogador1">
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtJogador2">
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtJogador3">
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtJogador4">
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtGolCasa1">
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtGolCasa2">
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtGolCasa3">
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtGolCasa4">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="GOLS"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtGolCasa5">
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtGolCasa6">
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtGolCasa7">
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtGolCasa8">
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtGolCasa9">
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBox2">
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBox3">
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBox4">
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBox5">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/View/icon_Amarelo.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="jLabel3"/>
+        <Property name="verticalAlignment" type="int" value="1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/View/icon_Vermelho (2).png"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBox6">
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtJogador5">
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBox7">
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtJogador6">
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBox8">
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtJogador7">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel5">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/View/icon_Amarelo.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="jLabel3"/>
+        <Property name="verticalAlignment" type="int" value="1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtJogador8">
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtGolFora1">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel6">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/View/icon_Vermelho (2).png"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtGolFora2">
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtGolFora3">
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtGolFora4">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel7">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="GOLS"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtGolCasa14">
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtGolCasa15">
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtGolCasa16">
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtGolCasa17">
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtGolCasa18">
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBox9">
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtGolFora">
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtJogador9">
+    </Component>
+    <Component class="javax.swing.JLabel" name="LbJogadores1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="JOGADORES!"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextField3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextField1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCheckBox10">
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="TxtHoraJogo">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+          <Format format="##:##:##" subtype="-1" type="5"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="TxtDiaJogo">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+          <Format format="##/##/####" subtype="-1" type="5"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel8">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="PLACAR FINAL"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="JComboJogadorCasa">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="JComboJogadorCasaItemStateChanged"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JComboJogadorCasaMouseClicked"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Jogador&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="JComboJogadorFora">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="JComboJogadorForaItemStateChanged"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Jogador&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JTextField" name="LbPlacarMandante">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="0"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="0"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+            <EmptyBorder/>
+          </Border>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="LbPlacarVisitante">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="0"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="0"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+            <EmptyBorder/>
+          </Border>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel9">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="X"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JToggleButton" name="jToggleButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jToggleButton1"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>
