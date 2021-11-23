@@ -1,5 +1,5 @@
-
 package View;
+
 import Clubes_Campeonatos.Campeonato;
 import Clubes_Campeonatos.Clube;
 import Clubes_Campeonatos.Jogador;
@@ -26,6 +26,7 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
     Clube clube = new Clube();
     Clube clubee;
     Jogo jogo;
+
     public Cadastro_Jogo() {
         initComponents();
     }
@@ -116,6 +117,11 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         JrFimPartida = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         LbDiaJogo.setText("DIA DO JOGO");
 
@@ -178,21 +184,11 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
                 ComboClubeItemStateChanged(evt);
             }
         });
-        ComboClube.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                ComboClubeFocusLost(evt);
-            }
-        });
 
         ComboClube1.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         ComboClube1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 ComboClube1ItemStateChanged(evt);
-            }
-        });
-        ComboClube1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                ComboClube1FocusLost(evt);
             }
         });
 
@@ -637,20 +633,14 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         }
         Clube clube = (Clube) ComboClube.getSelectedItem();
         assert clube != null;
+        try {
+            utils.atualizarJogadoor(JComboJogadorCasa, sbjogador,clube.getCodigo());
+        } catch (SQLException ex) {
+            Logger.getLogger(Cadastro_Jogo.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_ComboClubeItemStateChanged
 
-    private void ComboClubeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ComboClubeFocusLost
-        try {
-            //                JOptionPane.showMessageDialog(rootPane,clube.getCodigo() );
-
-            utils.atualizarJogadoor(JComboJogadorCasa, sbjogador, clube.getCodigo());
-        } catch (SQLException ex) {
-            Logger.getLogger(Cadastro_Jogo_Bug.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_ComboClubeFocusLost
-
     private void ComboClube1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboClube1ItemStateChanged
-
         if (ComboClube1.getItemCount() <= 0) {
             return;
         }
@@ -659,18 +649,13 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         }
         Clube clube = (Clube) ComboClube1.getSelectedItem();
         assert clube != null;
+        try {
+            utils.atualizarJogadoor(JComboJogadorFora, sbjogador,clube.getCodigo());
+        } catch (SQLException ex) {
+            Logger.getLogger(Cadastro_Jogo.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_ComboClube1ItemStateChanged
 
-    private void ComboClube1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ComboClube1FocusLost
-        try {
-            //                JOptionPane.showMessageDialog(rootPane,clube.getCodigo() );
-
-            utils.atualizarJogadoor(JComboJogadorFora, sbjogador, clube.getCodigo());
-        } catch (SQLException ex) {
-            Logger.getLogger(Cadastro_Jogo_Bug.class.getName()).log(Level.SEVERE, null, ex);
-    }//GEN-LAST:event_ComboClube1FocusLost
-    }
-    
     private void JbtnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JbtnSalvarMouseClicked
         if (TxtHoraJogo.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Informe uma data valida!");
@@ -751,31 +736,65 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         assert categoria != null;
     }//GEN-LAST:event_ComboCampeonatoItemStateChanged
 
-    public int golscasa (){
-        int gc =0, gc1=0,gc2=0,gc3=0,gc4=0;
-            if (!TxtGolCasa.getText().isBlank()) {
-                gc=Integer.parseInt(TxtGolCasa.getText());
-            }
-            if (!TxtGolCasa1.getText().isBlank()) {
-                gc1=Integer.parseInt(TxtGolCasa1.getText());
-            }
-            if (!TxtGolCasa2.getText().isBlank()) {
-                gc2=Integer.parseInt(TxtGolCasa2.getText());
-            }
-            if (!TxtGolCasa3.getText().isBlank()) {
-                gc3=Integer.parseInt(TxtGolCasa3.getText());
-            }
-            if (!TxtGolCasa4.getText().isBlank()) {
-                gc4=Integer.parseInt(TxtGolCasa4.getText());
-            }
-            return gc+gc1+gc2+gc3+gc4;
+    public int golscasa() {
+        int gc = 0, gc1 = 0, gc2 = 0, gc3 = 0, gc4 = 0;
+        if (!TxtGolCasa.getText().isBlank()) {
+            gc = Integer.parseInt(TxtGolCasa.getText());
+        }
+        if (!TxtGolCasa1.getText().isBlank()) {
+            gc1 = Integer.parseInt(TxtGolCasa1.getText());
+        }
+        if (!TxtGolCasa2.getText().isBlank()) {
+            gc2 = Integer.parseInt(TxtGolCasa2.getText());
+        }
+        if (!TxtGolCasa3.getText().isBlank()) {
+            gc3 = Integer.parseInt(TxtGolCasa3.getText());
+        }
+        if (!TxtGolCasa4.getText().isBlank()) {
+            gc4 = Integer.parseInt(TxtGolCasa4.getText());
+        }
+        return gc + gc1 + gc2 + gc3 + gc4;
+    }
+
+    public int golsfora() {
+        int gc = 0, gc1 = 0, gc2 = 0, gc3 = 0, gc4 = 0;
+        if (!TxtGolFora.getText().isBlank()) {
+            gc = Integer.parseInt(TxtGolFora.getText());
+        }
+        if (!TxtGolFora1.getText().isBlank()) {
+            gc1 = Integer.parseInt(TxtGolFora1.getText());
+        }
+        if (!TxtGolFora2.getText().isBlank()) {
+            gc2 = Integer.parseInt(TxtGolFora2.getText());
+        }
+        if (!TxtGolFora3.getText().isBlank()) {
+            gc3 = Integer.parseInt(TxtGolFora3.getText());
+        }
+        if (!TxtGolFora4.getText().isBlank()) {
+            gc4 = Integer.parseInt(TxtGolFora4.getText());
+        }
+        return gc + gc1 + gc2 + gc3 + gc4;
     }
     private void JrFimPartidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JrFimPartidaMouseClicked
         if (JrFimPartida.isEnabled()) {
-            
+
             LbPlacarMandante.setText(String.valueOf(this.golscasa()));
         }
     }//GEN-LAST:event_JrFimPartidaMouseClicked
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        try {
+            utils.atualizarCampeonato(ComboCampeonato, sbcam);
+            utils.atualizarClube(ComboClube, sbc);
+            utils.atualizarClube(ComboClube1, sbc);
+//            utils.atualizarJogadoor(JComboJogadorCasa, sbjogador,);
+//            calcularPlacarFinal();
+//            clearSc();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Cadastro_Campeonato.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
