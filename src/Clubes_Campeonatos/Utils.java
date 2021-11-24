@@ -12,6 +12,8 @@ import Controller.ServicoBancoJogador;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
@@ -26,10 +28,11 @@ import javax.swing.JTextField;
  * @author PremierSoft
  */
 public class Utils {
+
     private final SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
     private final SimpleDateFormat dh = new SimpleDateFormat("hh:mm:ss");
 
-    public Date strToDate(String data) throws ParseException{
+    public Date strToDate(String data) throws ParseException {
         return df.parse(data);
     }
 
@@ -37,15 +40,15 @@ public class Utils {
         return dh.parse(hora);
     }
 
-    public String getDataFormatada(Date d){
+    public String getDataFormatada(Date d) {
         return df.format(d);
     }
 
-    public String getHorFormatada(Date h){
+    public String getHorFormatada(Date h) {
         return dh.format(h);
     }
 
-    public void clearSc(JTextField d, JTextField h, JTextField desc, JTextField st, JButton c){
+    public void clearSc(JTextField d, JTextField h, JTextField desc, JTextField st, JButton c) {
         d.setText("");
         h.setText("");
         desc.setText("");
@@ -53,9 +56,9 @@ public class Utils {
         d.requestFocus();
         c.setEnabled(false);
 
-
     }
-    public void clearSc(JTextField d, JTextField h, JTextField desc, JTextField st, JButton c, JComboBox jc){
+
+    public void clearSc(JTextField d, JTextField h, JTextField desc, JTextField st, JButton c, JComboBox jc) {
         if (jc.isDisplayable()) {
             jc.setSelectedIndex(-1);
         }
@@ -66,76 +69,78 @@ public class Utils {
         d.requestFocus();
         c.setEnabled(false);
         if (jc.getSelectedIndex() != 0) {
-                c.setEnabled(true);
-            }
-
+            c.setEnabled(true);
+        }
 
     }
-    
-    public void atualizarCategoria(JComboBox j, ServicoBancoCategoria sb) throws SQLException{
-        if (j.getItemCount() >0) {
+
+    public void atualizarCategoria(JComboBox j, ServicoBancoCategoria sb) throws SQLException {
+        if (j.getItemCount() > 0) {
             j.removeAllItems();
         }
-        
+
         ArrayList<Categoria> lista = sb.getCompromissoByLista();
-        
-        for(Categoria c: lista){
+
+        for (Categoria c : lista) {
             j.addItem(c);
         }
         j.setSelectedIndex(-1);
     }
-    
-    public void atualizarClube(JComboBox j, ServicoBancoClube sb) throws SQLException{
-        if (j.getItemCount() >0) {
+
+    public void atualizarClube(JComboBox j, ServicoBancoClube sb) throws SQLException {
+        if (j.getItemCount() > 0) {
             j.removeAllItems();
         }
-        
+
         ArrayList<Clube> lista = sb.getCompromissoByLista();
-        
-        for(Clube c: lista){
+
+        for (Clube c : lista) {
             j.addItem(c);
         }
         j.setSelectedIndex(-1);
     }
-    
-    public void atualizarCampeonato(JComboBox j, ServicoBancoCampeonato sbcam) throws SQLException{
-        if (j.getItemCount() >0) {
+
+    public void atualizarCampeonato(JComboBox j, ServicoBancoCampeonato sbcam) throws SQLException {
+        if (j.getItemCount() > 0) {
             j.removeAllItems();
         }
-        
+
         ArrayList<Campeonato> lista = sbcam.getCompromissoByLista();
-        
-        for(Campeonato c: lista){
+
+        for (Campeonato c : lista) {
             j.addItem(c);
         }
         j.setSelectedIndex(-1);
     }
-    public void atualizarJogadoor(JComboBox j, ServicoBancoJogador sb, int cod) throws SQLException{
-        if (j.getItemCount() >0) {
+
+    public void atualizarJogadoor(JComboBox j, ServicoBancoJogador sb, int cod) throws SQLException {
+        if (j.getItemCount() > 0) {
             j.removeAllItems();
         }
-        
+
         ArrayList<Jogador> lista = sb.getJogadorByCodigo(cod);
-        
-        for(Jogador jogador: lista){
+
+        for (Jogador jogador : lista) {
             j.addItem(jogador);
         }
         j.setSelectedIndex(-1);
     }
-    public void atualizarJogador(JComboBox j, ServicoBancoJogador sb) throws SQLException{
-        if (j.getItemCount() >0) {
+
+    public void atualizarJogador(JComboBox j, ServicoBancoJogador sb) throws SQLException {
+        if (j.getItemCount() > 0) {
             j.removeAllItems();
         }
-        
+
         ArrayList<Jogador> lista = sb.getCompromissoByLista();
-        
-        for(Jogador jogador: lista){
+
+        for (Jogador jogador : lista) {
             j.addItem(jogador);
         }
         j.setSelectedIndex(-1);
     }
-    public void getCodigoClube(JComboBox j, ServicoBancoClube sbc, String nome){
-        if (j.getItemCount() >0) {
+
+    public void getCodigoClube(JComboBox j, ServicoBancoClube sbc, String nome) {
+        if (j.getItemCount() > 0) {
             j.removeAllItems();
         }
         try {
@@ -145,6 +150,34 @@ public class Utils {
         }
     }
 
-    
-}
+    public String converterHora() {
+        DateTimeFormatter dataFormatada = DateTimeFormatter.ofPattern("hh:mm:ss");
+        String hora = "";
+        boolean dataValida;
+        do {
+            try {
+                hora = dataFormatada.format(LocalDateTime.now());
+                dataValida = true;
+            } catch (Exception e) {
+                dataValida = false;
+            }
+        } while (!dataValida);
+        return hora;
+    }
 
+    public String converterData() {
+        DateTimeFormatter dataFormatada = DateTimeFormatter.ofPattern("dd/MM/yyy");
+        String data = "";
+        boolean dataValida;
+        do {
+            try {
+                data = dataFormatada.format(LocalDateTime.now());
+                dataValida = true;
+            } catch (Exception e) {
+                dataValida = false;
+            }
+        } while (!dataValida);
+        return data;
+    }
+
+}
