@@ -37,10 +37,15 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="LbHoraJogo" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
-                                  <Component id="LbDiaJogo" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="LbHoraJogo" min="-2" pref="144" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="276" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="LbDiaJogo" min="-2" pref="144" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="276" max="-2" attributes="0"/>
                               <Component id="TxtDiaJogo" min="-2" pref="254" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -93,12 +98,12 @@
                                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="TxtJogador2" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="TxtJogador1" min="-2" pref="150" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="TxtGolCasa1" min="-2" pref="32" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="TxtJogador1" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="TxtJogador2" min="-2" pref="150" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="TxtGolCasa2" min="-2" pref="32" max="-2" attributes="0"/>
                                   </Group>
@@ -280,13 +285,13 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="TxtJogador2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="TxtGolCasa1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TxtJogador1" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="TxtJogador1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="TxtGolCasa2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TxtJogador2" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
