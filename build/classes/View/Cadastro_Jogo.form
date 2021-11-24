@@ -37,15 +37,10 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="LbHoraJogo" min="-2" pref="144" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="276" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="LbDiaJogo" min="-2" pref="144" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="LbHoraJogo" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
+                                  <Component id="LbDiaJogo" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace min="-2" pref="276" max="-2" attributes="0"/>
                               <Component id="TxtDiaJogo" min="-2" pref="254" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -100,22 +95,22 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="TxtJogador1" min="-2" pref="150" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="TxtGolCasa1" min="-2" pref="32" max="-2" attributes="0"/>
+                                      <Component id="TxtGolJogador1" min="-2" pref="32" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="TxtJogador2" min="-2" pref="150" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="TxtGolCasa2" min="-2" pref="32" max="-2" attributes="0"/>
+                                      <Component id="TxtGolJogador2" min="-2" pref="32" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="TxtJogador3" min="-2" pref="150" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="TxtGolCasa3" min="-2" pref="32" max="-2" attributes="0"/>
+                                      <Component id="TxtGolJogador3" min="-2" pref="32" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="TxtJogador4" min="-2" pref="150" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="TxtGolCasa4" min="-2" pref="32" max="-2" attributes="0"/>
+                                      <Component id="TxtGolJogador4" min="-2" pref="32" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -123,16 +118,16 @@
                                           <Component id="jTextField2" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="TxtGolCasa" min="-2" pref="32" max="-2" attributes="0"/>
+                                      <Component id="TxtGolJogador" min="-2" pref="32" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="TxtGolCasa5" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
-                                  <Component id="TxtGolCasa6" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
-                                  <Component id="TxtGolCasa7" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
-                                  <Component id="TxtGolCasa8" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
-                                  <Component id="TxtGolCasa9" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="TxtCartaoJogador1" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="TxtCartaoJogador2" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="TxtCartaoJogador3" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="TxtCartaoJogador4" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="TxtCartaoJogador" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
                                   <Component id="jLabel3" alignment="1" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -140,11 +135,11 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jCheckBox1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox3" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox4" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox5" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="CheckCartaoVermelhorJogador" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="CheckCartaoVermelhorJogador1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="CheckCartaoVermelhorJogador2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="CheckCartaoVermelhorJogador3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="CheckCartaoVermelhorJogador4" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
@@ -158,28 +153,28 @@
                                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="TxtJogador6" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="TxtJogadorFora1" min="-2" pref="150" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="TxtGolFora1" min="-2" pref="32" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="TxtJogador5" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="TxtJogadorFora2" min="-2" pref="150" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="TxtGolFora2" min="-2" pref="32" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="TxtJogador7" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="TxtJogadorFora3" min="-2" pref="150" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="TxtGolFora3" min="-2" pref="32" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="TxtJogador8" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="TxtJogadorFora4" min="-2" pref="150" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="TxtGolFora4" min="-2" pref="32" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="TxtJogador9" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                          <Component id="TxtJogadorFora" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                                           <Component id="jTextField3" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -188,11 +183,11 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="TxtGolCasa14" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
-                                  <Component id="TxtGolCasa15" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
-                                  <Component id="TxtGolCasa16" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
-                                  <Component id="TxtGolCasa17" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
-                                  <Component id="TxtGolCasa18" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="TxtCartaoFora1" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="TxtCartaoFora2" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="TxtCartaoFora3" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="TxtCartaoFora4" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="TxtCartaoFora" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
                                   <Component id="jLabel5" alignment="1" min="-2" pref="32" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -204,11 +199,11 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jCheckBox9" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox10" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox6" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox7" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox8" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="CheckCartaoVermelhorJogadorFora" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="CheckCartaoVermelhorJogadorFora1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="CheckCartaoVermelhorJogadorFora2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="CheckCartaoVermelhorJogadorFora3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="CheckCartaoVermelhorJogadorFora4" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -280,34 +275,34 @@
                                   <Component id="TxtJogador" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                       <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="TxtGolCasa" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="TxtGolJogador" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="TxtGolCasa1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TxtGolJogador1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="TxtJogador1" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="TxtGolCasa2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TxtGolJogador2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="TxtJogador2" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="TxtJogador3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="TxtGolCasa3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TxtGolJogador3" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="TxtJogador4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="TxtGolCasa4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TxtGolJogador4" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="TxtGolCasa9" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jCheckBox1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TxtCartaoJogador" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="CheckCartaoVermelhorJogador" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -315,23 +310,23 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="1" attributes="0">
                                               <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="TxtGolCasa5" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox2" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="TxtCartaoJogador1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="CheckCartaoVermelhorJogador1" alignment="1" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="TxtGolCasa6" min="-2" max="-2" attributes="0"/>
+                                              <Component id="TxtCartaoJogador2" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="jCheckBox3" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CheckCartaoVermelhorJogador2" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="TxtGolCasa7" min="-2" max="-2" attributes="0"/>
+                                      <Component id="TxtCartaoJogador3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jCheckBox4" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="CheckCartaoVermelhorJogador3" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="TxtGolCasa8" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jCheckBox5" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TxtCartaoJogador4" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="CheckCartaoVermelhorJogador4" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -347,7 +342,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="TxtJogador9" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TxtJogadorFora" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                       <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="TxtGolFora" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -355,29 +350,29 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="TxtJogador6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TxtJogadorFora1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="TxtGolFora1" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="TxtJogador5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TxtJogadorFora2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="TxtGolFora2" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="TxtJogador7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TxtJogadorFora3" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="TxtGolFora3" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="TxtJogador8" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TxtJogadorFora4" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="TxtGolFora4" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="TxtGolCasa18" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jCheckBox9" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TxtCartaoFora" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="CheckCartaoVermelhorJogadorFora" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -385,23 +380,23 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="1" attributes="0">
                                               <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="TxtGolCasa14" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox10" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="TxtCartaoFora1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="CheckCartaoVermelhorJogadorFora1" alignment="1" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="TxtGolCasa15" min="-2" max="-2" attributes="0"/>
+                                              <Component id="TxtCartaoFora2" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="jCheckBox6" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CheckCartaoVermelhorJogadorFora2" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="TxtGolCasa16" min="-2" max="-2" attributes="0"/>
+                                      <Component id="TxtCartaoFora3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jCheckBox7" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="CheckCartaoVermelhorJogadorFora3" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="TxtGolCasa17" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jCheckBox8" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TxtCartaoFora4" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="CheckCartaoVermelhorJogadorFora4" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -450,7 +445,7 @@
         <Property name="text" type="java.lang.String" value="HORA DO JOGO"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox10">
+    <Component class="javax.swing.JCheckBox" name="CheckCartaoVermelhorJogadorFora1">
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="TxtHoraJogo">
       <Properties>
@@ -474,7 +469,7 @@
         <Property name="text" type="java.lang.String" value="PLACAR FINAL"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtGolCasa2">
+    <Component class="javax.swing.JTextField" name="TxtGolJogador2">
     </Component>
     <Component class="javax.swing.JComboBox" name="JComboJogadorCasa">
       <Properties>
@@ -483,14 +478,13 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="JComboJogadorCasaItemStateChanged"/>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JComboJogadorCasaMouseClicked"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Jogador&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtGolCasa3">
+    <Component class="javax.swing.JTextField" name="TxtGolJogador3">
     </Component>
     <Component class="javax.swing.JComboBox" name="JComboJogadorFora">
       <Properties>
@@ -499,13 +493,13 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="JComboJogadorForaItemStateChanged"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JComboJogadorForaMouseClicked"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Jogador&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtGolCasa4">
+    <Component class="javax.swing.JTextField" name="TxtGolJogador4">
     </Component>
     <Component class="javax.swing.JTextField" name="LbPlacarMandante">
       <Properties>
@@ -542,7 +536,13 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtGolCasa5">
+    <Component class="javax.swing.JTextField" name="TxtCartaoJogador1">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="TxtCartaoJogador1FocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
@@ -552,16 +552,34 @@
         <Property name="text" type="java.lang.String" value="X"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtGolCasa6">
+    <Component class="javax.swing.JTextField" name="TxtCartaoJogador2">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="TxtCartaoJogador2FocusLost"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtGolCasa7">
+    <Component class="javax.swing.JTextField" name="TxtCartaoJogador3">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="TxtCartaoJogador3FocusLost"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtGolCasa">
+    <Component class="javax.swing.JTextField" name="TxtGolJogador">
       <Properties>
         <Property name="columns" type="int" value="1"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtGolCasa8">
+    <Component class="javax.swing.JTextField" name="TxtCartaoJogador4">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="TxtCartaoJogador4FocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="ComboClube">
       <Properties>
@@ -579,7 +597,13 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Clube&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtGolCasa9">
+    <Component class="javax.swing.JTextField" name="TxtCartaoJogador">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="TxtCartaoJogadorFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="ComboClube1">
       <Properties>
@@ -597,7 +621,10 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Clube&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+    <Component class="javax.swing.JCheckBox" name="CheckCartaoVermelhorJogador">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CheckCartaoVermelhorJogadorActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="LbLocalJogo">
       <Properties>
@@ -648,13 +675,13 @@
         <Property name="text" type="java.lang.String" value="+"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox2">
+    <Component class="javax.swing.JCheckBox" name="CheckCartaoVermelhorJogador1">
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox3">
+    <Component class="javax.swing.JCheckBox" name="CheckCartaoVermelhorJogador2">
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox4">
+    <Component class="javax.swing.JCheckBox" name="CheckCartaoVermelhorJogador3">
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox5">
+    <Component class="javax.swing.JCheckBox" name="CheckCartaoVermelhorJogador4">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -672,17 +699,26 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox6">
+    <Component class="javax.swing.JCheckBox" name="CheckCartaoVermelhorJogadorFora2">
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtJogador5">
+    <Component class="javax.swing.JTextField" name="TxtJogadorFora2">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox7">
+    <Component class="javax.swing.JCheckBox" name="CheckCartaoVermelhorJogadorFora3">
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtJogador6">
+    <Component class="javax.swing.JTextField" name="TxtJogadorFora1">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox8">
+    <Component class="javax.swing.JCheckBox" name="CheckCartaoVermelhorJogadorFora4">
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtJogador7">
+    <Component class="javax.swing.JTextField" name="TxtJogadorFora3">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
@@ -693,7 +729,10 @@
         <Property name="verticalAlignment" type="int" value="1"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtJogador8">
+    <Component class="javax.swing.JTextField" name="TxtJogadorFora4">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="TxtGolFora1">
     </Component>
@@ -715,29 +754,47 @@
         <Property name="text" type="java.lang.String" value="GOLS"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtGolCasa14">
+    <Component class="javax.swing.JTextField" name="TxtCartaoFora1">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="TxtCartaoFora1FocusLost"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtGolCasa15">
+    <Component class="javax.swing.JTextField" name="TxtCartaoFora2">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="TxtCartaoFora2FocusLost"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtGolCasa16">
+    <Component class="javax.swing.JTextField" name="TxtCartaoFora3">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="TxtCartaoFora3FocusLost"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtGolCasa17">
+    <Component class="javax.swing.JTextField" name="TxtCartaoFora4">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="TxtCartaoFora4FocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="LbMandante">
       <Properties>
         <Property name="text" type="java.lang.String" value="TIME MANDANTE"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtGolCasa18">
+    <Component class="javax.swing.JTextField" name="TxtCartaoFora">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="TxtCartaoForaFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="LbVisitante">
       <Properties>
         <Property name="text" type="java.lang.String" value="TIME VISITANTE"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox9">
+    <Component class="javax.swing.JCheckBox" name="CheckCartaoVermelhorJogadorFora">
     </Component>
     <Component class="javax.swing.JTextField" name="TxtJogador">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="TxtGolFora">
     </Component>
@@ -746,7 +803,10 @@
         <Property name="text" type="java.lang.String" value="JOGADORES!"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtJogador9">
+    <Component class="javax.swing.JTextField" name="TxtJogadorFora">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField2">
       <Properties>
@@ -759,6 +819,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="TxtJogador1">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField3">
       <Properties>
@@ -766,12 +829,21 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="TxtJogador2">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="TxtJogador3">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="TxtJogador4">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtGolCasa1">
+    <Component class="javax.swing.JTextField" name="TxtGolJogador1">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
