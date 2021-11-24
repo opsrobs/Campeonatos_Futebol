@@ -17,7 +17,7 @@ private final Conexao conexao = new Conexao();
     //inserir o nome (o indice começa no 1)
     try (PreparedStatement pst = con.prepareStatement
                 ("insert into jogadores_jogo (Gol, Cartao_Amarelo, Cartao_Vermelho, Jogadores_Codigo, Jogos_Codigo) " +
-                 "values (?,?,?,?) ")) {
+                 "values (?,?,?,?,?) ")) {
         pst.setInt(1, jogadores.getGol());
         pst.setInt(2,jogadores.getCartaoAmarelo());
         pst.setInt(3,jogadores.getCartaoVermelho());
