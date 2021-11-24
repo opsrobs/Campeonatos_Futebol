@@ -40,7 +40,7 @@ public class ServicoBancoJogador {
     }
 
     public void update(Jogador jogador) throws SQLException {
-        try (PreparedStatement pst = conexao.getConexao().prepareStatement("update jogadore set Clubes_Codigo = ?, Nome = ?, Data_Nasc =?, Posicao, Pais = ? where (Codigo = ?)")) {
+        try (PreparedStatement pst = conexao.getConexao().prepareStatement("update jogadore set Clubes_Codigo = ?, Nome = ?, Data_Nasc =?, Posicao=?, Pais = ? where (Codigo = ?)")) {
             pst.setInt(1, jogador.getCodClube());
             pst.setString(2, jogador.getNome());
             pst.setDate(3, new java.sql.Date(jogador.getDataNasc().getTime()));
