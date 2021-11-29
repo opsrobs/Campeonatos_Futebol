@@ -19,6 +19,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -72,6 +73,96 @@ public class Utils {
             c.setEnabled(true);
         }
 
+    }
+    
+    public void setGols(JTextField a,JTextField b,JTextField c,JTextField d,JTextField e,JTextField f,JTextField g,JTextField h,JTextField i,JTextField j){
+        a.setText("0");
+        b.setText("0");
+        c.setText("0");
+        d.setText("0");
+        e.setText("0");
+        f.setText("0");
+        g.setText("0");
+        h.setText("0");
+        i.setText("0");
+        j.setText("0");   
+    }
+    public void setCartoes(JTextField a,JTextField b,JTextField c,JTextField d,JTextField e,JTextField f,JTextField g,JTextField h,JTextField i,JTextField j){
+        a.setText("0");
+        b.setText("0");
+        c.setText("0");
+        d.setText("0");
+        e.setText("0");
+        f.setText("0");
+        g.setText("0");
+        h.setText("0");
+        i.setText("0");
+        j.setText("0");   
+    }
+    
+    public int vitoriasMandante(JTextField mandante, JTextField visitante){
+        int vitoria=0;
+        if (Integer.parseInt(mandante.getText()) >Integer.parseInt(visitante.getText())) {
+            vitoria=1;
+        }
+        return vitoria;
+    }
+    public int derrota(int vitoria,JTextField mandante, JTextField visitante ){
+        int der = 0;
+        if (vitoria == 0 && empate(mandante, visitante) == 0) {
+            der=1;
+        }
+        return der;
+    }
+    public int empate(JTextField mandante, JTextField visitante){
+        int emp = 0;
+        if (Integer.parseInt(mandante.getText())==Integer.parseInt(visitante.getText())) {
+            emp=1;
+        }
+        return emp;        
+    }
+    public int vitoriasVisitante(JTextField mandante, JTextField visitante){
+        int vitoria=0;
+        if (Integer.parseInt(mandante.getText()) >Integer.parseInt(visitante.getText())) {
+            vitoria=1;
+        }
+        return vitoria;
+    }
+    
+    public int amarelos(JTextField a,JTextField b,JTextField c,JTextField d,JTextField e){
+        int cart=0;
+        if (!a.getText().isBlank()&&Integer.parseInt(a.getText())>0) {
+            cart+= Integer.parseInt(a.getText());
+        }
+        if(!b.getText().isBlank() &&Integer.parseInt(b.getText())>0 ){
+            cart+= Integer.parseInt(b.getText());
+        }
+        if(!c.getText().isBlank() && Integer.parseInt(c.getText())>0){
+            cart+= Integer.parseInt(c.getText());
+        }
+        if(!d.getText().isBlank() &&Integer.parseInt(d.getText())>0 ){
+            cart+= Integer.parseInt(d.getText());
+        }
+        if(!e.getText().isBlank() && Integer.parseInt(e.getText())>0){
+            cart+= Integer.parseInt(e.getText());
+        }
+        return cart;
+    }
+    
+    public int vermelhos(JCheckBox a,JCheckBox b,JCheckBox c,JCheckBox d,JCheckBox e){
+        int ver =0;
+        if (a.isSelected()) {
+            ver +=1;
+        }if (b.isSelected()) {
+            ver +=1;
+        }if (c.isSelected()) {
+            ver +=1;
+        }if (d.isSelected()) {
+            ver +=1;
+        }if (e.isSelected()) {
+            ver +=1;
+        }
+        return ver;
     }
 
     public void atualizarCategoria(JComboBox j, ServicoBancoCategoria sb) throws SQLException {

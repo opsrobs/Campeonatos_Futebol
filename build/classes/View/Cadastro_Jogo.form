@@ -81,7 +81,7 @@
                       <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="TxtNovoClube" min="-2" max="-2" attributes="0"/>
+                              <Component id="TxtNovoClubeMandante" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                               <Component id="ComboClube" max="32767" attributes="0"/>
                           </Group>
@@ -254,7 +254,7 @@
               </Group>
               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="TxtNovoClube" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="TxtNovoClubeMandante" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="ComboClube" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="TxtNovoClube1" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="ComboClube1" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -665,15 +665,21 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBtnLimparActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="TxtNovoClube">
+    <Component class="javax.swing.JButton" name="TxtNovoClubeMandante">
       <Properties>
         <Property name="text" type="java.lang.String" value="+"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TxtNovoClubeMandanteMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="TxtNovoClube1">
       <Properties>
         <Property name="text" type="java.lang.String" value="+"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TxtNovoClube1MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="CheckCartaoVermelhorJogador1">
     </Component>

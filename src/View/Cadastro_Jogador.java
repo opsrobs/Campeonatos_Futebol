@@ -34,12 +34,14 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
     
     private void clearSc() {
         if (ComboClube.isDisplayable()) {
-            ComboClube.setSelectedIndex(0);
+            ComboClube.setSelectedIndex(-1);
         }
         TxtNome.setText("");
         TxtData.setText("");
-        TxtPosicao.requestFocus();
-        TxtPais.requestFocus();
+        TxtPosicao.setText("");
+        TxtPais.setText("");
+        ComboClube.requestFocus();
+
 //        JBtnLimpar.setEnabled(false);
 //        if (ComboClube.getSelectedIndex() != 0) {
 //            JBtnLimpar.setEnabled(true);
@@ -52,16 +54,15 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-//        jDatePickerUtil1 = new org.jdatepicker.util.JDatePickerUtil();
-//        jDatePickerUtil2 = new org.jdatepicker.util.JDatePickerUtil();
-//        dateComponentFormatter1 = new org.jdatepicker.impl.DateComponentFormatter();
+        jDatePickerUtil1 = new org.jdatepicker.util.JDatePickerUtil();
+        jDatePickerUtil2 = new org.jdatepicker.util.JDatePickerUtil();
+        dateComponentFormatter1 = new org.jdatepicker.impl.DateComponentFormatter();
         jLabel1 = new javax.swing.JLabel();
         LbClube = new javax.swing.JLabel();
         ComboClube = new javax.swing.JComboBox<>();
         LbNome = new javax.swing.JLabel();
         TxtNome = new javax.swing.JTextField();
         LbData = new javax.swing.JLabel();
-        TxtData = new javax.swing.JTextField();
         LbPosicao = new javax.swing.JLabel();
         TxtPosicao = new javax.swing.JTextField();
         LbPais = new javax.swing.JLabel();
@@ -69,6 +70,7 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
         JbtnSalvar = new javax.swing.JButton();
         JBtnSair = new javax.swing.JButton();
         JBtnLimpar = new javax.swing.JButton();
+        TxtData = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -146,6 +148,12 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
             }
         });
 
+        try {
+            TxtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -153,10 +161,6 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(LbData, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TxtData))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(JbtnSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
@@ -168,17 +172,24 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ComboClube, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(LbNome, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(LbPosicao, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TxtPosicao, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(LbPais, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TxtPais, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(LbData, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TxtData))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(LbNome, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(LbPosicao, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TxtPosicao, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(LbPais, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TxtPais, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(57, 57, 57))
             .addGroup(layout.createSequentialGroup()
                 .addGap(152, 152, 152)
@@ -276,7 +287,7 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
 
         try {
             
-            if (ComboClube.getSelectedIndex() > 0) {
+            if (ComboClube.getSelectedIndex() >= 0) {
 
                 clube = (Clube) ComboClube.getSelectedItem();
 //                categoria.setNome(TxtCategoria.getText());
@@ -291,6 +302,7 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
         } catch (ParseException ex) {
             Logger.getLogger(Cadastro_Jogador.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.clearSc();
     }//GEN-LAST:event_JbtnSalvarMouseClicked
 
     private void JBtnSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtnSairMouseClicked
@@ -298,7 +310,7 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
     }//GEN-LAST:event_JBtnSairMouseClicked
 
     private void JBtnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnLimparActionPerformed
-        // TODO add your handling code here:
+        this.clearSc();
     }//GEN-LAST:event_JBtnLimparActionPerformed
 
     private void JbtnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtnSalvarActionPerformed
@@ -351,13 +363,13 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
     private javax.swing.JLabel LbNome;
     private javax.swing.JLabel LbPais;
     private javax.swing.JLabel LbPosicao;
-    private javax.swing.JTextField TxtData;
+    private javax.swing.JFormattedTextField TxtData;
     private javax.swing.JTextField TxtNome;
     private javax.swing.JTextField TxtPais;
     private javax.swing.JTextField TxtPosicao;
-//    private org.jdatepicker.impl.DateComponentFormatter dateComponentFormatter1;
-//    private org.jdatepicker.util.JDatePickerUtil jDatePickerUtil1;
-//    private org.jdatepicker.util.JDatePickerUtil jDatePickerUtil2;
+    private org.jdatepicker.impl.DateComponentFormatter dateComponentFormatter1;
+    private org.jdatepicker.util.JDatePickerUtil jDatePickerUtil1;
+    private org.jdatepicker.util.JDatePickerUtil jDatePickerUtil2;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

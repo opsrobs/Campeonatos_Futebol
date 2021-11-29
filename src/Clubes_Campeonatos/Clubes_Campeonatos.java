@@ -1,5 +1,6 @@
 package Clubes_Campeonatos;
 public class Clubes_Campeonatos {
+    private int codigo;
     private int codClube;
     private int codCampeonato;
     private int vitorias;
@@ -10,7 +11,8 @@ public class Clubes_Campeonatos {
     private int cartoesAmarelo;
     private int cartoesVermelho;
 
-    public Clubes_Campeonatos(int codClube, int codCampeonato, int vitorias, int derrotas, int empates, int golsPro, int golsContra, int cartoesAmarelo, int cartoesVermelho) {
+    public Clubes_Campeonatos(int codigo, int codClube, int codCampeonato, int vitorias, int derrotas, int empates, int golsPro, int golsContra, int cartoesAmarelo, int cartoesVermelho) {
+        this.codigo = codigo;
         this.codClube = codClube;
         this.codCampeonato = codCampeonato;
         this.vitorias = vitorias;
@@ -22,7 +24,8 @@ public class Clubes_Campeonatos {
         this.cartoesVermelho = cartoesVermelho;
     }
 
-    public Clubes_Campeonatos(int codCampeonato, int vitorias, int derrotas, int empates, int golsPro, int golsContra, int cartoesAmarelo, int cartoesVermelho) {
+    public Clubes_Campeonatos(int codClube,int codCampeonato, int vitorias, int derrotas, int empates, int golsPro, int golsContra, int cartoesAmarelo, int cartoesVermelho) {
+        this.codClube = codClube;
         this.codCampeonato = codCampeonato;
         this.vitorias = vitorias;
         this.derrotas = derrotas;
@@ -31,6 +34,14 @@ public class Clubes_Campeonatos {
         this.golsContra = golsContra;
         this.cartoesAmarelo = cartoesAmarelo;
         this.cartoesVermelho = cartoesVermelho;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public Clubes_Campeonatos() {

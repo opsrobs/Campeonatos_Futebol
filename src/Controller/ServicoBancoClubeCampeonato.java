@@ -16,9 +16,9 @@ private final Conexao conexao = new Conexao();
      Connection con = conexao.getConexao();
     //inserir o nome (o indice começa no 1)
     try (PreparedStatement pst = con.prepareStatement
-                ("insert into Clubes_Campeonato (Clubes_Codigo, Campeonatos_codigo, Vitorias, Derrotas, Emaptes,Gols_Pro,"
+                ("insert into Clubes_Campeonato (codigo, Clube_Codigo, Campeonato_Codigo, Vitorias, Derrotas, Emaptes,Gols_Pro,"
                         + " Gols_Contra, Cartoes_Amarelo,Cartoes_Vermelho) " +
-                 "values (?,?,?,?,?,?,?,?,?) ")) {
+                 "values (0,?,?,?,?,?,?,?,?,?) ")) {
         pst.setInt(1, clubes_Campeonatos.getCodClube());
         pst.setInt(2, clubes_Campeonatos.getCodCampeonato());
         pst.setInt(3, clubes_Campeonatos.getVitorias());
@@ -46,16 +46,17 @@ private final Conexao conexao = new Conexao();
 
 public void update(Clubes_Campeonatos clubes_Campeonatos)throws SQLException{
     try (PreparedStatement pst = conexao.getConexao().prepareStatement
-                ("update Clubes_Campeonato set Vitorias = ?, Derrotas = ?, Emaptes =?, Gols_Pro, Gols_Contra = ?, Cartoes_Amarelo =?, Cartoes_Vermelho = ? where (Clubes_Codigo = ?,Campeonatos_codigo = ?)")) {
-        pst.setInt(1, clubes_Campeonatos.getVitorias());
-        pst.setInt(2, clubes_Campeonatos.getDerrotas());
-        pst.setInt(3, clubes_Campeonatos.getEmpates());
-        pst.setInt(4, clubes_Campeonatos.getGolsPro());
-        pst.setInt(5, clubes_Campeonatos.getGolsContra());
-        pst.setInt(6, clubes_Campeonatos.getCartoesAmarelo());
-        pst.setInt(7, clubes_Campeonatos.getCartoesVermelho());
-        pst.setInt(8, clubes_Campeonatos.getCodClube());
-        pst.setInt(9, clubes_Campeonatos.getCodCampeonato());
+                ("update Clubes_Campeonato set Clubes_Codigo = ?,Campeonatos_codigo = ?, Vitorias = ?, Derrotas = ?, Emaptes =?, Gols_Pro, Gols_Contra = ?, Cartoes_Amarelo =?, Cartoes_Vermelho = ?  where (codigo = ?)")) {
+        pst.setInt(1, clubes_Campeonatos.getCodClube());
+        pst.setInt(2, clubes_Campeonatos.getCodCampeonato());
+        pst.setInt(3, clubes_Campeonatos.getVitorias());
+        pst.setInt(4, clubes_Campeonatos.getDerrotas());
+        pst.setInt(5, clubes_Campeonatos.getEmpates());
+        pst.setInt(6, clubes_Campeonatos.getGolsPro());
+        pst.setInt(7, clubes_Campeonatos.getGolsContra());
+        pst.setInt(8, clubes_Campeonatos.getCartoesAmarelo());
+        pst.setInt(9, clubes_Campeonatos.getCartoesVermelho());
+        pst.setInt(10, clubes_Campeonatos.getCartoesVermelho());
         pst.executeUpdate();
     }
      conexao.close();

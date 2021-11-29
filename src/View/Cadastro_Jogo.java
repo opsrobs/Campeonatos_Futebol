@@ -2,12 +2,14 @@ package View;
 
 import Clubes_Campeonatos.Campeonato;
 import Clubes_Campeonatos.Clube;
+import Clubes_Campeonatos.Clubes_Campeonatos;
 import Clubes_Campeonatos.Jogador;
 import Clubes_Campeonatos.Jogadores_Jogo;
 import Clubes_Campeonatos.Jogo;
 import Clubes_Campeonatos.Utils;
 import Controller.ServicoBancoCampeonato;
 import Controller.ServicoBancoClube;
+import Controller.ServicoBancoClubeCampeonato;
 import Controller.ServicoBancoJogador;
 import Controller.ServicoBancoJogadoresJogo;
 import Controller.ServicoBancoJogo;
@@ -22,7 +24,9 @@ import javax.swing.*;
 public class Cadastro_Jogo extends javax.swing.JFrame {
 
     Utils utils = new Utils();
+    Cadastro_Clube cadastro_Clube;
     ServicoBancoCampeonato sbcam = new ServicoBancoCampeonato();
+    ServicoBancoClubeCampeonato sbcc = new ServicoBancoClubeCampeonato();
     ServicoBancoClube sbc = new ServicoBancoClube();
     ServicoBancoJogo sbj = new ServicoBancoJogo();
     ServicoBancoJogador sbjogador = new ServicoBancoJogador();
@@ -32,6 +36,8 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
     Clube clubee;
     Jogo jogo;
     Jogador jogador;
+    Clubes_Campeonatos clubes_Campeonatos;
+    Jogadores_Jogo jogadores, jogador1, jogador2, jogador3, jogador4, jogador5, jogador6, jogador7, jogador8, jogador9;
     int coda, codb, codc, codd, code, codf, codg, codh, codi, codj = 0;
 
     public Cadastro_Jogo() {
@@ -78,7 +84,7 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         JbtnSalvar = new javax.swing.JButton();
         JBtnSair = new javax.swing.JButton();
         JBtnLimpar = new javax.swing.JButton();
-        TxtNovoClube = new javax.swing.JButton();
+        TxtNovoClubeMandante = new javax.swing.JButton();
         TxtNovoClube1 = new javax.swing.JButton();
         CheckCartaoVermelhorJogador1 = new javax.swing.JCheckBox();
         CheckCartaoVermelhorJogador2 = new javax.swing.JCheckBox();
@@ -263,9 +269,19 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
             }
         });
 
-        TxtNovoClube.setText("+");
+        TxtNovoClubeMandante.setText("+");
+        TxtNovoClubeMandante.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtNovoClubeMandanteMouseClicked(evt);
+            }
+        });
 
         TxtNovoClube1.setText("+");
+        TxtNovoClube1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtNovoClube1MouseClicked(evt);
+            }
+        });
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icon_Amarelo.png"))); // NOI18N
         jLabel3.setText("jLabel3");
@@ -408,7 +424,7 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
                         .addGap(80, 80, 80)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(TxtNovoClube)
+                                .addComponent(TxtNovoClubeMandante)
                                 .addGap(8, 8, 8)
                                 .addComponent(ComboClube, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
@@ -544,7 +560,7 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
                     .addComponent(LbVisitante))
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TxtNovoClube)
+                    .addComponent(TxtNovoClubeMandante)
                     .addComponent(ComboClube, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TxtNovoClube1)
                     .addComponent(ComboClube1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -781,12 +797,43 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         int cartao = 0;
         if (cart.isEnabled()) {
             cartao = 1;
-            JOptionPane.showMessageDialog(null, cartao);
-
         }
-        JOptionPane.showMessageDialog(null, cartao);
 
         return cartao;
+    }
+    
+    
+
+    public void cadastrarClubeCampeonato(int codClube, int codCampeonato) {
+        int vitorias= utils.vitoriasMandante(LbPlacarMandante, LbPlacarVisitante);
+        int empates = utils.empate(LbPlacarMandante, LbPlacarVisitante);
+        int derrotas= utils.derrota(vitorias,LbPlacarMandante, LbPlacarVisitante);
+        int cartoesAmarelo = utils.amarelos(TxtCartaoJogador, TxtCartaoJogador1, TxtCartaoJogador2, TxtCartaoJogador3, TxtCartaoJogador4);
+        int cartoesVermelho = utils.vermelhos(CheckCartaoVermelhorJogador, CheckCartaoVermelhorJogador1, CheckCartaoVermelhorJogador2, CheckCartaoVermelhorJogador3, CheckCartaoVermelhorJogador4);
+        if (codClube > 0 && codCampeonato > 0) {
+            try {
+                clubes_Campeonatos = new Clubes_Campeonatos(codClube, codCampeonato, vitorias, derrotas, empates, Integer.parseInt(LbPlacarMandante.getText()), Integer.parseInt(LbPlacarVisitante.getText()), cartoesAmarelo, cartoesVermelho);
+                sbcc.insert(clubes_Campeonatos);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    
+    public void cadastrarClubeCampeonatoVisitante(int codClube, int codCampeonato) {
+        int vitorias= utils.vitoriasMandante( LbPlacarVisitante,LbPlacarMandante);
+        int empates = utils.empate(LbPlacarMandante, LbPlacarVisitante);
+        int derrotas= utils.derrota(vitorias,LbPlacarVisitante,LbPlacarMandante);
+        int cartoesAmarelo = utils.amarelos(TxtCartaoFora, TxtCartaoFora1, TxtCartaoFora2, TxtCartaoFora3, TxtCartaoFora4);
+        int cartoesVermelho = utils.vermelhos(CheckCartaoVermelhorJogadorFora, CheckCartaoVermelhorJogadorFora1, CheckCartaoVermelhorJogadorFora2, CheckCartaoVermelhorJogadorFora3, CheckCartaoVermelhorJogadorFora4);
+        if (codClube > 0 && codCampeonato > 0) {
+            try {
+                clubes_Campeonatos = new Clubes_Campeonatos(codClube, codCampeonato, vitorias, derrotas, empates, Integer.parseInt(LbPlacarMandante.getText()), Integer.parseInt(LbPlacarVisitante.getText()), cartoesAmarelo, cartoesVermelho);
+                sbcc.insert(clubes_Campeonatos);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void JbtnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JbtnSalvarMouseClicked
@@ -827,21 +874,42 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
                 assert clubee != null;
                 clubee.setNome(ComboClube1.getSelectedItem().toString());
                 sbc.update(clubee);
-                
-                int codJogo=0;
+
+                int codJogo = 0;
                 if (ComboCampeonato.getSelectedIndex() >= 0) {
                     Campeonato campeonato = (Campeonato) ComboCampeonato.getSelectedItem();
                     assert campeonato != null;
                     campeonato.setNome(ComboCampeonato.getSelectedItem().toString());
                     sbcam.update(campeonato);
-                    jogo = new Jogo(campeonato.getCodigo() ,utils.strToDate(TxtDiaJogo.getText()), utils.strToTime(TxtHoraJogo.getText()), clubeTemp, Integer.parseInt(TxtGolJogador.getText()), clubee.getCodigo(), Integer.parseInt(TxtGolFora.getText()), TxtLocalJogo.getText());
+                    jogo = new Jogo(campeonato.getCodigo(), utils.strToDate(TxtDiaJogo.getText()), utils.strToTime(TxtHoraJogo.getText()), clubeTemp, Integer.parseInt(LbPlacarMandante.getText()), clubee.getCodigo(), Integer.parseInt(LbPlacarVisitante.getText()), TxtLocalJogo.getText());
                     sbj.insert(jogo);
-                    codJogo=jogo.getCodigo();
+                    codJogo = jogo.getCodigo();
 
                 }
+                this.cadastrarClubeCampeonato(clubeTemp, codJogo);
+                this.cadastrarClubeCampeonatoVisitante(clubee.getCodigo(),codJogo);
 
                 Jogadores_Jogo jogadores = new Jogadores_Jogo(Integer.parseInt(TxtGolJogador.getText()), Integer.parseInt(TxtCartaoJogador.getText()), cartaoVermelho(CheckCartaoVermelhorJogador), coda, codJogo);
                 sbjj.insert(jogadores);
+                Jogadores_Jogo jogador1 = new Jogadores_Jogo(Integer.parseInt(TxtGolJogador1.getText()), Integer.parseInt(TxtCartaoJogador1.getText()), cartaoVermelho(CheckCartaoVermelhorJogador1), codb, codJogo);
+                sbjj.insert(jogador1);
+                Jogadores_Jogo jogador2 = new Jogadores_Jogo(Integer.parseInt(TxtGolJogador2.getText()), Integer.parseInt(TxtCartaoJogador2.getText()), cartaoVermelho(CheckCartaoVermelhorJogador2), codc, codJogo);
+                sbjj.insert(jogador2);
+                Jogadores_Jogo jogador3 = new Jogadores_Jogo(Integer.parseInt(TxtGolJogador3.getText()), Integer.parseInt(TxtCartaoJogador3.getText()), cartaoVermelho(CheckCartaoVermelhorJogador3), codd, codJogo);
+                sbjj.insert(jogador3);
+                Jogadores_Jogo jogador4 = new Jogadores_Jogo(Integer.parseInt(TxtGolJogador4.getText()), Integer.parseInt(TxtCartaoJogador4.getText()), cartaoVermelho(CheckCartaoVermelhorJogador4), code, codJogo);
+                sbjj.insert(jogador4);
+                Jogadores_Jogo jogador5 = new Jogadores_Jogo(Integer.parseInt(TxtGolFora.getText()), Integer.parseInt(TxtCartaoFora.getText()), cartaoVermelho(CheckCartaoVermelhorJogadorFora), codf, codJogo);
+                sbjj.insert(jogador5);
+                Jogadores_Jogo jogador6 = new Jogadores_Jogo(Integer.parseInt(TxtGolFora1.getText()), Integer.parseInt(TxtCartaoFora1.getText()), cartaoVermelho(CheckCartaoVermelhorJogadorFora1), codg, codJogo);
+                sbjj.insert(jogador6);
+                Jogadores_Jogo jogador7 = new Jogadores_Jogo(Integer.parseInt(TxtGolFora2.getText()), Integer.parseInt(TxtCartaoFora2.getText()), cartaoVermelho(CheckCartaoVermelhorJogadorFora2), codh, codJogo);
+                sbjj.insert(jogador7);
+                Jogadores_Jogo jogador8 = new Jogadores_Jogo(Integer.parseInt(TxtGolFora3.getText()), Integer.parseInt(TxtCartaoFora3.getText()), cartaoVermelho(CheckCartaoVermelhorJogadorFora3), codi, codJogo);
+                sbjj.insert(jogador8);
+                Jogadores_Jogo jogador9 = new Jogadores_Jogo(Integer.parseInt(TxtGolFora4.getText()), Integer.parseInt(TxtCartaoFora4.getText()), cartaoVermelho(CheckCartaoVermelhorJogadorFora4), codj, codJogo);
+                sbjj.insert(jogador9);
+
             }
 
             if (ComboCampeonato.getSelectedIndex() >= 0) {
@@ -917,10 +985,9 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
             utils.atualizarCampeonato(ComboCampeonato, sbcam);
             utils.atualizarClube(ComboClube, sbc);
             utils.atualizarClube(ComboClube1, sbc);
-//            utils.atualizarJogadoor(JComboJogadorFora, sbjogador, cod);
+            utils.setGols(TxtGolFora, TxtGolFora1, TxtGolFora2, TxtGolFora3, TxtGolFora4, TxtGolJogador, TxtGolJogador1, TxtGolJogador2, TxtGolJogador3, TxtGolJogador4);
+            utils.setCartoes(TxtCartaoFora1, TxtCartaoFora2, TxtCartaoFora3, TxtCartaoFora4, TxtCartaoFora, TxtCartaoJogador, TxtCartaoJogador1, TxtCartaoJogador2, TxtCartaoJogador3, TxtCartaoJogador4);
             utils.atualizarJogador(JComboJogadorCasa, sbjogador);
-//            calcularPlacarFinal();
-//            clearSc();
 
         } catch (SQLException ex) {
             Logger.getLogger(Cadastro_Campeonato.class.getName()).log(Level.SEVERE, null, ex);
@@ -944,21 +1011,21 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
 
         if (TxtJogadorFora.getText().isBlank()) {
             TxtJogadorFora.setText(jogador.getNome());
-            coda = jogador.getCodigo();
+            codf = jogador.getCodigo();
 
         } else if (TxtJogadorFora1.getText().isBlank()) {
             TxtJogadorFora1.setText(jogador.getNome());
-            codb = jogador.getCodigo();
+            codg = jogador.getCodigo();
 
         } else if (TxtJogadorFora2.getText().isBlank()) {
             TxtJogadorFora2.setText(jogador.getNome());
-            codc = jogador.getCodigo();
+            codh = jogador.getCodigo();
         } else if (TxtJogadorFora3.getText().isBlank()) {
             TxtJogadorFora3.setText(jogador.getNome());
-            codd = jogador.getCodigo();
+            codi = jogador.getCodigo();
         } else {
             TxtJogadorFora4.setText(jogador.getNome());
-            code = jogador.getCodigo();
+            codj = jogador.getCodigo();
         }
         JComboJogadorCasa.setSelectedIndex(-1);
     }//GEN-LAST:event_JComboJogadorForaMouseClicked
@@ -1006,6 +1073,20 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
     private void CheckCartaoVermelhorJogadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckCartaoVermelhorJogadorActionPerformed
         cartaoVermelho(CheckCartaoVermelhorJogador);
     }//GEN-LAST:event_CheckCartaoVermelhorJogadorActionPerformed
+
+    public void novoClube() {
+        if (cadastro_Clube == null) {
+            cadastro_Clube = new Cadastro_Clube();
+        }
+        cadastro_Clube.setVisible(true);
+    }
+    private void TxtNovoClubeMandanteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtNovoClubeMandanteMouseClicked
+        this.novoClube();
+    }//GEN-LAST:event_TxtNovoClubeMandanteMouseClicked
+
+    private void TxtNovoClube1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtNovoClube1MouseClicked
+        this.novoClube();
+    }//GEN-LAST:event_TxtNovoClube1MouseClicked
 
     private void contarCartao(JTextField cardAmar, JCheckBox cardVer) {
         if (!cardAmar.getText().isBlank() && Integer.parseInt(cardAmar.getText()) >= 2) {
@@ -1111,8 +1192,8 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
     private javax.swing.JTextField TxtJogadorFora3;
     private javax.swing.JTextField TxtJogadorFora4;
     private javax.swing.JTextField TxtLocalJogo;
-    private javax.swing.JButton TxtNovoClube;
     private javax.swing.JButton TxtNovoClube1;
+    private javax.swing.JButton TxtNovoClubeMandante;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
