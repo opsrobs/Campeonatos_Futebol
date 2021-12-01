@@ -41,6 +41,7 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
         TxtPosicao.setText("");
         TxtPais.setText("");
         ComboClube.requestFocus();
+        JBtnLimpar.setEnabled(false);
 
 //        JBtnLimpar.setEnabled(false);
 //        if (ComboClube.getSelectedIndex() != 0) {
@@ -68,9 +69,9 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
         LbPais = new javax.swing.JLabel();
         TxtPais = new javax.swing.JTextField();
         JbtnSalvar = new javax.swing.JButton();
-        JBtnSair = new javax.swing.JButton();
         JBtnLimpar = new javax.swing.JButton();
         TxtData = new javax.swing.JFormattedTextField();
+        JbExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -134,13 +135,6 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
             }
         });
 
-        JBtnSair.setText("SAIR");
-        JBtnSair.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JBtnSairMouseClicked(evt);
-            }
-        });
-
         JBtnLimpar.setText("LIMPAR");
         JBtnLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,6 +148,13 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        JbExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/lixo.png"))); // NOI18N
+        JbExcluir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JbExcluirMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -164,7 +165,7 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(JbtnSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(JBtnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(JBtnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -221,11 +222,12 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LbPais, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TxtPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(65, 65, 65)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JBtnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JbtnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JBtnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(JBtnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JbtnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(66, Short.MAX_VALUE))
         );
 
@@ -241,6 +243,7 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
             return;
         }
         Clube clube = (Clube) ComboClube.getSelectedItem();
+        JBtnLimpar.setEnabled(true);
         
         
     }//GEN-LAST:event_ComboClubeItemStateChanged
@@ -305,10 +308,6 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
         this.clearSc();
     }//GEN-LAST:event_JbtnSalvarMouseClicked
 
-    private void JBtnSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtnSairMouseClicked
-        dispose();
-    }//GEN-LAST:event_JBtnSairMouseClicked
-
     private void JBtnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnLimparActionPerformed
         this.clearSc();
     }//GEN-LAST:event_JBtnLimparActionPerformed
@@ -316,6 +315,25 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
     private void JbtnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtnSalvarActionPerformed
         
     }//GEN-LAST:event_JbtnSalvarActionPerformed
+
+    private void JbExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JbExcluirMouseClicked
+        if (ComboClube.getItemCount() <= 0) {
+            return;
+        }
+        if (ComboClube.getSelectedIndex() < 0) {
+            return;
+        }
+        Clube clube = (Clube) ComboClube.getSelectedItem();
+        assert clube != null;
+        JBtnLimpar.setEnabled(true);
+        try {
+            sbclub.delete(clube);
+            utils.atualizarClube(ComboClube, sbclub);
+            clearSc();
+        } catch (SQLException ex) {
+            Logger.getLogger(Cadastro_Clube.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_JbExcluirMouseClicked
 
     /**
      * @param args the command line arguments
@@ -356,7 +374,7 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Clube> ComboClube;
     private javax.swing.JButton JBtnLimpar;
-    private javax.swing.JButton JBtnSair;
+    private javax.swing.JButton JbExcluir;
     private javax.swing.JButton JbtnSalvar;
     private javax.swing.JLabel LbClube;
     private javax.swing.JLabel LbData;

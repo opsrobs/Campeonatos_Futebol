@@ -49,7 +49,7 @@ public void update(Clube clube)throws SQLException{
  }
 
  public void delete(Clube clube)throws SQLException{
-    try (PreparedStatement pst = conexao.getConexao().prepareStatement("delete from campeonatos where (codigo = ?)")) {
+    try (PreparedStatement pst = conexao.getConexao().prepareStatement("delete from clube where (codigo = ?)")) {
         pst.setInt(1, clube.getCodigo());
         pst.executeUpdate();
     }

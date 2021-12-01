@@ -4,13 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/PremierSoft/IdeaProjects/Campeonatos_Futebol/src/Controller/ServicoBancoClube.java</file>
-            <file>file:/C:/Users/PremierSoft/IdeaProjects/Campeonatos_Futebol/src/Clubes_Campeonatos/Jogador.java</file>
             <file>file:/C:/Users/PremierSoft/IdeaProjects/Campeonatos_Futebol/src/Controller/ServicoBancoClubeCampeonato.java</file>
-            <file>file:/C:/Users/PremierSoft/IdeaProjects/Campeonatos_Futebol/src/View/Cadastro_Jogador.java</file>
             <file>file:/C:/Users/PremierSoft/IdeaProjects/Campeonatos_Futebol/src/Clubes_Campeonatos/Utils.java</file>
-            <file>file:/C:/Users/PremierSoft/IdeaProjects/Campeonatos_Futebol/src/View/Cadastro_Clube.java</file>
+            <file>file:/C:/Users/PremierSoft/IdeaProjects/Campeonatos_Futebol/src/View/Tabela_Campeonatos.java</file>
+            <file>file:/C:/Users/PremierSoft/IdeaProjects/Campeonatos_Futebol/src/Controller/SimpleTableModel.java</file>
             <file>file:/C:/Users/PremierSoft/IdeaProjects/Campeonatos_Futebol/src/Controller/ServicoBancoJogador.java</file>
-            <file>file:/C:/Users/PremierSoft/IdeaProjects/Campeonatos_Futebol/src/Controller/ServicoBancoJogadoresJogo.java</file>
             <file>file:/C:/Users/PremierSoft/IdeaProjects/Campeonatos_Futebol/src/View/Cadastro_Jogo.java</file>
         </group>
     </open-files>

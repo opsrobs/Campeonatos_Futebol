@@ -46,7 +46,8 @@ public class ServicoBancoClubeCampeonato {
     }
 
     public void update(Clubes_Campeonatos clubes_Campeonatos) throws SQLException {
-        try (PreparedStatement pst = conexao.getConexao().prepareStatement("update Clubes_Campeonato set Clubes_Codigo = ?,Campeonatos_codigo = ?, Vitorias = ?, Derrotas = ?, Emaptes =?, Gols_Pro, Gols_Contra = ?, Cartoes_Amarelo =?, Cartoes_Vermelho = ?  where (codigo = ?)")) {
+        try (PreparedStatement pst = conexao.getConexao().prepareStatement("update Clubes_Campeonato set Clubes_Codigo = ?,Campeonatos_codigo = ?, Vitorias = ?, Derrotas = ?,"
+                + " Emaptes =?, Gols_Pro, Gols_Contra = ?, Cartoes_Amarelo =?, Cartoes_Vermelho = ?  where (codigo = ?)")) {
             pst.setInt(1, clubes_Campeonatos.getCodClube());
             pst.setInt(2, clubes_Campeonatos.getCodCampeonato());
             pst.setInt(3, clubes_Campeonatos.getVitorias());
@@ -95,7 +96,7 @@ public class ServicoBancoClubeCampeonato {
 
             while (rs.next()) {
                 lista.add(new Clubes_Campeonatos(rs.getInt("Clubes_Codigo"),
-                        rs.getInt("Campeonatos_codigo"),
+                        rs.getInt("Campeonato_codigo"),
                         rs.getInt("Vitorias"),
                         rs.getInt("Derrotas"),
                         rs.getInt("Emaptes"),
@@ -107,6 +108,24 @@ public class ServicoBancoClubeCampeonato {
         }
 
         return lista;
+    }
+
+    public Clubes_Campeonatos getDadosByClube(int time) throws SQLException {
+        try (Statement st = conexao.getConexao().createStatement();
+                ResultSet rs = st.executeQuery("select * from Clubes_Campeonato where (clubes_campeonato.clube_codigo = " + time + ")")) {
+
+            rs.next();
+            return new Clubes_Campeonatos(rs.getInt("Vitorias"),
+                    rs.getInt("Derrotas"),
+                    rs.getInt("Emaptes"),
+                    rs.getInt("Gols_Pro"),
+                    rs.getInt("Gols_Contra"),
+                    rs.getInt("Cartoes_Amarelo"),
+                    rs.getInt("Cartoes_Vermelho"),
+                    rs.getInt("codigo"),
+                    rs.getInt("Clube_Codigo"),
+                    rs.getInt("Campeonato_Codigo"));
+        }
     }
 
     public ArrayList getTabelaByQuery() throws SQLException {

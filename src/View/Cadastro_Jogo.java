@@ -39,6 +39,7 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
     Clubes_Campeonatos clubes_Campeonatos;
     Jogadores_Jogo jogadores, jogador1, jogador2, jogador3, jogador4, jogador5, jogador6, jogador7, jogador8, jogador9;
     int coda, codb, codc, codd, code, codf, codg, codh, codi, codj = 0;
+    int clubeTemp = 0;
 
     public Cadastro_Jogo() {
         initComponents();
@@ -105,7 +106,6 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         TxtGolFora2 = new javax.swing.JTextField();
         TxtGolFora3 = new javax.swing.JTextField();
         TxtGolFora4 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
         TxtCartaoFora1 = new javax.swing.JTextField();
         TxtCartaoFora2 = new javax.swing.JTextField();
         TxtCartaoFora3 = new javax.swing.JTextField();
@@ -130,6 +130,7 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         LbCat = new javax.swing.JLabel();
         ComboCampeonato = new javax.swing.JComboBox<>();
         JrFimPartida = new javax.swing.JRadioButton();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -175,7 +176,7 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         LbPlacarMandante.setText("0");
         LbPlacarMandante.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        jLabel2.setText("GOLS");
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/goal-full-icon.png"))); // NOI18N
 
         LbPlacarVisitante.setEditable(false);
         LbPlacarVisitante.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -303,8 +304,6 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icon_Vermelho (2).png"))); // NOI18N
 
-        jLabel7.setText("GOLS");
-
         TxtCartaoFora1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 TxtCartaoFora1FocusLost(evt);
@@ -376,6 +375,8 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
                 JrFimPartidaMouseClicked(evt);
             }
         });
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/goal-full-icon.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -477,10 +478,10 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
                             .addComponent(JComboJogadorFora, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(layout.createSequentialGroup()
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addComponent(LbJogadores1)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel7))
+                                        .addComponent(jLabel10))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addComponent(TxtJogadorFora1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -619,12 +620,13 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
                                     .addComponent(TxtCartaoJogador4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(CheckCartaoVermelhorJogador4)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LbJogadores1)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addGap(4, 4, 4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(LbJogadores1)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel6))
+                            .addComponent(jLabel10))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -698,6 +700,42 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+       private void jogadoresCasa(){
+       TxtJogador.setText("");
+       TxtJogador1.setText("");
+       TxtJogador2.setText("");
+       TxtJogador3.setText("");
+       TxtJogador4.setText("");
+   }
+   
+   private void jogadoresFora(){
+       TxtJogadorFora.setText("");
+       TxtJogadorFora1.setText("");
+       TxtJogadorFora2.setText("");
+       TxtJogadorFora3.setText("");
+       TxtJogadorFora4.setText("");
+   }
+    
+    public void clearSc(){
+        if (ComboCampeonato.isDisplayable()) {
+            ComboCampeonato.setSelectedIndex(-1);
+        }
+        TxtDiaJogo.setText("");
+        TxtHoraJogo.setText("");
+        utils.setGols(TxtGolFora, TxtGolFora1, TxtGolFora2, TxtGolFora3, TxtGolFora4, TxtGolJogador, TxtGolJogador1, TxtGolJogador2, TxtGolJogador3, TxtGolJogador4);
+        utils.setCartoes(TxtCartaoFora1, TxtCartaoFora2, TxtCartaoFora3, TxtCartaoFora4, TxtCartaoFora, TxtCartaoJogador, TxtCartaoJogador1, TxtCartaoJogador2, TxtCartaoJogador3, TxtCartaoJogador4);
+        if (ComboClube.isDisplayable()) {
+            ComboClube.setSelectedIndex(-1);
+        }
+        this.jogadoresCasa();
+        if (ComboClube1.isDisplayable()) {
+            ComboClube1.setSelectedIndex(-1);
+        }
+        this.jogadoresFora();
+        TxtLocalJogo.setText("");
+        JBtnLimpar.setEnabled(false);
+        
+    }
 
     private void JComboJogadorCasaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JComboJogadorCasaMouseClicked
 
@@ -763,9 +801,12 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         assert clube != null;
         try {
             utils.atualizarJogadoor(JComboJogadorFora, sbjogador, clube.getCodigo());
+            this.atualizarClubeTabela(clube.getCodigo());
         } catch (SQLException ex) {
             Logger.getLogger(Cadastro_Jogo.class.getName()).log(Level.SEVERE, null, ex);
         }
+//        atualizarClubeTabela();
+
     }//GEN-LAST:event_ComboClube1ItemStateChanged
 
     public void validarInput() {
@@ -801,13 +842,11 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
 
         return cartao;
     }
-    
-    
 
     public void cadastrarClubeCampeonato(int codClube, int codCampeonato) {
-        int vitorias= utils.vitoriasMandante(LbPlacarMandante, LbPlacarVisitante);
+        int vitorias = utils.vitoriasMandante(LbPlacarMandante, LbPlacarVisitante);
         int empates = utils.empate(LbPlacarMandante, LbPlacarVisitante);
-        int derrotas= utils.derrota(vitorias,LbPlacarMandante, LbPlacarVisitante);
+        int derrotas = utils.derrota(vitorias, LbPlacarMandante, LbPlacarVisitante);
         int cartoesAmarelo = utils.amarelos(TxtCartaoJogador, TxtCartaoJogador1, TxtCartaoJogador2, TxtCartaoJogador3, TxtCartaoJogador4);
         int cartoesVermelho = utils.vermelhos(CheckCartaoVermelhorJogador, CheckCartaoVermelhorJogador1, CheckCartaoVermelhorJogador2, CheckCartaoVermelhorJogador3, CheckCartaoVermelhorJogador4);
         if (codClube > 0 && codCampeonato > 0) {
@@ -819,16 +858,33 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
             }
         }
     }
-    
+
+    public void atualizarClubeTabela( int cod) {
+        if (ComboClube1.getItemCount() <= 0) {
+            return;
+        }
+        if (ComboClube1.getSelectedIndex() < 0) {
+            return;
+        }
+        Clube clube = (Clube) ComboClube1.getSelectedItem();
+        try {
+            sbcc.getDadosByClube(cod);
+        } catch (SQLException ex) {
+            Logger.getLogger(Cadastro_Jogo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+//        int vitorias = clubes_Campeonatos.getVitorias();
+//        JOptionPane.showMessageDialog(null, vitorias);
+    }
+
     public void cadastrarClubeCampeonatoVisitante(int codClube, int codCampeonato) {
-        int vitorias= utils.vitoriasMandante( LbPlacarVisitante,LbPlacarMandante);
+        int vitorias = utils.vitoriasMandante(LbPlacarVisitante, LbPlacarMandante);
         int empates = utils.empate(LbPlacarMandante, LbPlacarVisitante);
-        int derrotas= utils.derrota(vitorias,LbPlacarVisitante,LbPlacarMandante);
+        int derrotas = utils.derrota(vitorias, LbPlacarVisitante, LbPlacarMandante);
         int cartoesAmarelo = utils.amarelos(TxtCartaoFora, TxtCartaoFora1, TxtCartaoFora2, TxtCartaoFora3, TxtCartaoFora4);
         int cartoesVermelho = utils.vermelhos(CheckCartaoVermelhorJogadorFora, CheckCartaoVermelhorJogadorFora1, CheckCartaoVermelhorJogadorFora2, CheckCartaoVermelhorJogadorFora3, CheckCartaoVermelhorJogadorFora4);
         if (codClube > 0 && codCampeonato > 0) {
             try {
-                clubes_Campeonatos = new Clubes_Campeonatos(codClube, codCampeonato, vitorias, derrotas, empates, Integer.parseInt(LbPlacarMandante.getText()), Integer.parseInt(LbPlacarVisitante.getText()), cartoesAmarelo, cartoesVermelho);
+                clubes_Campeonatos = new Clubes_Campeonatos(codClube, codCampeonato, vitorias, derrotas, empates, Integer.parseInt(LbPlacarVisitante.getText()), Integer.parseInt(LbPlacarMandante.getText()), cartoesAmarelo, cartoesVermelho);
                 sbcc.insert(clubes_Campeonatos);
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -861,7 +917,6 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
             return;
         }
         try {
-            int clubeTemp = 0;
             if (ComboClube.getSelectedIndex() >= 0 && ComboClube1.getSelectedIndex() >= 0) {
 
                 Clube clube = (Clube) ComboClube.getSelectedItem();
@@ -887,7 +942,7 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
 
                 }
                 this.cadastrarClubeCampeonato(clubeTemp, codJogo);
-                this.cadastrarClubeCampeonatoVisitante(clubee.getCodigo(),codJogo);
+                this.cadastrarClubeCampeonatoVisitante(clubee.getCodigo(), codJogo);
 
                 Jogadores_Jogo jogadores = new Jogadores_Jogo(Integer.parseInt(TxtGolJogador.getText()), Integer.parseInt(TxtCartaoJogador.getText()), cartaoVermelho(CheckCartaoVermelhorJogador), coda, codJogo);
                 sbjj.insert(jogadores);
@@ -925,7 +980,7 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ParseException ex) {
-            Logger.getLogger(Cadastro_Jogo_Bug.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Cadastro_Jogo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_JbtnSalvarMouseClicked
 
@@ -935,7 +990,7 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
     }//GEN-LAST:event_JBtnSairMouseClicked
 
     private void JBtnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnLimparActionPerformed
-        // TODO add your handling code here:
+        this.clearSc();
     }//GEN-LAST:event_JBtnLimparActionPerformed
 
     private void ComboCampeonatoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboCampeonatoItemStateChanged
@@ -949,6 +1004,7 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         TxtHoraJogo.setText(utils.converterHora());
         Campeonato categoria = (Campeonato) ComboCampeonato.getSelectedItem();
         assert categoria != null;
+        JBtnLimpar.setEnabled(true);
 
     }//GEN-LAST:event_ComboCampeonatoItemStateChanged
 
@@ -988,6 +1044,7 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
             utils.setGols(TxtGolFora, TxtGolFora1, TxtGolFora2, TxtGolFora3, TxtGolFora4, TxtGolJogador, TxtGolJogador1, TxtGolJogador2, TxtGolJogador3, TxtGolJogador4);
             utils.setCartoes(TxtCartaoFora1, TxtCartaoFora2, TxtCartaoFora3, TxtCartaoFora4, TxtCartaoFora, TxtCartaoJogador, TxtCartaoJogador1, TxtCartaoJogador2, TxtCartaoJogador3, TxtCartaoJogador4);
             utils.atualizarJogador(JComboJogadorCasa, sbjogador);
+            this.clearSc();
 
         } catch (SQLException ex) {
             Logger.getLogger(Cadastro_Campeonato.class.getName()).log(Level.SEVERE, null, ex);
@@ -1195,12 +1252,12 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
     private javax.swing.JButton TxtNovoClube1;
     private javax.swing.JButton TxtNovoClubeMandante;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jTextField2;

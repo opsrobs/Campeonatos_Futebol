@@ -204,7 +204,7 @@ public class Cadastro_Campeonato extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBtnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnLimparActionPerformed
-        // TODO add your handling code here:
+        this.clearSc();
     }//GEN-LAST:event_JBtnLimparActionPerformed
     public void clearSc() {
         if (ComboCategoria.isDisplayable()) {
@@ -216,9 +216,6 @@ public class Cadastro_Campeonato extends javax.swing.JFrame {
         TxtCategoria.setText("");
         TxtNome.requestFocus();
         JBtnLimpar.setEnabled(false);
-        if (ComboCategoria.getSelectedIndex() != 0) {
-            JBtnLimpar.setEnabled(true);
-        }
 
     }
 
@@ -316,6 +313,7 @@ public class Cadastro_Campeonato extends javax.swing.JFrame {
         }
         Categoria categoria = (Categoria) ComboCategoria.getSelectedItem();
         TxtCategoria.setText(categoria.getNome());
+        JBtnLimpar.setEnabled(true);
     }//GEN-LAST:event_ComboCategoriaItemStateChanged
 
     private void JBtnLimparMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtnLimparMouseClicked
