@@ -8,6 +8,7 @@ package Clubes_Campeonatos;
 import Controller.ServicoBancoClube;
 import Controller.ServicoBancoCategoria;
 import Controller.ServicoBancoCampeonato;
+import Controller.ServicoBancoClubeCampeonato;
 import Controller.ServicoBancoJogador;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -32,7 +33,21 @@ public class Utils {
 
     private final SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
     private final SimpleDateFormat dh = new SimpleDateFormat("hh:mm:ss");
-
+    private ServicoBancoClubeCampeonato sbcc = new ServicoBancoClubeCampeonato();
+    
+    public int getCod_Clube (int cod){
+        int clube_codigo=0;
+        try {
+            clube_codigo= sbcc.getDadosByClube(cod).getCodClube();
+            if (cod == clube_codigo) {
+                return clube_codigo;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
+            
     public Date strToDate(String data) throws ParseException {
         return df.parse(data);
     }

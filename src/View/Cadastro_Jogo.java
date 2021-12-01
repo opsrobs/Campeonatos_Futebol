@@ -700,23 +700,23 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-       private void jogadoresCasa(){
-       TxtJogador.setText("");
-       TxtJogador1.setText("");
-       TxtJogador2.setText("");
-       TxtJogador3.setText("");
-       TxtJogador4.setText("");
-   }
-   
-   private void jogadoresFora(){
-       TxtJogadorFora.setText("");
-       TxtJogadorFora1.setText("");
-       TxtJogadorFora2.setText("");
-       TxtJogadorFora3.setText("");
-       TxtJogadorFora4.setText("");
-   }
-    
-    public void clearSc(){
+    private void jogadoresCasa() {
+        TxtJogador.setText("");
+        TxtJogador1.setText("");
+        TxtJogador2.setText("");
+        TxtJogador3.setText("");
+        TxtJogador4.setText("");
+    }
+
+    private void jogadoresFora() {
+        TxtJogadorFora.setText("");
+        TxtJogadorFora1.setText("");
+        TxtJogadorFora2.setText("");
+        TxtJogadorFora3.setText("");
+        TxtJogadorFora4.setText("");
+    }
+
+    public void clearSc() {
         if (ComboCampeonato.isDisplayable()) {
             ComboCampeonato.setSelectedIndex(-1);
         }
@@ -734,7 +734,7 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         this.jogadoresFora();
         TxtLocalJogo.setText("");
         JBtnLimpar.setEnabled(false);
-        
+
     }
 
     private void JComboJogadorCasaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JComboJogadorCasaMouseClicked
@@ -785,6 +785,8 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         assert clube != null;
         try {
             utils.atualizarJogadoor(JComboJogadorCasa, sbjogador, clube.getCodigo());
+            this.atualizarClubeTabela(clube.getCodigo());
+//            sbcc.getDadosByClube(code)
         } catch (SQLException ex) {
             Logger.getLogger(Cadastro_Jogo.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -859,21 +861,62 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         }
     }
 
-    public void atualizarClubeTabela( int cod) {
-        if (ComboClube1.getItemCount() <= 0) {
-            return;
-        }
-        if (ComboClube1.getSelectedIndex() < 0) {
-            return;
-        }
-        Clube clube = (Clube) ComboClube1.getSelectedItem();
+    public void atualizarClubeTabela(int codClube) {
+        int cod = 0;
+        int vitoria = +utils.vitoriasMandante(LbPlacarMandante, LbPlacarVisitante);
+        int derrota = utils.derrota(vitoria, LbPlacarMandante, LbPlacarVisitante);
+        int empate = utils.empate(LbPlacarMandante, LbPlacarVisitante);
+        int golP = Integer.parseInt(LbPlacarMandante.getText());
+        int golC = Integer.parseInt(LbPlacarVisitante.getText());
+        int car_A = utils.amarelos(TxtCartaoJogador, TxtCartaoJogador1, TxtCartaoJogador2, TxtCartaoJogador3, TxtCartaoJogador4);
+        int car_v = utils.vermelhos(CheckCartaoVermelhorJogador, CheckCartaoVermelhorJogador1, CheckCartaoVermelhorJogador2, CheckCartaoVermelhorJogador3, CheckCartaoVermelhorJogador4);
+        int camp = 0;
         try {
-            sbcc.getDadosByClube(cod);
+            cod = sbcc.getDadosByClube(codClube).getCodigo();
+            vitoria += sbcc.getDadosByClube(codClube).getVitorias();
+            derrota += sbcc.getDadosByClube(codClube).getDerrotas();
+            empate += sbcc.getDadosByClube(codClube).getEmpates();
+            golP += sbcc.getDadosByClube(codClube).getGolsPro();
+            golC += sbcc.getDadosByClube(codClube).getGolsContra();
+            car_A += sbcc.getDadosByClube(codClube).getCartoesAmarelo();
+            car_v += sbcc.getDadosByClube(codClube).getCartoesVermelho();
+            camp = sbcc.getDadosByClube(codClube).getCodCampeonato();
+
+            clubes_Campeonatos = new Clubes_Campeonatos(cod, codClube, camp, vitoria, derrota, empate, golP, golC, car_A, car_v);
+            sbcc.update(clubes_Campeonatos);
+
         } catch (SQLException ex) {
             Logger.getLogger(Cadastro_Jogo.class.getName()).log(Level.SEVERE, null, ex);
         }
-//        int vitorias = clubes_Campeonatos.getVitorias();
-//        JOptionPane.showMessageDialog(null, vitorias);
+    }
+    
+    public void atualizarClubeVisitanteTabela(int codClube) {
+        int cod = 0;
+        int vitoria = utils.vitoriasMandante(LbPlacarVisitante, LbPlacarMandante);
+        int derrota = utils.derrota(vitoria, LbPlacarVisitante, LbPlacarMandante);
+        int empate = utils.empate(LbPlacarMandante, LbPlacarVisitante);
+        int golP = Integer.parseInt(LbPlacarVisitante.getText());
+        int golC = Integer.parseInt(LbPlacarMandante.getText());
+        int car_A = utils.amarelos(TxtCartaoFora, TxtCartaoFora1, TxtCartaoFora2, TxtCartaoFora3, TxtCartaoFora4);
+        int car_v = utils.vermelhos(CheckCartaoVermelhorJogadorFora, CheckCartaoVermelhorJogadorFora1, CheckCartaoVermelhorJogadorFora2, CheckCartaoVermelhorJogadorFora3, CheckCartaoVermelhorJogadorFora4);
+        int camp = 0;
+        try {
+            cod = sbcc.getDadosByClube(codClube).getCodigo();
+            vitoria += sbcc.getDadosByClube(codClube).getVitorias();
+            derrota += sbcc.getDadosByClube(codClube).getDerrotas();
+            empate += sbcc.getDadosByClube(codClube).getEmpates();
+            golP += sbcc.getDadosByClube(codClube).getGolsPro();
+            golC += sbcc.getDadosByClube(codClube).getGolsContra();
+            car_A += sbcc.getDadosByClube(codClube).getCartoesAmarelo();
+            car_v += sbcc.getDadosByClube(codClube).getCartoesVermelho();
+            camp = sbcc.getDadosByClube(codClube).getCodCampeonato();
+
+            clubes_Campeonatos = new Clubes_Campeonatos(cod, codClube, camp, vitoria, derrota, empate, golP, golC, car_A, car_v);
+            sbcc.update(clubes_Campeonatos);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Cadastro_Jogo.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void cadastrarClubeCampeonatoVisitante(int codClube, int codCampeonato) {
@@ -941,8 +984,17 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
                     codJogo = jogo.getCodigo();
 
                 }
-                this.cadastrarClubeCampeonato(clubeTemp, codJogo);
-                this.cadastrarClubeCampeonatoVisitante(clubee.getCodigo(), codJogo);
+                if (clubeTemp == utils.getCod_Clube(clubeTemp)) {
+                    this.atualizarClubeTabela(clubeTemp);
+                } else {
+                    this.cadastrarClubeCampeonato(clubeTemp, codJogo);
+                }
+
+                if (clube.getCodigo() == utils.getCod_Clube(clube.getCodigo())) {
+                    this.atualizarClubeVisitanteTabela(clube.getCodigo());
+                } else {
+                    this.cadastrarClubeCampeonatoVisitante(clubee.getCodigo(), codJogo);
+                }
 
                 Jogadores_Jogo jogadores = new Jogadores_Jogo(Integer.parseInt(TxtGolJogador.getText()), Integer.parseInt(TxtCartaoJogador.getText()), cartaoVermelho(CheckCartaoVermelhorJogador), coda, codJogo);
                 sbjj.insert(jogadores);

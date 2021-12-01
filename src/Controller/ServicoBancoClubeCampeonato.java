@@ -46,8 +46,8 @@ public class ServicoBancoClubeCampeonato {
     }
 
     public void update(Clubes_Campeonatos clubes_Campeonatos) throws SQLException {
-        try (PreparedStatement pst = conexao.getConexao().prepareStatement("update Clubes_Campeonato set Clubes_Codigo = ?,Campeonatos_codigo = ?, Vitorias = ?, Derrotas = ?,"
-                + " Emaptes =?, Gols_Pro, Gols_Contra = ?, Cartoes_Amarelo =?, Cartoes_Vermelho = ?  where (codigo = ?)")) {
+        try (PreparedStatement pst = conexao.getConexao().prepareStatement("update Clubes_Campeonato set clube_codigo = ?,Campeonato_codigo = ?, Vitorias = ?, Derrotas = ?,"
+                + " Emaptes =?, Gols_Pro=?, Gols_Contra = ?, Cartoes_Amarelo =?, Cartoes_Vermelho = ?  where (codigo = ?)")) {
             pst.setInt(1, clubes_Campeonatos.getCodClube());
             pst.setInt(2, clubes_Campeonatos.getCodCampeonato());
             pst.setInt(3, clubes_Campeonatos.getVitorias());
@@ -57,7 +57,7 @@ public class ServicoBancoClubeCampeonato {
             pst.setInt(7, clubes_Campeonatos.getGolsContra());
             pst.setInt(8, clubes_Campeonatos.getCartoesAmarelo());
             pst.setInt(9, clubes_Campeonatos.getCartoesVermelho());
-            pst.setInt(10, clubes_Campeonatos.getCartoesVermelho());
+            pst.setInt(10, clubes_Campeonatos.getCodigo());
             pst.executeUpdate();
         }
         conexao.close();
@@ -92,7 +92,7 @@ public class ServicoBancoClubeCampeonato {
     public ArrayList<Clubes_Campeonatos> getCompromissoByLista() throws SQLException {
         ArrayList<Clubes_Campeonatos> lista = new ArrayList<>();
         try (Statement st = conexao.getConexao().createStatement();
-                ResultSet rs = st.executeQuery("select * from Clubes_Campeonato order by data")) {
+                ResultSet rs = st.executeQuery("select * from Clubes_Campeonato order by Vitorias")) {
 
             while (rs.next()) {
                 lista.add(new Clubes_Campeonatos(rs.getInt("Clubes_Codigo"),
@@ -112,19 +112,19 @@ public class ServicoBancoClubeCampeonato {
 
     public Clubes_Campeonatos getDadosByClube(int time) throws SQLException {
         try (Statement st = conexao.getConexao().createStatement();
-                ResultSet rs = st.executeQuery("select * from Clubes_Campeonato where (clubes_campeonato.clube_codigo = " + time + ")")) {
+                ResultSet rs = st.executeQuery("select * from Clubes_Campeonato where (clubes_campeonato.clube_codigo = " + time + ") order by codigo")) {
 
             rs.next();
-            return new Clubes_Campeonatos(rs.getInt("Vitorias"),
+            return new Clubes_Campeonatos(rs.getInt("codigo"),
+                    rs.getInt("Clube_Codigo"),
+                    rs.getInt("Campeonato_Codigo"),
+                    rs.getInt("Vitorias"),
                     rs.getInt("Derrotas"),
                     rs.getInt("Emaptes"),
                     rs.getInt("Gols_Pro"),
                     rs.getInt("Gols_Contra"),
                     rs.getInt("Cartoes_Amarelo"),
-                    rs.getInt("Cartoes_Vermelho"),
-                    rs.getInt("codigo"),
-                    rs.getInt("Clube_Codigo"),
-                    rs.getInt("Campeonato_Codigo"));
+                    rs.getInt("Cartoes_Vermelho"));
         }
     }
 

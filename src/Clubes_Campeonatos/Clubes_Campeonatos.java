@@ -119,6 +119,13 @@ public class Clubes_Campeonatos {
     public void setCartoesVermelho(int cartoesVermelho) {
         this.cartoesVermelho = cartoesVermelho;
     }
+
+    @Override
+    public String toString() {
+        return "Clubes_Campeonatos{" + "codigo=" + codigo + ", codClube=" + codClube + ", codCampeonato=" + codCampeonato + ", vitorias=" + vitorias + ", derrotas=" + derrotas + ", empates=" + empates + ", golsPro=" + golsPro + ", golsContra=" + golsContra + ", cartoesAmarelo=" + cartoesAmarelo + ", cartoesVermelho=" + cartoesVermelho + '}';
+    }
+    
+    
     
     
     

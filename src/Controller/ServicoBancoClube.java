@@ -73,7 +73,7 @@ public void update(Clube clube)throws SQLException{
       ArrayList<Clube> lista = new ArrayList<>();
      try (Statement st = conexao.getConexao().createStatement(); 
             ResultSet rs = st.executeQuery
-             ("select * from clube order by codigo")) {
+             ("select * from clube order by Nome")) {
          
         while (rs.next()){
           lista.add(new Clube(rs.getInt("codigo"),
