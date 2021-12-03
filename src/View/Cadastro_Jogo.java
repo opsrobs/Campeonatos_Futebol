@@ -785,7 +785,7 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         assert clube != null;
         try {
             utils.atualizarJogadoor(JComboJogadorCasa, sbjogador, clube.getCodigo());
-            this.atualizarClubeTabela(clube.getCodigo());
+//            this.atualizarClubeTabela(clube.getCodigo());
 //            sbcc.getDadosByClube(code)
         } catch (SQLException ex) {
             Logger.getLogger(Cadastro_Jogo.class.getName()).log(Level.SEVERE, null, ex);
@@ -803,38 +803,12 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         assert clube != null;
         try {
             utils.atualizarJogadoor(JComboJogadorFora, sbjogador, clube.getCodigo());
-            this.atualizarClubeTabela(clube.getCodigo());
         } catch (SQLException ex) {
             Logger.getLogger(Cadastro_Jogo.class.getName()).log(Level.SEVERE, null, ex);
         }
 //        atualizarClubeTabela();
 
     }//GEN-LAST:event_ComboClube1ItemStateChanged
-
-    public void validarInput() {
-        if (TxtGolJogador.getText().isBlank()) {
-            JOptionPane.showMessageDialog(null, "Informe uma data valida!");
-            TxtGolJogador.requestFocus();
-            return;
-        }
-        if (TxtHoraJogo.getText().isBlank()) {
-            JOptionPane.showMessageDialog(null, "Informe um horário valido!");
-            TxtHoraJogo.requestFocus();
-            return;
-
-        }
-        if (TxtGolJogador.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Informe A quantidade de gols marcados!");
-            TxtGolJogador.requestFocus();
-            return;
-        }
-
-        if (TxtLocalJogo.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Informe o Local do Jogo!");
-            TxtLocalJogo.requestFocus();
-            return;
-        }
-    }
 
     public int cartaoVermelho(JCheckBox cart) {
         int cartao = 0;
@@ -843,6 +817,36 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         }
 
         return cartao;
+    }
+
+    public int cadastrarOuAtualizar(int codClube, int codCam) {
+        int clube_codigo = 0;
+        try {
+            clube_codigo = sbcc.getDadosByClube(codClube).getCodClube();
+            if (codClube == sbcc.getDadosByClube(codClube).getCodClube()) {
+                atualizarClubeTabela(codClube);
+            } else {
+                cadastrarClubeCampeonato(codClube, codCam);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
+
+    public int cadastrarOuAtualizarVisitante(int codClube, int codCam) {
+        int clube_codigo = 0;
+        try {
+            clube_codigo = sbcc.getDadosByClube(codClube).getCodClube();
+            if (codClube == sbcc.getDadosByClube(codClube).getCodClube()) {
+                atualizarClubeVisitanteTabela(codClube);
+            } else {
+                cadastrarClubeCampeonatoVisitante(codClube, codCam);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
     }
 
     public void cadastrarClubeCampeonato(int codClube, int codCampeonato) {
@@ -861,9 +865,29 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         }
     }
 
+    public void cadastrarClubeCampeonatoVisitante(int codClube, int codCampeonato) {
+        int vitorias = utils.vitoriasMandante(LbPlacarVisitante, LbPlacarMandante);
+        int empates = utils.empate(LbPlacarMandante, LbPlacarVisitante);
+        int derrotas = utils.derrota(vitorias, LbPlacarVisitante, LbPlacarMandante);
+        int cartoesAmarelo = utils.amarelos(TxtCartaoFora, TxtCartaoFora1, TxtCartaoFora2, TxtCartaoFora3, TxtCartaoFora4);
+        int cartoesVermelho = utils.vermelhos(CheckCartaoVermelhorJogadorFora, CheckCartaoVermelhorJogadorFora1, CheckCartaoVermelhorJogadorFora2, CheckCartaoVermelhorJogadorFora3, CheckCartaoVermelhorJogadorFora4);
+        JOptionPane.showMessageDialog(null, "codClube: " + codClube + "----codCamp: " + codCampeonato);
+
+        if (codClube > 0 && codCampeonato > 0) {
+            try {
+                clubes_Campeonatos = new Clubes_Campeonatos(codClube, codCampeonato, vitorias, derrotas, empates, Integer.parseInt(LbPlacarVisitante.getText()), Integer.parseInt(LbPlacarMandante.getText()), cartoesAmarelo, cartoesVermelho);
+                JOptionPane.showMessageDialog(null, "deu ruim" + clubes_Campeonatos.toString());
+                sbcc.insert(clubes_Campeonatos);
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public void atualizarClubeTabela(int codClube) {
         int cod = 0;
-        int vitoria = +utils.vitoriasMandante(LbPlacarMandante, LbPlacarVisitante);
+        int vitoria = utils.vitoriasMandante(LbPlacarMandante, LbPlacarVisitante);
         int derrota = utils.derrota(vitoria, LbPlacarMandante, LbPlacarVisitante);
         int empate = utils.empate(LbPlacarMandante, LbPlacarVisitante);
         int golP = Integer.parseInt(LbPlacarMandante.getText());
@@ -873,6 +897,7 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         int camp = 0;
         try {
             cod = sbcc.getDadosByClube(codClube).getCodigo();
+            JOptionPane.showMessageDialog(null, "o id mandante é: " + codClube);
             vitoria += sbcc.getDadosByClube(codClube).getVitorias();
             derrota += sbcc.getDadosByClube(codClube).getDerrotas();
             empate += sbcc.getDadosByClube(codClube).getEmpates();
@@ -889,7 +914,7 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
             Logger.getLogger(Cadastro_Jogo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public void atualizarClubeVisitanteTabela(int codClube) {
         int cod = 0;
         int vitoria = utils.vitoriasMandante(LbPlacarVisitante, LbPlacarMandante);
@@ -900,8 +925,11 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         int car_A = utils.amarelos(TxtCartaoFora, TxtCartaoFora1, TxtCartaoFora2, TxtCartaoFora3, TxtCartaoFora4);
         int car_v = utils.vermelhos(CheckCartaoVermelhorJogadorFora, CheckCartaoVermelhorJogadorFora1, CheckCartaoVermelhorJogadorFora2, CheckCartaoVermelhorJogadorFora3, CheckCartaoVermelhorJogadorFora4);
         int camp = 0;
+
         try {
             cod = sbcc.getDadosByClube(codClube).getCodigo();
+            JOptionPane.showMessageDialog(null, "o id visitante é: " + codClube);
+
             vitoria += sbcc.getDadosByClube(codClube).getVitorias();
             derrota += sbcc.getDadosByClube(codClube).getDerrotas();
             empate += sbcc.getDadosByClube(codClube).getEmpates();
@@ -919,21 +947,6 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         }
     }
 
-    public void cadastrarClubeCampeonatoVisitante(int codClube, int codCampeonato) {
-        int vitorias = utils.vitoriasMandante(LbPlacarVisitante, LbPlacarMandante);
-        int empates = utils.empate(LbPlacarMandante, LbPlacarVisitante);
-        int derrotas = utils.derrota(vitorias, LbPlacarVisitante, LbPlacarMandante);
-        int cartoesAmarelo = utils.amarelos(TxtCartaoFora, TxtCartaoFora1, TxtCartaoFora2, TxtCartaoFora3, TxtCartaoFora4);
-        int cartoesVermelho = utils.vermelhos(CheckCartaoVermelhorJogadorFora, CheckCartaoVermelhorJogadorFora1, CheckCartaoVermelhorJogadorFora2, CheckCartaoVermelhorJogadorFora3, CheckCartaoVermelhorJogadorFora4);
-        if (codClube > 0 && codCampeonato > 0) {
-            try {
-                clubes_Campeonatos = new Clubes_Campeonatos(codClube, codCampeonato, vitorias, derrotas, empates, Integer.parseInt(LbPlacarVisitante.getText()), Integer.parseInt(LbPlacarMandante.getText()), cartoesAmarelo, cartoesVermelho);
-                sbcc.insert(clubes_Campeonatos);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 
     private void JbtnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JbtnSalvarMouseClicked
         if (TxtDiaJogo.getText().isBlank()) {
@@ -982,40 +995,32 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
                     jogo = new Jogo(campeonato.getCodigo(), utils.strToDate(TxtDiaJogo.getText()), utils.strToTime(TxtHoraJogo.getText()), clubeTemp, Integer.parseInt(LbPlacarMandante.getText()), clubee.getCodigo(), Integer.parseInt(LbPlacarVisitante.getText()), TxtLocalJogo.getText());
                     sbj.insert(jogo);
                     codJogo = jogo.getCodigo();
+                    cadastrarOuAtualizar(clubeTemp, campeonato.getCodigo());
+                    cadastrarOuAtualizarVisitante(clubee.getCodigo(), campeonato.getCodigo());
+                    JOptionPane.showMessageDialog(null, campeonato.getCodigo());
 
-                }
-                if (clubeTemp == utils.getCod_Clube(clubeTemp)) {
-                    this.atualizarClubeTabela(clubeTemp);
-                } else {
-                    this.cadastrarClubeCampeonato(clubeTemp, codJogo);
-                }
-
-                if (clube.getCodigo() == utils.getCod_Clube(clube.getCodigo())) {
-                    this.atualizarClubeVisitanteTabela(clube.getCodigo());
-                } else {
-                    this.cadastrarClubeCampeonatoVisitante(clubee.getCodigo(), codJogo);
                 }
 
                 Jogadores_Jogo jogadores = new Jogadores_Jogo(Integer.parseInt(TxtGolJogador.getText()), Integer.parseInt(TxtCartaoJogador.getText()), cartaoVermelho(CheckCartaoVermelhorJogador), coda, codJogo);
                 sbjj.insert(jogadores);
-                Jogadores_Jogo jogador1 = new Jogadores_Jogo(Integer.parseInt(TxtGolJogador1.getText()), Integer.parseInt(TxtCartaoJogador1.getText()), cartaoVermelho(CheckCartaoVermelhorJogador1), codb, codJogo);
-                sbjj.insert(jogador1);
-                Jogadores_Jogo jogador2 = new Jogadores_Jogo(Integer.parseInt(TxtGolJogador2.getText()), Integer.parseInt(TxtCartaoJogador2.getText()), cartaoVermelho(CheckCartaoVermelhorJogador2), codc, codJogo);
-                sbjj.insert(jogador2);
-                Jogadores_Jogo jogador3 = new Jogadores_Jogo(Integer.parseInt(TxtGolJogador3.getText()), Integer.parseInt(TxtCartaoJogador3.getText()), cartaoVermelho(CheckCartaoVermelhorJogador3), codd, codJogo);
-                sbjj.insert(jogador3);
-                Jogadores_Jogo jogador4 = new Jogadores_Jogo(Integer.parseInt(TxtGolJogador4.getText()), Integer.parseInt(TxtCartaoJogador4.getText()), cartaoVermelho(CheckCartaoVermelhorJogador4), code, codJogo);
-                sbjj.insert(jogador4);
+//                Jogadores_Jogo jogador1 = new Jogadores_Jogo(Integer.parseInt(TxtGolJogador1.getText()), Integer.parseInt(TxtCartaoJogador1.getText()), cartaoVermelho(CheckCartaoVermelhorJogador1), codb, codJogo);
+//                sbjj.insert(jogador1);
+//                Jogadores_Jogo jogador2 = new Jogadores_Jogo(Integer.parseInt(TxtGolJogador2.getText()), Integer.parseInt(TxtCartaoJogador2.getText()), cartaoVermelho(CheckCartaoVermelhorJogador2), codc, codJogo);
+//                sbjj.insert(jogador2);
+//                Jogadores_Jogo jogador3 = new Jogadores_Jogo(Integer.parseInt(TxtGolJogador3.getText()), Integer.parseInt(TxtCartaoJogador3.getText()), cartaoVermelho(CheckCartaoVermelhorJogador3), codd, codJogo);
+//                sbjj.insert(jogador3);
+//                Jogadores_Jogo jogador4 = new Jogadores_Jogo(Integer.parseInt(TxtGolJogador4.getText()), Integer.parseInt(TxtCartaoJogador4.getText()), cartaoVermelho(CheckCartaoVermelhorJogador4), code, codJogo);
+//                sbjj.insert(jogador4);
                 Jogadores_Jogo jogador5 = new Jogadores_Jogo(Integer.parseInt(TxtGolFora.getText()), Integer.parseInt(TxtCartaoFora.getText()), cartaoVermelho(CheckCartaoVermelhorJogadorFora), codf, codJogo);
                 sbjj.insert(jogador5);
-                Jogadores_Jogo jogador6 = new Jogadores_Jogo(Integer.parseInt(TxtGolFora1.getText()), Integer.parseInt(TxtCartaoFora1.getText()), cartaoVermelho(CheckCartaoVermelhorJogadorFora1), codg, codJogo);
-                sbjj.insert(jogador6);
-                Jogadores_Jogo jogador7 = new Jogadores_Jogo(Integer.parseInt(TxtGolFora2.getText()), Integer.parseInt(TxtCartaoFora2.getText()), cartaoVermelho(CheckCartaoVermelhorJogadorFora2), codh, codJogo);
-                sbjj.insert(jogador7);
-                Jogadores_Jogo jogador8 = new Jogadores_Jogo(Integer.parseInt(TxtGolFora3.getText()), Integer.parseInt(TxtCartaoFora3.getText()), cartaoVermelho(CheckCartaoVermelhorJogadorFora3), codi, codJogo);
-                sbjj.insert(jogador8);
-                Jogadores_Jogo jogador9 = new Jogadores_Jogo(Integer.parseInt(TxtGolFora4.getText()), Integer.parseInt(TxtCartaoFora4.getText()), cartaoVermelho(CheckCartaoVermelhorJogadorFora4), codj, codJogo);
-                sbjj.insert(jogador9);
+//                Jogadores_Jogo jogador6 = new Jogadores_Jogo(Integer.parseInt(TxtGolFora1.getText()), Integer.parseInt(TxtCartaoFora1.getText()), cartaoVermelho(CheckCartaoVermelhorJogadorFora1), codg, codJogo);
+//                sbjj.insert(jogador6);
+//                Jogadores_Jogo jogador7 = new Jogadores_Jogo(Integer.parseInt(TxtGolFora2.getText()), Integer.parseInt(TxtCartaoFora2.getText()), cartaoVermelho(CheckCartaoVermelhorJogadorFora2), codh, codJogo);
+//                sbjj.insert(jogador7);
+//                Jogadores_Jogo jogador8 = new Jogadores_Jogo(Integer.parseInt(TxtGolFora3.getText()), Integer.parseInt(TxtCartaoFora3.getText()), cartaoVermelho(CheckCartaoVermelhorJogadorFora3), codi, codJogo);
+//                sbjj.insert(jogador8);
+//                Jogadores_Jogo jogador9 = new Jogadores_Jogo(Integer.parseInt(TxtGolFora4.getText()), Integer.parseInt(TxtCartaoFora4.getText()), cartaoVermelho(CheckCartaoVermelhorJogadorFora4), codj, codJogo);
+//                sbjj.insert(jogador9);
 
             }
 
@@ -1024,7 +1029,7 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
                 assert campeonato != null;
                 campeonato.setNome(ComboCampeonato.getSelectedItem().toString());
                 sbcam.update(campeonato);
-                jogo = new Jogo(campeonato.getCodigo(), utils.strToDate(TxtHoraJogo.getText()), utils.strToTime(TxtHoraJogo.getText()), clubeTemp, Integer.parseInt(TxtGolJogador.getText()), clubee.getCodigo(), Integer.parseInt(TxtGolFora.getText()), TxtLocalJogo.getText());
+                jogo = new Jogo(campeonato.getCodigo(), utils.strToDate(TxtDiaJogo.getText()), utils.strToTime(TxtHoraJogo.getText()), clubeTemp, Integer.parseInt(TxtGolJogador.getText()), clubee.getCodigo(), Integer.parseInt(TxtGolFora.getText()), TxtLocalJogo.getText());
                 sbj.insert(jogo);
 
             }

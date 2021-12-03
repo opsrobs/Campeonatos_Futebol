@@ -113,18 +113,20 @@ public class ServicoBancoClubeCampeonato {
     public Clubes_Campeonatos getDadosByClube(int time) throws SQLException {
         try (Statement st = conexao.getConexao().createStatement();
                 ResultSet rs = st.executeQuery("select * from Clubes_Campeonato where (clubes_campeonato.clube_codigo = " + time + ") order by codigo")) {
-
-            rs.next();
-            return new Clubes_Campeonatos(rs.getInt("codigo"),
-                    rs.getInt("Clube_Codigo"),
-                    rs.getInt("Campeonato_Codigo"),
-                    rs.getInt("Vitorias"),
-                    rs.getInt("Derrotas"),
-                    rs.getInt("Emaptes"),
-                    rs.getInt("Gols_Pro"),
-                    rs.getInt("Gols_Contra"),
-                    rs.getInt("Cartoes_Amarelo"),
-                    rs.getInt("Cartoes_Vermelho"));
+            if (!rs.next()) {
+                return new Clubes_Campeonatos();
+            } else {
+                return new Clubes_Campeonatos(rs.getInt("codigo"),
+                        rs.getInt("Clube_Codigo"),
+                        rs.getInt("Campeonato_Codigo"),
+                        rs.getInt("Vitorias"),
+                        rs.getInt("Derrotas"),
+                        rs.getInt("Emaptes"),
+                        rs.getInt("Gols_Pro"),
+                        rs.getInt("Gols_Contra"),
+                        rs.getInt("Cartoes_Amarelo"),
+                        rs.getInt("Cartoes_Vermelho"));
+            }
         }
     }
 
@@ -135,6 +137,43 @@ public class ServicoBancoClubeCampeonato {
                 ResultSet rs = st.executeQuery("Select clube.nome, clubes_campeonato.* from clube,"
                         + " clubes_campeonato where (clube.codigo = clubes_campeonato.clube_codigo)"
                         + " order by clubes_campeonato.Vitorias desc, clubes_campeonato.Emaptes desc")) {
+
+            while (rs.next()) {
+                dados.add(new String[]{rs.getString(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getString(5),
+                    rs.getString(6),
+                    rs.getString(7),
+                    rs.getString(8)});
+            }
+        }
+
+        return dados;
+    }
+    
+    public int getQtdByQueryByCampeonato(int codCamp) throws SQLException {
+        int dados = 0;
+        Utils utils = new Utils();
+        try (Statement st = conexao.getConexao().createStatement();
+                ResultSet rs = st.executeQuery("Select count(Clube_Codigo) from clube,\n"
+                        + "clubes_campeonato where Campeonato_Codigo = " + codCamp + " and clubes_campeonato.Clube_Codigo = clube.Codigo")) {
+
+            while (rs.next()) {
+                dados = rs.getInt(1);
+            }
+        }
+
+        return dados;
+    }
+
+    public ArrayList getTabelaByQueryByCampeonato(int codCamp) throws SQLException {
+        ArrayList dados = new ArrayList();
+        Utils utils = new Utils();
+        try (Statement st = conexao.getConexao().createStatement();
+                ResultSet rs = st.executeQuery("Select distinct clube.nome, clubes_campeonato.* from clube,\n"
+                        + "clubes_campeonato where Campeonato_Codigo = " + codCamp + " and clubes_campeonato.Clube_Codigo = clube.Codigo")) {
 
             while (rs.next()) {
                 dados.add(new String[]{rs.getString(1),

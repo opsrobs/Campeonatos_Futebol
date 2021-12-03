@@ -63,7 +63,7 @@ public class ServicoBancoJogador {
     public ArrayList<Jogador> getJogadorByCodigo(int codigo) throws SQLException {
         ArrayList<Jogador> lista = new ArrayList<>();
         try (Statement st = conexao.getConexao().createStatement();
-                ResultSet rs = st.executeQuery("select * from campeonatos_1.jogadore where (Clubes_Codigo = " + codigo + ")")) {
+                ResultSet rs = st.executeQuery("select * from campeonatos_2.jogadore where (Clubes_Codigo = " + codigo + ")")) {
             {
 
                 while (rs.next()) {
