@@ -198,12 +198,9 @@ public class Tabela_Campeonatos extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void qtdJogos(int qtd) throws SQLException {
-        if (ComboCampeonato.getSelectedIndex() == 0) {
-            TxtQtdJogos.setText("x");
-        } else {
-            TxtQtdJogos.setText(String.valueOf(bancoCampeonato.getQtdByQueryByCampeonato(qtd)));
 
-        }
+        TxtQtdJogos.setText(String.valueOf(bancoCampeonato.getQtdByQueryByCampeonato(qtd)));
+
     }
     private void ComboCampeonatoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboCampeonatoItemStateChanged
         if (ComboCampeonato.getItemCount() <= 0) {
