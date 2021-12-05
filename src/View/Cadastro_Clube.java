@@ -27,6 +27,7 @@ public class Cadastro_Clube extends javax.swing.JFrame {
     Cadastro_Campeonato cadastro_Campeonato;
     Cadastro_Jogo cadastro_Jogo;
     Tabela_Campeonatos tabela_Campeonatos;
+    private Consulta_Clube consulta_Clube;
     Categoria categoria = new Categoria();
     Utils utils = new Utils();
     ServicoBancoClube sb = new ServicoBancoClube();
@@ -76,6 +77,7 @@ public class Cadastro_Clube extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         MenuConsultas = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
         MenuSair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -183,6 +185,14 @@ public class Cadastro_Clube extends javax.swing.JFrame {
             }
         });
         MenuConsultas.add(jMenu4);
+
+        jMenu5.setText("Consultar Clubes");
+        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu5MouseClicked(evt);
+            }
+        });
+        MenuConsultas.add(jMenu5);
 
         jMenuBar1.add(MenuConsultas);
 
@@ -401,6 +411,13 @@ public class Cadastro_Clube extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JbExcluirMouseClicked
 
+    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
+        if (consulta_Clube == null) {
+            consulta_Clube = new Consulta_Clube();
+        }
+        consulta_Clube.setVisible(true);
+    }//GEN-LAST:event_jMenu5MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -449,6 +466,7 @@ public class Cadastro_Clube extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }
