@@ -20,7 +20,7 @@ import javax.swing.*;
  *
  * @author PremierSoft
  */
-public class Constulta_Clube extends javax.swing.JFrame {
+public class Consulta_Clube extends javax.swing.JFrame {
 
     Clube clube = new Clube();
     Cadastro_Jogador cadastro_Jogador;
@@ -32,7 +32,7 @@ public class Constulta_Clube extends javax.swing.JFrame {
     ServicoBancoClube sb = new ServicoBancoClube();
     ServicoBancoCategoria sbcat = new ServicoBancoCategoria();
 
-    public Constulta_Clube() {
+    public Consulta_Clube() {
         initComponents();
     }
 
@@ -228,8 +228,8 @@ public class Constulta_Clube extends javax.swing.JFrame {
                 clube = new Clube(TxtNome.getText(), TxtMAscote.getText(), categoria.getCodigo());
                 sb.update(clube);
 
-            } 
-            
+            }
+
             utils.atualizarCategoria(ComboClube, sbcat);
             clearSc();
         } catch (SQLException e) {
@@ -252,7 +252,7 @@ public class Constulta_Clube extends javax.swing.JFrame {
         try {
             TxtCategoria.setText(sbcat.getCategoriaByCodigo(clube.getCodCategoria()).getNome());
         } catch (SQLException ex) {
-            Logger.getLogger(Constulta_Clube.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Consulta_Clube.class.getName()).log(Level.SEVERE, null, ex);
         }
 //        TxtCategoria.setText(clube.);
         JBtnLimpar.setEnabled(true);
@@ -279,13 +279,20 @@ public class Constulta_Clube extends javax.swing.JFrame {
         assert clube != null;
         TxtCategoria.setText(categoria.getNome());
         JBtnLimpar.setEnabled(true);
-        try {
+        int del = JOptionPane.showConfirmDialog(null, "Você deseja realmente excluir o registro " + clube,"Excluir...",
+                JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE, new ImageIcon("C:\\Users\\PremierSoft\\IdeaProjects\\Campeonatos_Futebol\\src\\View\\delete.gif"));
+        if (del == JOptionPane.YES_OPTION) {
+            try {
             sb.delete(clube);
             utils.atualizarClube(ComboClube, sb);
             clearSc();
         } catch (SQLException ex) {
-            Logger.getLogger(Constulta_Clube.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Consulta_Clube.class.getName()).log(Level.SEVERE, null, ex);
         }
+        } else if (del == JOptionPane.NO_OPTION) {
+            clearSc();
+        } 
+        
     }//GEN-LAST:event_JbExcluirMouseClicked
 
     private void TxtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNomeActionPerformed
@@ -309,15 +316,17 @@ public class Constulta_Clube extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException | IllegalAccessException | UnsupportedLookAndFeelException | InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Constulta_Clube.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Consulta_Clube.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Constulta_Clube().setVisible(true);
+                new Consulta_Clube().setVisible(true);
             }
         });
     }
