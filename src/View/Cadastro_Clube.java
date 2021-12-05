@@ -69,7 +69,7 @@ public class Cadastro_Clube extends javax.swing.JFrame {
         JBtnLimpar = new javax.swing.JButton();
         JbtnSalvar = new javax.swing.JButton();
         ComboCategoria = new javax.swing.JComboBox<>();
-        JbExcluir = new javax.swing.JButton();
+        JBtnSair = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuCadastros = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
@@ -135,16 +135,12 @@ public class Cadastro_Clube extends javax.swing.JFrame {
             }
         });
 
-        ComboCategoria.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                ComboCategoriaItemStateChanged(evt);
-            }
-        });
+        ComboCategoria.addItemListener(evt -> ComboCategoriaItemStateChanged(evt));
 
-        JbExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/lixo.png"))); // NOI18N
-        JbExcluir.addMouseListener(new java.awt.event.MouseAdapter() {
+        JBtnSair.setText("SAIR");
+        JBtnSair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JbExcluirMouseClicked(evt);
+                JBtnSairMouseClicked(evt);
             }
         });
 
@@ -221,9 +217,9 @@ public class Cadastro_Clube extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(JbtnSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(JbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(JBtnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(JBtnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(LbMascote, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -260,15 +256,11 @@ public class Cadastro_Clube extends javax.swing.JFrame {
                     .addComponent(TxtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ComboCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(145, 145, 145)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(JBtnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JbtnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(145, 145, 145)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JBtnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JbtnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JBtnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12))
         );
 
@@ -391,32 +383,16 @@ public class Cadastro_Clube extends javax.swing.JFrame {
         tabela_Campeonatos.setVisible(true);
     }//GEN-LAST:event_jMenu4MouseClicked
 
-    private void JbExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JbExcluirMouseClicked
-        if (ComboCategoria.getItemCount() <= 0) {
-            return;
-        }
-        if (ComboCategoria.getSelectedIndex() < 0) {
-            return;
-        }
-        Categoria categoria = (Categoria) ComboCategoria.getSelectedItem();
-        assert categoria != null;
-        TxtCategoria.setText(categoria.getNome());
-        JBtnLimpar.setEnabled(true);
-        try {
-            sbcat.delete(categoria);
-            utils.atualizarCategoria(ComboCategoria, sbcat);
-            clearSc();
-        } catch (SQLException ex) {
-            Logger.getLogger(Cadastro_Clube.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_JbExcluirMouseClicked
-
     private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
         if (consulta_Clube == null) {
             consulta_Clube = new Consulta_Clube();
         }
         consulta_Clube.setVisible(true);
     }//GEN-LAST:event_jMenu5MouseClicked
+
+    private void JBtnSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtnSairMouseClicked
+        dispose();
+    }//GEN-LAST:event_JBtnSairMouseClicked
 
     /**
      * @param args the command line arguments
@@ -450,7 +426,7 @@ public class Cadastro_Clube extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Categoria> ComboCategoria;
     private javax.swing.JButton JBtnLimpar;
-    private javax.swing.JButton JbExcluir;
+    private javax.swing.JButton JBtnSair;
     private javax.swing.JButton JbtnSalvar;
     private javax.swing.JLabel LbCat;
     private javax.swing.JLabel LbMascote;

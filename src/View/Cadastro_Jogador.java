@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 /**
  *
@@ -55,9 +55,6 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDatePickerUtil1 = new org.jdatepicker.util.JDatePickerUtil();
-        jDatePickerUtil2 = new org.jdatepicker.util.JDatePickerUtil();
-        dateComponentFormatter1 = new org.jdatepicker.impl.DateComponentFormatter();
         jLabel1 = new javax.swing.JLabel();
         LbClube = new javax.swing.JLabel();
         ComboClube = new javax.swing.JComboBox<>();
@@ -71,7 +68,7 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
         JbtnSalvar = new javax.swing.JButton();
         JBtnLimpar = new javax.swing.JButton();
         TxtData = new javax.swing.JFormattedTextField();
-        JbExcluir = new javax.swing.JButton();
+        JBtnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -148,10 +145,10 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
-        JbExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/lixo.png"))); // NOI18N
-        JbExcluir.addMouseListener(new java.awt.event.MouseAdapter() {
+        JBtnSair.setText("SAIR");
+        JBtnSair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JbExcluirMouseClicked(evt);
+                JBtnSairMouseClicked(evt);
             }
         });
 
@@ -164,9 +161,9 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(JbtnSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(JbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JBtnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JBtnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(LbClube, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -222,31 +219,16 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LbPais, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TxtPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(JBtnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(JbtnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(JbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(65, 65, 65)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JBtnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JbtnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JBtnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(66, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ComboClubeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboClubeItemStateChanged
-
-        if (ComboClube.getItemCount()<=0) {
-            return;
-        }
-        if (ComboClube.getSelectedIndex()<0) {
-            return;
-        }
-        Clube clube = (Clube) ComboClube.getSelectedItem();
-        JBtnLimpar.setEnabled(true);
-        
-        
-    }//GEN-LAST:event_ComboClubeItemStateChanged
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         try {
@@ -258,45 +240,52 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowActivated
 
-    private void TxtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtNomeActionPerformed
-
     private void TxtPosicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtPosicaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtPosicaoActionPerformed
 
-    private void TxtPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtPaisActionPerformed
+    private void TxtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TxtPaisActionPerformed
+    }//GEN-LAST:event_TxtNomeActionPerformed
+
+    private void JBtnSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtnSairMouseClicked
+        dispose();
+    }//GEN-LAST:event_JBtnSairMouseClicked
+
+    private void ComboClubeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboClubeItemStateChanged
+
+        if (ComboClube.getItemCount()<=0) {
+            return;
+        }
+        if (ComboClube.getSelectedIndex()<0) {
+            return;
+        }
+        Clube clube = (Clube) ComboClube.getSelectedItem();
+        JBtnLimpar.setEnabled(true);
+
+    }//GEN-LAST:event_ComboClubeItemStateChanged
+
+    private void JBtnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnLimparActionPerformed
+        this.clearSc();
+    }//GEN-LAST:event_JBtnLimparActionPerformed
+
+    private void JbtnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtnSalvarActionPerformed
+
+    }//GEN-LAST:event_JbtnSalvarActionPerformed
 
     private void JbtnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JbtnSalvarMouseClicked
-        if (TxtNome.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Informe um nome!");
-            TxtNome.requestFocus();
-            return;
-        }
-        if (TxtPosicao.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Informe um nome de mascote!");
-            TxtPosicao.requestFocus();
-            return;
-
-        }
-        if (TxtPais.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Informe uma categoria!");
-            TxtPais.requestFocus();
-            return;
-        }
+        if (Consulta_Jogador.validarInput(TxtNome, TxtPosicao, TxtPais)) return;
 
         try {
-            
+
             if (ComboClube.getSelectedIndex() >= 0) {
 
                 clube = (Clube) ComboClube.getSelectedItem();
-//                categoria.setNome(TxtCategoria.getText());
+                //                categoria.setNome(TxtCategoria.getText());
+                assert clube != null;
                 sbclub.update(clube);
             }else
-                JOptionPane.showMessageDialog(null,"Selecione um clube");
+            JOptionPane.showMessageDialog(null,"Selecione um clube");
 
             jogador = new Jogador(clube.getCodigo(),TxtNome.getText(),utils.strToDate(TxtData.getText()),TxtPosicao.getText(),TxtPais.getText());
             sbj.insert(jogador);
@@ -308,37 +297,14 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
         this.clearSc();
     }//GEN-LAST:event_JbtnSalvarMouseClicked
 
-    private void JBtnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnLimparActionPerformed
-        this.clearSc();
-    }//GEN-LAST:event_JBtnLimparActionPerformed
-
-    private void JbtnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtnSalvarActionPerformed
-        
-    }//GEN-LAST:event_JbtnSalvarActionPerformed
-
-    private void JbExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JbExcluirMouseClicked
-        if (ComboClube.getItemCount() <= 0) {
-            return;
-        }
-        if (ComboClube.getSelectedIndex() < 0) {
-            return;
-        }
-        Clube clube = (Clube) ComboClube.getSelectedItem();
-        assert clube != null;
-        JBtnLimpar.setEnabled(true);
-        try {
-            sbclub.delete(clube);
-            utils.atualizarClube(ComboClube, sbclub);
-            clearSc();
-        } catch (SQLException ex) {
-            Logger.getLogger(Cadastro_Clube.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_JbExcluirMouseClicked
+    private void TxtPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtPaisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtPaisActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -351,13 +317,7 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Cadastro_Jogador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cadastro_Jogador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Cadastro_Jogador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | UnsupportedLookAndFeelException | IllegalAccessException | InstantiationException ex) {
             java.util.logging.Logger.getLogger(Cadastro_Jogador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -374,7 +334,7 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Clube> ComboClube;
     private javax.swing.JButton JBtnLimpar;
-    private javax.swing.JButton JbExcluir;
+    private javax.swing.JButton JBtnSair;
     private javax.swing.JButton JbtnSalvar;
     private javax.swing.JLabel LbClube;
     private javax.swing.JLabel LbData;
@@ -385,9 +345,6 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
     private javax.swing.JTextField TxtNome;
     private javax.swing.JTextField TxtPais;
     private javax.swing.JTextField TxtPosicao;
-    private org.jdatepicker.impl.DateComponentFormatter dateComponentFormatter1;
-    private org.jdatepicker.util.JDatePickerUtil jDatePickerUtil1;
-    private org.jdatepicker.util.JDatePickerUtil jDatePickerUtil2;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

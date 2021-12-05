@@ -39,9 +39,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="JbtnSalvar" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="JbExcluir" min="-2" pref="65" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="JBtnSair" min="-2" pref="89" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="JBtnLimpar" min="-2" pref="144" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
@@ -114,13 +114,11 @@
                   <Component id="LbPais" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   <Component id="TxtPais" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="JBtnLimpar" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
-                      <Component id="JbtnSalvar" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="JbExcluir" min="-2" pref="60" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="JBtnLimpar" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                  <Component id="JbtnSalvar" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                  <Component id="JBtnSair" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="66" max="32767" attributes="0"/>
           </Group>
@@ -237,14 +235,12 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="JbExcluir">
+    <Component class="javax.swing.JButton" name="JBtnSair">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/View/lixo.png"/>
-        </Property>
+        <Property name="text" type="java.lang.String" value="SAIR"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JbExcluirMouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JBtnSairMouseClicked"/>
       </Events>
     </Component>
   </SubComponents>

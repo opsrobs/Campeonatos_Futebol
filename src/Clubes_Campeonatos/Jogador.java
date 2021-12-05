@@ -83,5 +83,9 @@ private String pais;
         return nome;
     }
 
+    public void getNome(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 
 }
