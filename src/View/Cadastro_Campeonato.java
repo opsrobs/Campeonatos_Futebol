@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 /**
  *
@@ -49,13 +49,13 @@ public class Cadastro_Campeonato extends javax.swing.JFrame {
         LbDataFim = new javax.swing.JLabel();
         LbCategoria = new javax.swing.JLabel();
         TxtNome = new javax.swing.JTextField();
-        TxtDataInicio = new javax.swing.JTextField();
-        TxtDataFim = new javax.swing.JTextField();
         TxtCategoria = new javax.swing.JTextField();
         JBtnLimpar = new javax.swing.JButton();
         JBtnSair = new javax.swing.JButton();
         JBtnSalvar = new javax.swing.JButton();
         ComboCategoria = new javax.swing.JComboBox<>();
+        TxtDataInicio = new javax.swing.JFormattedTextField();
+        TxtDataFim = new javax.swing.JFormattedTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuCadastros = new javax.swing.JMenu();
         MenuConsultas = new javax.swing.JMenu();
@@ -112,6 +112,23 @@ public class Cadastro_Campeonato extends javax.swing.JFrame {
                 ComboCategoriaItemStateChanged(evt);
             }
         });
+
+        try {
+            TxtDataInicio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        TxtDataInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtDataInicioActionPerformed(evt);
+            }
+        });
+
+        try {
+            TxtDataFim.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         MenuCadastros.setText("Cadastros");
         jMenuBar1.add(MenuCadastros);
@@ -190,7 +207,6 @@ public class Cadastro_Campeonato extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(LbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(TxtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ComboCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -219,13 +235,15 @@ public class Cadastro_Campeonato extends javax.swing.JFrame {
 
     }
 
-    private void cadastrarCategoria() {
+    private void cadastrarCategoria() throws ParseException {
         try {
             if (ComboCategoria.getSelectedIndex() >= 0) {
 
                 Categoria categoria = (Categoria) ComboCategoria.getSelectedItem();
+                assert categoria != null;
                 categoria.setNome(TxtCategoria.getText());
                 sbcat.update(categoria);
+                this.cadastrarCampeonato(categoria.getCodigo());
 
             } else {
                 Categoria categoria = new Categoria(TxtCategoria.getText());
@@ -237,6 +255,16 @@ public class Cadastro_Campeonato extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Cadastro_Campeonato.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    private void cadastrarCampeonato(int codCategoria) throws ParseException {
+        campeonato = new Campeonato(TxtNome.getText(), utils.strToDate(TxtDataInicio.getText()), utils.strToDate(TxtDataFim.getText()), codCategoria);
+        try {
+            sb.insert(campeonato);
+        } catch (SQLException ex) {
+            Logger.getLogger(Cadastro_Campeonato.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
     private void JBtnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtnSalvarMouseClicked
         if (TxtNome.getText().isEmpty()) {
@@ -263,25 +291,13 @@ public class Cadastro_Campeonato extends javax.swing.JFrame {
         }
 
         try {
-            if (ComboCategoria.getSelectedIndex() >= 0) {
+            
+            this.cadastrarCategoria();
 
-                Categoria categoria = (Categoria) ComboCategoria.getSelectedItem();
-                categoria.setNome(TxtCategoria.getText());
-                sbcat.update(categoria);
-
-                campeonato = new Campeonato(TxtNome.getText(), utils.strToDate(TxtDataInicio.getText()), utils.strToDate(TxtDataFim.getText()), categoria.getCodigo());
-                sb.insert(campeonato);
-            } else {
-                categoria = new Categoria(TxtCategoria.getText());
-            }
-            sbcat.insert(categoria);
-
-            campeonato = new Campeonato(TxtNome.getText(), utils.strToDate(TxtDataInicio.getText()), utils.strToDate(TxtDataFim.getText()), categoria.getCodigo());
-            sb.insert(campeonato);
-        } catch (SQLException e) {
         } catch (ParseException ex) {
             Logger.getLogger(Cadastro_Campeonato.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.clearSc();
 
     }//GEN-LAST:event_JBtnSalvarMouseClicked
 
@@ -312,6 +328,7 @@ public class Cadastro_Campeonato extends javax.swing.JFrame {
             return;
         }
         Categoria categoria = (Categoria) ComboCategoria.getSelectedItem();
+        assert categoria != null;
         TxtCategoria.setText(categoria.getNome());
         JBtnLimpar.setEnabled(true);
     }//GEN-LAST:event_ComboCategoriaItemStateChanged
@@ -319,6 +336,10 @@ public class Cadastro_Campeonato extends javax.swing.JFrame {
     private void JBtnLimparMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtnLimparMouseClicked
         clearSc();
     }//GEN-LAST:event_JBtnLimparMouseClicked
+
+    private void TxtDataInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtDataInicioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtDataInicioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -336,13 +357,7 @@ public class Cadastro_Campeonato extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Cadastro_Campeonato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cadastro_Campeonato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Cadastro_Campeonato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | UnsupportedLookAndFeelException | IllegalAccessException | InstantiationException ex) {
             java.util.logging.Logger.getLogger(Cadastro_Campeonato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -368,8 +383,8 @@ public class Cadastro_Campeonato extends javax.swing.JFrame {
     private javax.swing.JMenu MenuConsultas;
     private javax.swing.JMenu MenuSair;
     private javax.swing.JTextField TxtCategoria;
-    private javax.swing.JTextField TxtDataFim;
-    private javax.swing.JTextField TxtDataInicio;
+    private javax.swing.JFormattedTextField TxtDataFim;
+    private javax.swing.JFormattedTextField TxtDataInicio;
     private javax.swing.JTextField TxtNome;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
