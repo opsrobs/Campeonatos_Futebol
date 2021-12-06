@@ -91,6 +91,7 @@ public class Utils {
         i.setText("0");
         j.setText("0");   
     }
+    
     public void setCartoes(JTextField a,JTextField b,JTextField c,JTextField d,JTextField e,JTextField f,JTextField g,JTextField h,JTextField i,JTextField j){
         a.setText("0");
         b.setText("0");
@@ -111,6 +112,7 @@ public class Utils {
         }
         return vitoria;
     }
+    
     public int derrota(int vitoria,JTextField mandante, JTextField visitante ){
         int der = 0;
         if (vitoria == 0 && empate(mandante, visitante) == 0) {
@@ -118,6 +120,7 @@ public class Utils {
         }
         return der;
     }
+    
     public int empate(JTextField mandante, JTextField visitante){
         int emp = 0;
         if (Integer.parseInt(mandante.getText())==Integer.parseInt(visitante.getText())) {
@@ -125,6 +128,7 @@ public class Utils {
         }
         return emp;        
     }
+    
     public int vitoriasVisitante(JTextField mandante, JTextField visitante){
         int vitoria=0;
         if (Integer.parseInt(mandante.getText()) >Integer.parseInt(visitante.getText())) {
@@ -201,6 +205,20 @@ public class Utils {
         }
 
         ArrayList<Campeonato> lista = sbcam.getCompromissoByLista();
+
+        for (Campeonato c : lista) {
+            j.addItem(c);
+        }
+        j.setSelectedIndex(-1);
+    }
+    
+    public void atualizarCampeonatoByCategoria(JComboBox j, ServicoBancoCampeonato sbcam, int codCategoria) throws SQLException {
+        if (j.getItemCount() > 0) {
+            j.removeAllItems();
+        }
+
+        ArrayList<Campeonato> lista = sbcam.getCampeonatoByCodigo(codCategoria);
+        
 
         for (Campeonato c : lista) {
             j.addItem(c);
