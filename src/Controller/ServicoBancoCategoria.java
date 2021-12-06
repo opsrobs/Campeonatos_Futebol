@@ -62,6 +62,19 @@ public class ServicoBancoCategoria {
         }
     }
 
+    public ArrayList<Categoria> getNomeCategoriaByCodigo(int codigo) throws SQLException {
+        ArrayList<Categoria> lista = new ArrayList<>();
+        try (Statement st = conexao.getConexao().createStatement();
+                ResultSet rs = st.executeQuery("SELECT distinct categoria.nome, campeonato.* FROM categoria, campeonatos_2.campeonato where (categoria_Codigo = " + codigo + ")")) {
+
+            while (rs.next()) {
+                lista.add(new Categoria(rs.getInt("codigo"),
+                        rs.getString("Nome")));
+            }
+        }
+        return lista;
+    }
+
     public ArrayList<Categoria> getCompromissoByLista() throws SQLException {
         ArrayList<Categoria> lista = new ArrayList<>();
         try (Statement st = conexao.getConexao().createStatement();
