@@ -152,7 +152,7 @@ public class ServicoBancoClubeCampeonato {
 
         return dados;
     }
-    
+
     public ArrayList getTabelaByQueryOrderByGoals() throws SQLException {
         ArrayList dados = new ArrayList();
         Utils utils = new Utils();
@@ -175,14 +175,16 @@ public class ServicoBancoClubeCampeonato {
 
         return dados;
     }
+
+
     
-        public ArrayList getTabelaByQueryOrderByGoalsContra() throws SQLException {
+        public ArrayList getTabelaByQueryOrderBy(String order) throws SQLException {
         ArrayList dados = new ArrayList();
         Utils utils = new Utils();
         try (Statement st = conexao.getConexao().createStatement();
                 ResultSet rs = st.executeQuery("Select clube.nome, clubes_campeonato.* from clube,"
                         + " clubes_campeonato where (clube.codigo = clubes_campeonato.clube_codigo)"
-                        + " order by Gols_Contra asc")) {
+                        + " order by " + order)) {
 
             while (rs.next()) {
                 dados.add(new String[]{rs.getString(1),
@@ -198,7 +200,7 @@ public class ServicoBancoClubeCampeonato {
 
         return dados;
     }
-    
+
     public int getQtdByQueryByCampeonato(int codCamp) throws SQLException {
         int dados = 0;
         Utils utils = new Utils();

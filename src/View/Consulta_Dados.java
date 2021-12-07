@@ -77,7 +77,8 @@ public class Consulta_Dados extends javax.swing.JFrame {
         TableDados.setGridColor(new java.awt.Color(51, 255, 51));
         jScrollPane1.setViewportView(TableDados);
 
-        ComboFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "O time com mais Jogadores Cadastrados", "O time com mais gols feitos", "O time com menos gols sofridos", "O time com mais cartões amarelos", "Item 3", "Item 4" }));
+        ComboFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "O time com mais Jogadores Cadastrados", "O time com mais gols feitos", "O time com menos gols sofridos", "O time com mais cartões amarelos", "O time com menos cartões amarelos", "O Jogador com mais gols feitos", "O jogador com menos gols feitos", "O jogador com mais cartões amarelos", "O jogador com o menor numero de jogos" }));
+        ComboFiltro.setSelectedIndex(-1);
         ComboFiltro.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 ComboFiltroItemStateChanged(evt);
@@ -122,14 +123,35 @@ public class Consulta_Dados extends javax.swing.JFrame {
         if (ComboFiltro.getSelectedIndex() < 0) {
             return;
         }
+        String order = "";
         if (ComboFiltro.getSelectedIndex() == 0) {
             this.carregarTabelaOrderByQtdJogadores();
 
         } else if (ComboFiltro.getSelectedIndex() == 1) {
-            this.carregarTabelaByGolsPro();
-            
+            order = "Gols_Pro desc";
+            this.carregarTabelaBy(order);
+
         } else if (ComboFiltro.getSelectedIndex() == 2) {
-            this.carregarTabelaByGolsContra();
+            order = "Gols_Contra asc";
+            this.carregarTabelaBy(order);
+        } else if (ComboFiltro.getSelectedIndex() == 3) {
+            order = "Cartoes_Amarelo Desc";
+            this.carregarTabelaBy(order);
+        } else if (ComboFiltro.getSelectedIndex() == 4) {
+            order = "Cartoes_Amarelo asc";
+            this.carregarTabelaBy(order);
+        } else if (ComboFiltro.getSelectedIndex() == 5) {
+            order = "desc";
+            this.carregarTabelaOrderByMoreGols(order);
+        } else if (ComboFiltro.getSelectedIndex() == 6) {
+            order = "asc";
+            this.carregarTabelaOrderByMoreGols(order);
+        } else if (ComboFiltro.getSelectedIndex() == 7) {
+            order = "desc";
+            this.carregarTabelaOrderByMorePlayerCard(order);
+        }else if (ComboFiltro.getSelectedIndex() == 8) {
+            order = "desc";
+            this.carregarTabelaOrderByQtdJogos(order);
         }
     }//GEN-LAST:event_ComboFiltroItemStateChanged
 
@@ -154,11 +176,11 @@ public class Consulta_Dados extends javax.swing.JFrame {
 
     }
 
-    public void carregarTabelaByGolsPro() {
+    public void carregarTabelaBy(String order) {
 
         ArrayList dados;
         try {
-            dados = sbcc.getTabelaByQueryOrderByGoals();
+            dados = sbcc.getTabelaByQueryOrderBy(order);
             String[] colunas = new String[]{
                 "nome",
                 "Vitória",
@@ -179,26 +201,58 @@ public class Consulta_Dados extends javax.swing.JFrame {
 
     }
 
-    public void carregarTabelaByGolsContra() {
-
+    public void carregarTabelaOrderByMoreGols(String order) {
         ArrayList dados;
         try {
-            dados = sbcc.getTabelaByQueryOrderByGoalsContra();
+            dados = sbj.getTabelaByQueryOrderByGoals(order);
             String[] colunas = new String[]{
-                "nome",
-                "Vitória",
-                "Derrota",
-                "Empate",
-                "Gols Pró",
-                "Gols Contra",
-                "Cartões Amarelo",
-                "Cartões Vermelho"
+                "Clube",
+                "Jogador",
+                "Posição",
+                "Quantidade de gols"
 
             };
             SimpleTableModel tabela = new SimpleTableModel(dados, colunas);
             TableDados.setModel(tabela);
+        } catch (java.sql.SQLException ex) {
+            Logger.getLogger(Consulta_Dados.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-        } catch (SQLException ex) {
+    }
+
+    public void carregarTabelaOrderByMorePlayerCard(String order) {
+        ArrayList dados;
+        try {
+            dados = sbj.getTabelaByQueryOrderByPlayerCard(order);
+            String[] colunas = new String[]{
+                "Clube",
+                "Jogador",
+                "Posição",
+                "Quantidade de Cartões"
+
+            };
+            SimpleTableModel tabela = new SimpleTableModel(dados, colunas);
+            TableDados.setModel(tabela);
+        } catch (java.sql.SQLException ex) {
+            Logger.getLogger(Consulta_Dados.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
+    public void carregarTabelaOrderByQtdJogos(String order) {
+        ArrayList dados;
+        try {
+            dados = sbj.getTabelaByQueryOrderByQtdJogos(order);
+            String[] colunas = new String[]{
+                "Clube",
+                "Jogador",
+                "Posição",
+                "Quantidade de Jogos"
+
+            };
+            SimpleTableModel tabela = new SimpleTableModel(dados, colunas);
+            TableDados.setModel(tabela);
+        } catch (java.sql.SQLException ex) {
             Logger.getLogger(Consulta_Dados.class.getName()).log(Level.SEVERE, null, ex);
         }
 
