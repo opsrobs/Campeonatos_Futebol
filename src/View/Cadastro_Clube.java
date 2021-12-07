@@ -49,7 +49,7 @@ public class Cadastro_Clube extends javax.swing.JFrame {
         JBtnLimpar.setEnabled(false);
 
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -325,14 +325,16 @@ public class Cadastro_Clube extends javax.swing.JFrame {
                 sb.insert(clube);
             } else {
                 categoria = new Categoria(TxtCategoria.getText());
+                sbcat.insert(categoria);
+                clube = new Clube(TxtNome.getText(), TxtMAscote.getText(), categoria.getCodigo());
+                sb.insert(clube);
             }
-            sbcat.insert(categoria);
-
-            clube = new Clube(TxtNome.getText(), TxtMAscote.getText(), categoria.getCodigo());
-            clube = new Clube(TxtNome.getText(), TxtMAscote.getText(), categoria.getCodigo());
-            sb.insert(clube);
             utils.atualizarCategoria(ComboCategoria, sbcat);
             clearSc();
+            JOptionPane.showMessageDialog(
+                        null,"Cadastrado com sucesso",
+                        "Cadastro!!!", JOptionPane.INFORMATION_MESSAGE,
+                        new ImageIcon("C:\\Users\\PremierSoft\\IdeaProjects\\Campeonatos_Futebol\\src\\View\\Cadastro.gif"));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -403,13 +405,12 @@ public class Cadastro_Clube extends javax.swing.JFrame {
     }//GEN-LAST:event_JBtnSairMouseClicked
 
     private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
-        if (cadastro_Campeonato==null) {
+        if (cadastro_Campeonato == null) {
             cadastro_Campeonato = new Cadastro_Campeonato();
         }
         cadastro_Campeonato.setVisible(true);
     }//GEN-LAST:event_jMenu6MouseClicked
 
-    
     public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
