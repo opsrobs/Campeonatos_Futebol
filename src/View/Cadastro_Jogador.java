@@ -295,6 +295,10 @@ public class Cadastro_Jogador extends javax.swing.JFrame {
             Logger.getLogger(Cadastro_Jogador.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.clearSc();
+        JOptionPane.showMessageDialog(
+                        null,"Cadastrado com sucesso",
+                        "Cadastro!!!", JOptionPane.INFORMATION_MESSAGE,
+                        new ImageIcon("C:\\Users\\PremierSoft\\IdeaProjects\\Campeonatos_Futebol\\src\\View\\Cadastro.gif"));
     }//GEN-LAST:event_JbtnSalvarMouseClicked
 
     private void TxtPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtPaisActionPerformed
