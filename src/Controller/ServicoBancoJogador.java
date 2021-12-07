@@ -162,7 +162,7 @@ public class ServicoBancoJogador {
                 ResultSet rs = st.executeQuery("SELECT distinct clube.nome as 'nome clube', jogadore.nome as  'nome jogador', jogadore.Posicao as 'Posicao', count(Jogadores_Codigo) as 'Total de Gols '"
                         + " FROM clube, campeonatos_2.jogadores_jogo, jogadore "
                         + " where jogadore.Codigo = Jogadores_Codigo and clube.codigo = jogadore.Clubes_Codigo "
-                        + " group by Jogadores_Codigo order by count(Jogadores_Codigo) desc, clube.nome desc, jogadore.nome desc, jogadore.Posicao desc;")) {
+                        + " group by Jogadores_Codigo order by count(Jogadores_Codigo) asc, clube.nome desc, jogadore.nome desc, jogadore.Posicao desc;")) {
 
             while (rs.next()) {
                 dados.add(new String[]{rs.getString(1),
