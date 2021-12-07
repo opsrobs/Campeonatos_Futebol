@@ -215,6 +215,7 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         });
 
         TxtGolJogador.setColumns(1);
+        TxtGolJogador.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         TxtCartaoJogador4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtCartaoJogador4.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -290,11 +291,11 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/View/icon_Amarelo.png")))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icon_Amarelo.png"))); // NOI18N
         jLabel3.setText("jLabel3");
         jLabel3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/View/icon_Vermelho (2).png")))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icon_Vermelho (2).png"))); // NOI18N
 
         TxtJogadorFora2.setEditable(false);
 
@@ -302,13 +303,13 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
 
         TxtJogadorFora3.setEditable(false);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/View/icon_Amarelo.png")))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icon_Amarelo.png"))); // NOI18N
         jLabel5.setText("jLabel3");
         jLabel5.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         TxtJogadorFora4.setEditable(false);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/View/icon_Vermelho (2).png")))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icon_Vermelho (2).png"))); // NOI18N
 
         TxtCartaoFora1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -1239,11 +1240,7 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Cadastro_Jogo().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new Cadastro_Jogo().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

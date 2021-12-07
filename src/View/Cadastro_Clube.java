@@ -73,6 +73,7 @@ public class Cadastro_Clube extends javax.swing.JFrame {
         MenuConsultas = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
         MenuSair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -130,7 +131,11 @@ public class Cadastro_Clube extends javax.swing.JFrame {
             }
         });
 
-        ComboCategoria.addItemListener(evt -> ComboCategoriaItemStateChanged(evt));
+        ComboCategoria.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                ComboCategoriaItemStateChanged(evt);
+            }
+        });
 
         JBtnSair.setText("SAIR");
         JBtnSair.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -177,13 +182,21 @@ public class Cadastro_Clube extends javax.swing.JFrame {
         });
         MenuConsultas.add(jMenu4);
 
-        jMenu5.setText("Consultar Clubes");
+        jMenu5.setText("Editar Clubes");
         jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu5MouseClicked(evt);
             }
         });
         MenuConsultas.add(jMenu5);
+
+        jMenu6.setText("Editar Campeonatos");
+        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu6MouseClicked(evt);
+            }
+        });
+        MenuConsultas.add(jMenu6);
 
         jMenuBar1.add(MenuConsultas);
 
@@ -389,10 +402,15 @@ public class Cadastro_Clube extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_JBtnSairMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
+    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
+        if (cadastro_Campeonato==null) {
+            cadastro_Campeonato = new Cadastro_Campeonato();
+        }
+        cadastro_Campeonato.setVisible(true);
+    }//GEN-LAST:event_jMenu6MouseClicked
+
+    
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -411,11 +429,7 @@ public class Cadastro_Clube extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Cadastro_Clube().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new Cadastro_Clube().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -438,6 +452,7 @@ public class Cadastro_Clube extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,8 +1,8 @@
 package Controller;
 
 import Clubes_Campeonatos.Jogador;
+import Clubes_Campeonatos.Utils;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -78,6 +78,23 @@ public class ServicoBancoJogador {
 
             return lista;
         }
+    }
+
+    public ArrayList<String[]> getTabelaByQuery() throws SQLException {
+        ArrayList<String[]> dados = new ArrayList<>();
+        Utils utils = new Utils();
+        try (Statement st = conexao.getConexao().createStatement();
+                ResultSet rs = st.executeQuery("Select distinct clube.nome, count(jogadore.Clubes_Codigo)"
+                        + "from clube, jogadore where (clube.codigo = jogadore.clubes_codigo)"
+                        + "group by jogadore.Clubes_codigo")) {
+
+            while (rs.next()) {
+                dados.add(new String[]{rs.getString(1),
+                    rs.getString(2)});
+            }
+        }
+
+        return dados;
     }
 
     public ArrayList<Jogador> getCompromissoByLista() throws SQLException {

@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 public class Tabela_Campeonatos extends javax.swing.JFrame {
 
@@ -83,11 +83,6 @@ public class Tabela_Campeonatos extends javax.swing.JFrame {
         ComboCampeonato.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 ComboCampeonatoItemStateChanged(evt);
-            }
-        });
-        ComboCampeonato.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ComboCampeonatoActionPerformed(evt);
             }
         });
 
@@ -212,6 +207,7 @@ public class Tabela_Campeonatos extends javax.swing.JFrame {
 
         Campeonato campeonato = (Campeonato) ComboCampeonato.getSelectedItem();
 //        JOptionPane.showMessageDialog(null,campeonato.getCodigo());
+        assert campeonato != null;
         carregarTabelaCampeonatos(campeonato.getCodigo());
         try {
             this.qtdJogos(campeonato.getCodigo());
@@ -223,14 +219,10 @@ public class Tabela_Campeonatos extends javax.swing.JFrame {
 //        JBtnLimpar.setEnabled(true);
     }//GEN-LAST:event_ComboCampeonatoItemStateChanged
 
-    private void ComboCampeonatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboCampeonatoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ComboCampeonatoActionPerformed
-
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -243,13 +235,7 @@ public class Tabela_Campeonatos extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Tabela_Campeonatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Tabela_Campeonatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Tabela_Campeonatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | UnsupportedLookAndFeelException | IllegalAccessException | InstantiationException ex) {
             java.util.logging.Logger.getLogger(Tabela_Campeonatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>

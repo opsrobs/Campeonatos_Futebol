@@ -153,6 +153,52 @@ public class ServicoBancoClubeCampeonato {
         return dados;
     }
     
+    public ArrayList getTabelaByQueryOrderByGoals() throws SQLException {
+        ArrayList dados = new ArrayList();
+        Utils utils = new Utils();
+        try (Statement st = conexao.getConexao().createStatement();
+                ResultSet rs = st.executeQuery("Select clube.nome, clubes_campeonato.* from clube,"
+                        + " clubes_campeonato where (clube.codigo = clubes_campeonato.clube_codigo)"
+                        + " order by Gols_Pro desc")) {
+
+            while (rs.next()) {
+                dados.add(new String[]{rs.getString(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getString(5),
+                    rs.getString(6),
+                    rs.getString(7),
+                    rs.getString(8)});
+            }
+        }
+
+        return dados;
+    }
+    
+        public ArrayList getTabelaByQueryOrderByGoalsContra() throws SQLException {
+        ArrayList dados = new ArrayList();
+        Utils utils = new Utils();
+        try (Statement st = conexao.getConexao().createStatement();
+                ResultSet rs = st.executeQuery("Select clube.nome, clubes_campeonato.* from clube,"
+                        + " clubes_campeonato where (clube.codigo = clubes_campeonato.clube_codigo)"
+                        + " order by Gols_Contra asc")) {
+
+            while (rs.next()) {
+                dados.add(new String[]{rs.getString(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getString(5),
+                    rs.getString(6),
+                    rs.getString(7),
+                    rs.getString(8)});
+            }
+        }
+
+        return dados;
+    }
+    
     public int getQtdByQueryByCampeonato(int codCamp) throws SQLException {
         int dados = 0;
         Utils utils = new Utils();
