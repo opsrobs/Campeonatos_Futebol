@@ -250,6 +250,10 @@ public class Cadastro_Campeonato extends javax.swing.JFrame {
                 sbcat.insert(categoria);
             }
             clearSc();
+            JOptionPane.showMessageDialog(
+                    null, "Cadastrado com sucesso",
+                    "Cadastro!!!", JOptionPane.INFORMATION_MESSAGE,
+                    new ImageIcon("C:\\Users\\PremierSoft\\IdeaProjects\\Campeonatos_Futebol\\src\\View\\Cadastro.gif"));
             utils.atualizarCategoria(ComboCategoria, sbcat);
 
         } catch (SQLException ex) {
@@ -291,7 +295,7 @@ public class Cadastro_Campeonato extends javax.swing.JFrame {
         }
 
         try {
-            
+
             this.cadastrarCategoria();
 
         } catch (ParseException ex) {
