@@ -86,7 +86,7 @@ public class ServicoBancoJogador {
         try (Statement st = conexao.getConexao().createStatement();
                 ResultSet rs = st.executeQuery("Select distinct clube.nome, count(jogadore.Clubes_Codigo)"
                         + "from clube, jogadore where (clube.codigo = jogadore.clubes_codigo)"
-                        + "group by jogadore.Clubes_codigo")) {
+                        + "group by jogadore.Clubes_codigo order by count(jogadore.Clubes_Codigo) desc")) {
 
             while (rs.next()) {
                 dados.add(new String[]{rs.getString(1),
@@ -142,7 +142,7 @@ public class ServicoBancoJogador {
                 ResultSet rs = st.executeQuery("SELECT distinct clube.nome as 'nome clube', jogadore.nome as  'nome jogador',"
                         + " jogadore.Posicao as 'Posicao', sum(Cartao_Amarelo) as 'Total de Gols ' FROM clube, campeonatos_2.jogadores_jogo,"
                         + " jogadore where jogadore.Codigo = Jogadores_Codigo and clube.codigo = jogadore.Clubes_Codigo"
-                        + " group by Jogadores_Codigo order by sum(Cartao_Amarelo) " + order + " clube.nome desc, jogadore.nome desc, jogadore.Posicao desc;")) {
+                        + " group by Jogadores_Codigo order by sum(Cartao_Amarelo) " + order + ", clube.nome desc, jogadore.nome desc, jogadore.Posicao desc;")) {
 
             while (rs.next()) {
                 dados.add(new String[]{rs.getString(1),

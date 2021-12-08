@@ -36,8 +36,6 @@ public class Tabela_Campeonatos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         JtTabelaCampeonato = new javax.swing.JTable();
         ComboCampeonato = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        TxtQtdJogos = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -86,10 +84,6 @@ public class Tabela_Campeonatos extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("JOGOS: ");
-
-        TxtQtdJogos.setEditable(false);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -110,20 +104,13 @@ public class Tabela_Campeonatos extends javax.swing.JFrame {
                                 .addGap(14, 14, 14))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(ComboCampeonato, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TxtQtdJogos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(233, 233, 233))))))
+                                .addGap(327, 327, 327))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ComboCampeonato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(TxtQtdJogos, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(ComboCampeonato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -185,7 +172,6 @@ public class Tabela_Campeonatos extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
 //        this.carregarTabela();
         try {
-            TxtQtdJogos.setText("");
             utils.atualizarCampeonato(ComboCampeonato, sbCam);
         } catch (SQLException ex) {
             Logger.getLogger(Tabela_Campeonatos.class.getName()).log(Level.SEVERE, null, ex);
@@ -194,7 +180,7 @@ public class Tabela_Campeonatos extends javax.swing.JFrame {
 
     private void qtdJogos(int qtd) throws SQLException {
 
-        TxtQtdJogos.setText(String.valueOf(bancoCampeonato.getQtdByQueryByCampeonato(qtd)));
+//        TxtQtdJogos.setText(String.valueOf(bancoCampeonato.getQtdByQueryByCampeonato(qtd)));
 
     }
     private void ComboCampeonatoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboCampeonatoItemStateChanged
@@ -252,8 +238,6 @@ public class Tabela_Campeonatos extends javax.swing.JFrame {
     private javax.swing.JComboBox<Campeonato> ComboCampeonato;
     private javax.swing.JButton JbFechar;
     private javax.swing.JTable JtTabelaCampeonato;
-    private javax.swing.JTextField TxtQtdJogos;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

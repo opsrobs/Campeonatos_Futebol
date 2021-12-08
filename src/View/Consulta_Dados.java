@@ -45,6 +45,8 @@ public class Consulta_Dados extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         TableDados = new javax.swing.JTable();
         ComboFiltro = new javax.swing.JComboBox<>();
+        JbFechar = new javax.swing.JButton();
+        JbFechar1 = new javax.swing.JButton();
 
         jRadioButtonMenuItem1.setSelected(true);
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
@@ -85,6 +87,20 @@ public class Consulta_Dados extends javax.swing.JFrame {
             }
         });
 
+        JbFechar.setText("FECHAR");
+        JbFechar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JbFecharMouseClicked(evt);
+            }
+        });
+
+        JbFechar1.setText("FECHAR");
+        JbFechar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JbFechar1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -100,6 +116,15 @@ public class Consulta_Dados extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(ComboFiltro, 0, 284, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(JbFechar1)
+                .addGap(41, 41, 41))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(263, 263, 263)
+                    .addComponent(JbFechar)
+                    .addContainerGap(263, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,8 +134,15 @@ public class Consulta_Dados extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(ComboFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JbFechar1)
+                .addContainerGap(9, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(289, 289, 289)
+                    .addComponent(JbFechar)
+                    .addContainerGap(289, Short.MAX_VALUE)))
         );
 
         pack();
@@ -158,6 +190,14 @@ public class Consulta_Dados extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
 //        this.carregarTabelaOrderByQtdJogadores();
     }//GEN-LAST:event_formWindowActivated
+
+    private void JbFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JbFecharMouseClicked
+        dispose();
+    }//GEN-LAST:event_JbFecharMouseClicked
+
+    private void JbFechar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JbFechar1MouseClicked
+        dispose();
+    }//GEN-LAST:event_JbFechar1MouseClicked
 
     public void carregarTabelaOrderByQtdJogadores() {
         ArrayList dados;
@@ -285,6 +325,8 @@ public class Consulta_Dados extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboFiltro;
+    private javax.swing.JButton JbFechar;
+    private javax.swing.JButton JbFechar1;
     private javax.swing.JTable TableDados;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;

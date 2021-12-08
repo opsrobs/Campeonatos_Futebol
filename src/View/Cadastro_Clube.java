@@ -27,7 +27,10 @@ public class Cadastro_Clube extends javax.swing.JFrame {
     Cadastro_Campeonato cadastro_Campeonato;
     Cadastro_Jogo cadastro_Jogo;
     Tabela_Campeonatos tabela_Campeonatos;
+    private Consulta_Campeonato consulta_Campeonato;
+    private Consulta_Dados consulta_Dados;
     private Consulta_Clube consulta_Clube;
+    private Consulta_Jogador consulta_Jogador;
     Categoria categoria = new Categoria();
     Utils utils = new Utils();
     ServicoBancoClube sb = new ServicoBancoClube();
@@ -71,9 +74,11 @@ public class Cadastro_Clube extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         MenuConsultas = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
+        MenuTabelaCampeonato = new javax.swing.JMenu();
+        MenuEstatistica = new javax.swing.JMenu();
+        MenuClube = new javax.swing.JMenu();
+        MenuCampeonato = new javax.swing.JMenu();
+        MenuJogador = new javax.swing.JMenu();
         MenuSair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -174,29 +179,45 @@ public class Cadastro_Clube extends javax.swing.JFrame {
 
         MenuConsultas.setText("Consultas");
 
-        jMenu4.setText("Tabela do campeonato");
-        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+        MenuTabelaCampeonato.setText("Tabela do campeonato");
+        MenuTabelaCampeonato.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu4MouseClicked(evt);
+                MenuTabelaCampeonatoMouseClicked(evt);
             }
         });
-        MenuConsultas.add(jMenu4);
+        MenuConsultas.add(MenuTabelaCampeonato);
 
-        jMenu5.setText("Editar Clubes");
-        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+        MenuEstatistica.setText("Consultar Estatisticas");
+        MenuEstatistica.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu5MouseClicked(evt);
+                MenuEstatisticaMouseClicked(evt);
             }
         });
-        MenuConsultas.add(jMenu5);
+        MenuConsultas.add(MenuEstatistica);
 
-        jMenu6.setText("Editar Campeonatos");
-        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
+        MenuClube.setText("Editar Clubes");
+        MenuClube.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu6MouseClicked(evt);
+                MenuClubeMouseClicked(evt);
             }
         });
-        MenuConsultas.add(jMenu6);
+        MenuConsultas.add(MenuClube);
+
+        MenuCampeonato.setText("Editar Campeonatos");
+        MenuCampeonato.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MenuCampeonatoMouseClicked(evt);
+            }
+        });
+        MenuConsultas.add(MenuCampeonato);
+
+        MenuJogador.setText("Editar Jogadores");
+        MenuJogador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MenuJogadorMouseClicked(evt);
+            }
+        });
+        MenuConsultas.add(MenuJogador);
 
         jMenuBar1.add(MenuConsultas);
 
@@ -386,30 +407,44 @@ public class Cadastro_Clube extends javax.swing.JFrame {
         cadastro_Jogo.setVisible(true);
     }//GEN-LAST:event_jMenu3MouseClicked
 
-    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+    private void MenuTabelaCampeonatoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuTabelaCampeonatoMouseClicked
         if (tabela_Campeonatos == null) {
             tabela_Campeonatos = new Tabela_Campeonatos();
         }
         tabela_Campeonatos.setVisible(true);
-    }//GEN-LAST:event_jMenu4MouseClicked
+    }//GEN-LAST:event_MenuTabelaCampeonatoMouseClicked
 
-    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
+    private void MenuClubeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuClubeMouseClicked
         if (consulta_Clube == null) {
             consulta_Clube = new Consulta_Clube();
         }
         consulta_Clube.setVisible(true);
-    }//GEN-LAST:event_jMenu5MouseClicked
+    }//GEN-LAST:event_MenuClubeMouseClicked
 
     private void JBtnSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtnSairMouseClicked
         dispose();
     }//GEN-LAST:event_JBtnSairMouseClicked
 
-    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
-        if (cadastro_Campeonato == null) {
-            cadastro_Campeonato = new Cadastro_Campeonato();
+    private void MenuCampeonatoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuCampeonatoMouseClicked
+        if (consulta_Campeonato == null) {
+            consulta_Campeonato = new Consulta_Campeonato();
         }
-        cadastro_Campeonato.setVisible(true);
-    }//GEN-LAST:event_jMenu6MouseClicked
+        consulta_Campeonato.setVisible(true);
+    }//GEN-LAST:event_MenuCampeonatoMouseClicked
+
+    private void MenuEstatisticaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuEstatisticaMouseClicked
+        if (consulta_Dados==null) {
+            consulta_Dados = new Consulta_Dados();
+        }
+        consulta_Dados.setVisible(true);
+    }//GEN-LAST:event_MenuEstatisticaMouseClicked
+
+    private void MenuJogadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuJogadorMouseClicked
+        if (consulta_Jogador==null) {
+            consulta_Jogador = new Consulta_Jogador();
+        }
+        consulta_Jogador.setVisible(true);
+    }//GEN-LAST:event_MenuJogadorMouseClicked
 
     public static void main(String[] args) {
         /* Set the Nimbus look and feel */
@@ -442,8 +477,13 @@ public class Cadastro_Clube extends javax.swing.JFrame {
     private javax.swing.JLabel LbMascote;
     private javax.swing.JLabel LbNome;
     private javax.swing.JMenu MenuCadastros;
+    private javax.swing.JMenu MenuCampeonato;
+    private javax.swing.JMenu MenuClube;
     private javax.swing.JMenu MenuConsultas;
+    private javax.swing.JMenu MenuEstatistica;
+    private javax.swing.JMenu MenuJogador;
     private javax.swing.JMenu MenuSair;
+    private javax.swing.JMenu MenuTabelaCampeonato;
     private javax.swing.JTextField TxtCategoria;
     private javax.swing.JTextField TxtMAscote;
     private javax.swing.JTextField TxtNome;
@@ -451,9 +491,6 @@ public class Cadastro_Clube extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }

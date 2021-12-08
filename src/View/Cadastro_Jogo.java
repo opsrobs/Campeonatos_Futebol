@@ -731,6 +731,8 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         TxtHoraJogo.setText("");
         utils.setGols(TxtGolFora, TxtGolFora1, TxtGolFora2, TxtGolFora3, TxtGolFora4, TxtGolJogador, TxtGolJogador1, TxtGolJogador2, TxtGolJogador3, TxtGolJogador4);
         utils.setCartoes(TxtCartaoFora1, TxtCartaoFora2, TxtCartaoFora3, TxtCartaoFora4, TxtCartaoFora, TxtCartaoJogador, TxtCartaoJogador1, TxtCartaoJogador2, TxtCartaoJogador3, TxtCartaoJogador4);
+        LbPlacarMandante.setText("");
+        LbPlacarVisitante.setText("");
         if (ComboClube.isDisplayable()) {
             ComboClube.setSelectedIndex(-1);
         }
@@ -877,12 +879,10 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         int derrotas = utils.derrota(vitorias, LbPlacarVisitante, LbPlacarMandante);
         int cartoesAmarelo = utils.amarelos(TxtCartaoFora, TxtCartaoFora1, TxtCartaoFora2, TxtCartaoFora3, TxtCartaoFora4);
         int cartoesVermelho = utils.vermelhos(CheckCartaoVermelhorJogadorFora, CheckCartaoVermelhorJogadorFora1, CheckCartaoVermelhorJogadorFora2, CheckCartaoVermelhorJogadorFora3, CheckCartaoVermelhorJogadorFora4);
-        JOptionPane.showMessageDialog(null, "codClube: " + codClube + "----codCamp: " + codCampeonato);
 
         if (codClube > 0 && codCampeonato > 0) {
             try {
                 clubes_Campeonatos = new Clubes_Campeonatos(codClube, codCampeonato, vitorias, derrotas, empates, Integer.parseInt(LbPlacarVisitante.getText()), Integer.parseInt(LbPlacarMandante.getText()), cartoesAmarelo, cartoesVermelho);
-                JOptionPane.showMessageDialog(null, "deu ruim" + clubes_Campeonatos);
                 sbcc.insert(clubes_Campeonatos);
 
             } catch (SQLException e) {
@@ -903,7 +903,6 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         int camp;
         try {
             cod = sbcc.getDadosByClube(codClube).getCodigo();
-            JOptionPane.showMessageDialog(null, "o id mandante é: " + codClube);
             vitoria += sbcc.getDadosByClube(codClube).getVitorias();
             derrota += sbcc.getDadosByClube(codClube).getDerrotas();
             empate += sbcc.getDadosByClube(codClube).getEmpates();
@@ -934,7 +933,6 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
 
         try {
             cod = sbcc.getDadosByClube(codClube).getCodigo();
-            JOptionPane.showMessageDialog(null, "o id visitante é: " + codClube);
 
             vitoria += sbcc.getDadosByClube(codClube).getVitorias();
             derrota += sbcc.getDadosByClube(codClube).getDerrotas();
@@ -1003,7 +1001,6 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
                     codJogo = jogo.getCodigo();
                     cadastrarOuAtualizar(clubeTemp, campeonato.getCodigo());
                     cadastrarOuAtualizarVisitante(clubee.getCodigo(), campeonato.getCodigo());
-                    JOptionPane.showMessageDialog(null, campeonato.getCodigo());
 
                 }
 
@@ -1027,6 +1024,11 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
 //                sbjj.insert(jogador8);
 //                Jogadores_Jogo jogador9 = new Jogadores_Jogo(Integer.parseInt(TxtGolFora4.getText()), Integer.parseInt(TxtCartaoFora4.getText()), cartaoVermelho(CheckCartaoVermelhorJogadorFora4), codj, codJogo);
 //                sbjj.insert(jogador9);
+
+                JOptionPane.showMessageDialog(
+                        null, "Cadastrado com sucesso",
+                        "Cadastro!!!", JOptionPane.INFORMATION_MESSAGE,
+                        new ImageIcon("C:\\Users\\PremierSoft\\IdeaProjects\\Campeonatos_Futebol\\src\\View\\Cadastro.gif"));
 
             }
 
@@ -1110,7 +1112,8 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
             this.clearSc();
 
         } catch (SQLException ex) {
-            Logger.getLogger(Cadastro_Campeonato.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Cadastro_Campeonato.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_formWindowActivated
 
@@ -1126,7 +1129,8 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
         try {
             sbjogador.update(jogador);
         } catch (SQLException ex) {
-            Logger.getLogger(Cadastro_Jogo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Cadastro_Jogo.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
 
         if (TxtJogadorFora.getText().isBlank()) {
@@ -1235,7 +1239,8 @@ public class Cadastro_Jogo extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException | UnsupportedLookAndFeelException | IllegalAccessException | InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cadastro_Jogo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cadastro_Jogo.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 

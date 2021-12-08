@@ -22,17 +22,18 @@ import javax.swing.*;
  * @author PremierSoft
  */
 public class Consulta_Jogador extends javax.swing.JFrame {
+
     Jogador jogador = new Jogador();
     Clube clube = new Clube();
     Utils utils = new Utils();
-    
+
     ServicoBancoClube sbclub = new ServicoBancoClube();
     ServicoBancoJogador sbj = new ServicoBancoJogador();
 
     public Consulta_Jogador() {
         initComponents();
     }
-    
+
     private void clearSc() {
         if (JComboJogadorCasa.isDisplayable()) {
             JComboJogadorCasa.setSelectedIndex(-1);
@@ -46,7 +47,6 @@ public class Consulta_Jogador extends javax.swing.JFrame {
 
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -68,6 +68,7 @@ public class Consulta_Jogador extends javax.swing.JFrame {
         JBtnSair = new javax.swing.JButton();
         JComboJogadorCasa = new javax.swing.JComboBox<>();
         JbExcluir = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -77,7 +78,7 @@ public class Consulta_Jogador extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("MingLiU-ExtB", 0, 18)); // NOI18N
-        jLabel1.setText("CADASTRAR JOGADORES...");
+        jLabel1.setText("CONSULTAR JOGADORES...");
 
         LbNome.setText("NOME");
 
@@ -165,6 +166,8 @@ public class Consulta_Jogador extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/cONSULTAS.gif"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -200,17 +203,25 @@ public class Consulta_Jogador extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(152, 152, 152)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(105, 105, 105))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(101, 101, 101)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(108, 108, 108)
+                        .addComponent(jLabel1)
+                        .addGap(43, 43, 43))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2)
+                        .addGap(27, 27, 27)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(JComboJogadorCasa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -235,7 +246,7 @@ public class Consulta_Jogador extends javax.swing.JFrame {
                     .addComponent(JBtnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JbtnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JBtnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
@@ -272,7 +283,9 @@ public class Consulta_Jogador extends javax.swing.JFrame {
     }//GEN-LAST:event_JbtnSalvarActionPerformed
 
     private void JbtnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JbtnSalvarMouseClicked
-        if (validarInput(TxtNome, TxtPosicao, TxtPais)) return;
+        if (validarInput(TxtNome, TxtPosicao, TxtPais)) {
+            return;
+        }
 
         try {
 
@@ -283,8 +296,13 @@ public class Consulta_Jogador extends javax.swing.JFrame {
                 jogador.setNome(TxtNome.getText());
                 jogador.setPosicao(TxtPosicao.getText().toUpperCase());
                 sbj.update(jogador);
-            }else
-            JOptionPane.showMessageDialog(null,"Selecione um clube");
+                JOptionPane.showMessageDialog(
+                        null, "Alterado com sucesso",
+                        "Cadastro!!!", JOptionPane.INFORMATION_MESSAGE,
+                        new ImageIcon("C:\\Users\\PremierSoft\\IdeaProjects\\Campeonatos_Futebol\\src\\View\\Cadastro.gif"));
+            } else {
+                JOptionPane.showMessageDialog(null, "Selecione um clube");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -292,19 +310,19 @@ public class Consulta_Jogador extends javax.swing.JFrame {
     }//GEN-LAST:event_JbtnSalvarMouseClicked
 
     static boolean validarInput(JTextField txtNome, JTextField txtPosicao, JTextField txtPais) {
-        if (txtNome.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Informe um nome!");
+        if (txtNome.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Informe um nome!");
             txtNome.requestFocus();
             return true;
         }
-        if (txtPosicao.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Informe um nome de mascote!");
+        if (txtPosicao.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Informe um nome de mascote!");
             txtPosicao.requestFocus();
             return true;
 
         }
-        if (txtPais.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Informe uma categoria!");
+        if (txtPais.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Informe uma categoria!");
             txtPais.requestFocus();
             return true;
         }
@@ -349,12 +367,16 @@ public class Consulta_Jogador extends javax.swing.JFrame {
         jogador = (Jogador) JComboJogadorCasa.getSelectedItem();
         assert jogador != null;
         JBtnLimpar.setEnabled(true);
-        int del = JOptionPane.showConfirmDialog(null, "Você deseja realmente excluir o registro " + jogador,"Excluir...",
-            JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE,
-            new ImageIcon("C:\\Users\\PremierSoft\\IdeaProjects\\Campeonatos_Futebol\\src\\View\\delete.gif"));
+        int del = JOptionPane.showConfirmDialog(null, "Você deseja realmente excluir o registro " + jogador, "Excluir...",
+                JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE,
+                new ImageIcon("C:\\Users\\PremierSoft\\IdeaProjects\\Campeonatos_Futebol\\src\\View\\delete.gif"));
         if (del == JOptionPane.YES_OPTION) {
             try {
                 sbj.delete(jogador);
+                JOptionPane.showMessageDialog(
+                        null, "Excluido com sucesso",
+                        "Cadastro!!!", JOptionPane.INFORMATION_MESSAGE,
+                        new ImageIcon("C:\\Users\\PremierSoft\\IdeaProjects\\Campeonatos_Futebol\\src\\View\\deleted.gif"));
                 utils.atualizarJogador(JComboJogadorCasa, sbj);
                 clearSc();
             } catch (SQLException ex) {
@@ -420,5 +442,6 @@ public class Consulta_Jogador extends javax.swing.JFrame {
     private org.jdatepicker.util.JDatePickerUtil jDatePickerUtil1;
     private org.jdatepicker.util.JDatePickerUtil jDatePickerUtil2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

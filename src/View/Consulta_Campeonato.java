@@ -59,6 +59,7 @@ public class Consulta_Campeonato extends javax.swing.JFrame {
         ComboCampeonato = new javax.swing.JComboBox<>();
         ComboCategoria2 = new javax.swing.JComboBox<>();
         JbExcluir = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuCadastros = new javax.swing.JMenu();
         MenuConsultas = new javax.swing.JMenu();
@@ -121,7 +122,6 @@ public class Consulta_Campeonato extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
-        TxtDataFim.setEditable(false);
         try {
             TxtDataFim.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
@@ -140,13 +140,15 @@ public class Consulta_Campeonato extends javax.swing.JFrame {
             }
         });
 
-        JbExcluir.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/View/lixo.png")))); // NOI18N
+        JbExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/lixo.png"))); // NOI18N
         JbExcluir.setBorder(null);
         JbExcluir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JbExcluirMouseClicked(evt);
             }
         });
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/cONSULTAS.gif"))); // NOI18N
 
         MenuCadastros.setText("Cadastros");
         jMenuBar1.add(MenuCadastros);
@@ -169,50 +171,57 @@ public class Consulta_Campeonato extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(144, 144, 144)
-                        .addComponent(jLabel1))
+                        .addComponent(LbDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TxtDataInicio))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
+                        .addComponent(LbNome, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TxtNome))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(LbDataFim, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TxtDataFim))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(JBtnSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(JBtnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(JBtnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(LbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ComboCampeonato, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(LbDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TxtDataInicio))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(LbNome, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TxtNome))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(LbDataFim, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TxtDataFim))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(JBtnSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(JBtnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(JBtnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(LbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ComboCampeonato, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(TxtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(ComboCategoria2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
+                                .addComponent(TxtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(ComboCategoria2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(76, 76, 76))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(95, 95, 95)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(jLabel1)
+                        .addGap(32, 32, 32))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(LbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -281,46 +290,40 @@ public class Consulta_Campeonato extends javax.swing.JFrame {
         }
     }
     private void JBtnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtnSalvarMouseClicked
-        if (TxtNome.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Informe um nome!");
-            TxtNome.requestFocus();
-            return;
-        }
+
         if (TxtDataInicio.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Informe a data de inicio do campeonato!");
+            JOptionPane.showMessageDialog(null, "Informe a nova data final do campeonato!");
             TxtCategoria.requestFocus();
             return;
 
-        }
-        if (TxtDataInicio.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Informe a data final do campeonato!");
-            TxtCategoria.requestFocus();
-            return;
-
-        }
-        if (TxtCategoria.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Informe uma categoria!");
-            TxtNome.requestFocus();
-            return;
         }
 
         try {
-            if (ComboCampeonato.getSelectedIndex() >= 0) {
+            if (ComboCategoria2.getSelectedIndex() >= 0) {
 
-                Categoria categoria = (Categoria) ComboCampeonato.getSelectedItem();
+                Categoria categoria = (Categoria) ComboCategoria2.getSelectedItem();
                 assert categoria != null;
                 categoria.setNome(TxtCategoria.getText());
                 sbcat.update(categoria);
+                if (ComboCampeonato.getSelectedIndex() >= 0) {
+                    campeonato.setDataFim(utils.strToDate(TxtDataFim.getText()));
+                    sb.update(campeonato);
+                    JOptionPane.showMessageDialog(
+                            null, "Alterado com sucesso",
+                            "Cadastro!!!", JOptionPane.INFORMATION_MESSAGE,
+                            new ImageIcon("C:\\Users\\PremierSoft\\IdeaProjects\\Campeonatos_Futebol\\src\\View\\Cadastro.gif"));
+                    clearSc();
+                }
 
-                campeonato = new Campeonato(TxtNome.getText(), utils.strToDate(TxtDataInicio.getText()), utils.strToDate(TxtDataFim.getText()), categoria.getCodigo());
-                sb.insert(campeonato);
-            } else {
-                categoria = new Categoria(TxtCategoria.getText());
             }
-            sbcat.insert(categoria);
-
-            campeonato = new Campeonato(TxtNome.getText(), utils.strToDate(TxtDataInicio.getText()), utils.strToDate(TxtDataFim.getText()), categoria.getCodigo());
-            sb.insert(campeonato);
+//            else 
+//            {
+//                categoria = new Categoria(TxtCategoria.getText());
+//            }
+//            sbcat.insert(categoria);
+//
+//            campeonato = new Campeonato(TxtNome.getText(), utils.strToDate(TxtDataInicio.getText()), utils.strToDate(TxtDataFim.getText()), categoria.getCodigo());
+//            sb.insert(campeonato);
         } catch (SQLException ignored) {
         } catch (ParseException ex) {
             Logger.getLogger(Consulta_Campeonato.class.getName()).log(Level.SEVERE, null, ex);
@@ -381,7 +384,7 @@ public class Consulta_Campeonato extends javax.swing.JFrame {
         assert categoria != null;
         TxtCategoria.setText(categoria.getNome());
         JBtnLimpar.setEnabled(true);
-        
+
         try {
             utils.atualizarCampeonatoByCategoria(ComboCampeonato, sb, categoria.getCodigo());
         } catch (SQLException ex) {
@@ -400,8 +403,8 @@ public class Consulta_Campeonato extends javax.swing.JFrame {
         assert campeonato != null;
         TxtCategoria.setText(categoria.getNome());
         JBtnLimpar.setEnabled(true);
-        int del = JOptionPane.showConfirmDialog(null, "Você deseja realmente excluir o registro " + campeonato,"Excluir...",
-            JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE, new ImageIcon("C:\\Users\\PremierSoft\\IdeaProjects\\Campeonatos_Futebol\\src\\View\\delete.gif"));
+        int del = JOptionPane.showConfirmDialog(null, "Você deseja realmente excluir o registro " + campeonato, "Excluir...",
+                JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon("C:\\Users\\PremierSoft\\IdeaProjects\\Campeonatos_Futebol\\src\\View\\delete.gif"));
         if (del == JOptionPane.YES_OPTION) {
             try {
                 sb.delete(campeonato);
@@ -410,6 +413,10 @@ public class Consulta_Campeonato extends javax.swing.JFrame {
             } catch (SQLException ex) {
                 Logger.getLogger(Consulta_Clube.class.getName()).log(Level.SEVERE, null, ex);
             }
+            JOptionPane.showMessageDialog(
+                    null, "Excluido com sucesso",
+                    "Cadastro!!!", JOptionPane.INFORMATION_MESSAGE,
+                    new ImageIcon("C:\\Users\\PremierSoft\\IdeaProjects\\Campeonatos_Futebol\\src\\View\\deleted.gif"));
         } else if (del == JOptionPane.NO_OPTION) {
             clearSc();
         }
@@ -448,8 +455,6 @@ public class Consulta_Campeonato extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Campeonato> ComboCampeonato;
-    private javax.swing.JComboBox<Categoria> ComboCategoria;
-    private javax.swing.JComboBox<Categoria> ComboCategoria1;
     private javax.swing.JComboBox<Categoria> ComboCategoria2;
     private javax.swing.JButton JBtnLimpar;
     private javax.swing.JButton JBtnSair;
@@ -467,6 +472,7 @@ public class Consulta_Campeonato extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField TxtDataInicio;
     private javax.swing.JTextField TxtNome;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }

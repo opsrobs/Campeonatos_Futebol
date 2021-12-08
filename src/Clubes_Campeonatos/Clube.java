@@ -28,6 +28,9 @@ public class Clube {
         this.mascote = mascote;
         this.codCategoria = codCategoria;
     }
+    public Clube(String nome) {
+        this.nome = nome;
+    }
 
     public Clube() {
     }
